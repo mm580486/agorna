@@ -1,0 +1,92 @@
+<%= render partial: 'partials/admin/aside' %>
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+        
+        
+        
+        
+        
+ <div class="row">
+    <% if @page.errors.full_messages.any? %>
+      <% @page.errors.full_messages.each do |error_message| %>
+        <% content_for :head do %>
+          <%= toast(error_message,4000,['red']) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= form_for @page ,url: admin_pages_path,html: {class: 'col s12'},method: :POST do |f| %>
+      <div class="row">
+
+        <div class="input-field col s12">
+          <%= f.text_field :title,class: 'validate', required: "required" %>
+          <%= f.label :title, 'عنوان صفحه' ,:'data-error' => "wrong", 'data-success'=> "" %>
+        </div>
+        
+        <div class="input-field col s12">
+          <%= f.text_field :permalink,class: 'validate', required: "required" %>
+          <%= f.label :title, 'پرمالینک' ,:'data-error' => "wrong", 'data-success'=> "" %>
+        </div>
+    
+        
+        <div class="input-field col s12">
+          <%= f.text_field :permalink,class: 'validate', required: "required" %>
+          <%= f.label :title, 'تگ ها' ,:'data-error' => "wrong", 'data-success'=> "" %>
+        </div>  
+        
+        
+        <div class=" col s12">
+          <%= f.check_box :comment,class: 'filled-in' %>
+          <%= f.label :comment, 'نظرات' %>
+        </div>
+        
+     
+     
+      
+      <div class="row">
+        <div class="input-field col s12">
+          
+          <%= f.text_area :content ,class: "materialize-textarea" %>
+          <%= f.label :content, 'محتوا' %>
+        </div>
+        
+      </div>
+      
+         <div class=" col s12">
+          <%= f.check_box :layout,class: 'filled-in' %>
+          <%= f.label :layout, 'لایه' ,checked: 'checked',class: 'right' %>
+        </div>
+      
+      
+     </div>
+       
+      <div class="row">
+      
+        <%= button_tag :type => 'submit', :class => "waves-effect waves-light btn" do %>
+         <i class="material-icons left">cloud</i>ثبت
+        <% end %>
+    
+
+      </div>
+      
+      
+      
+      
+    <% end %>
+  </div>
+        
+        
+        
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+
+</main>
