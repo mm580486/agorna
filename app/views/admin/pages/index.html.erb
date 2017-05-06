@@ -26,8 +26,9 @@
             <% @pages.each do |page| %>
               <tr>
                 <td>
-                  <%= link_to(raw('<i class="material-icons">delete_forever</i>'),new_admin_page_path,class: 'small btn-floating waves-effect btn-small waves-light red') %>
-                  <%= link_to(raw('<i class="material-icons">mode_edit</i>'),new_admin_page_path,class: 'small btn-floating waves-effect btn-small waves-light blue') %>
+                  
+                  <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
+                  <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
                   <%= link_to(raw('<i class="material-icons">lock_outline</i>'),new_admin_page_path,class: 'small btn-floating waves-effect btn-small waves-light green') %>
                 </td>
                 <td><%= page.permalink %></td>

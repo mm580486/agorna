@@ -1,7 +1,7 @@
 class Admin::PagesController < ApplicationController
   layout 'admin'
   before_action :admin_auth
-  before_action :find_page, only: [:show,:edit,:destroy]
+  before_action :find_page, only: [:show,:edit,:destroy,:delete,:update]
   
   
   def index
@@ -15,6 +15,26 @@ class Admin::PagesController < ApplicationController
   end
 
   def edit
+  end
+  
+  def update
+   if @page.update_attributes(page_white_list) && @page.valid?
+      flash[:notice]=[5000,t('admin.toast.page_updated')]
+      redirect_to admin_pages_path
+   else
+     render('edit')
+   end
+  end
+  
+  def delete
+     if @page.destroy
+      flash[:notice]=[5000,t('admin.toast.page_deleted')]
+      redirect_to admin_pages_path
+    else
+      flash[:notice]=[5000,@page.errors]
+      redirect_to admin_pages_path
+    end
+    
   end
 
   def new

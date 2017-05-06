@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   
   
   namespace :admin do
-    resources :pages,controller: 'pages'
+    resources :pages,controller: 'pages' do
+       member do
+        get 'delete'
+       end
+    end
   end
 
 

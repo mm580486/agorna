@@ -20,7 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  alert:
+       are_you_sure_delete: از حذف این رگورد مطمعن هستید ؟
+  crud: 
+      create: ذخیره
+      update: بروزرسانی
+      delete: حذف
+      read: خواندن
+  
   admin:
        toast:
             page_create: صفحه با موفقیت ساخته شد
+            page_deleted: صفحه با موفقیت حذف شد
+            page_updated: صفحه با موفقیت بروز شد
+            
+          

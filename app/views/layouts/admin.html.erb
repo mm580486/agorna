@@ -11,7 +11,7 @@
     
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% toast(flash[:notice][1],flash[:notice][0],['blue']) unless flash[:notice].nil? %>
+    
     <%= yield(:head) %>
 </head>
 <body>
@@ -22,6 +22,6 @@
 
 
 
-
+<%= toast(flash[:notice][1],flash[:notice][0]) unless flash[:notice].nil? %>
 </body>
 </html>
