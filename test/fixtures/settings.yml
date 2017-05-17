@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_name: MyString
+  seo_description: MyString
+  seo_keywords: MyString
+  site_logo: MyString
+  default_image_product: MyString
+  default_image_exposition: MyString
+  style: MyText
+  javascript: MyText
+  site_down: false
+
+two:
+  site_name: MyString
+  seo_description: MyString
+  seo_keywords: MyString
+  site_logo: MyString
+  default_image_product: MyString
+  default_image_exposition: MyString
+  style: MyText
+  javascript: MyText
+  site_down: false

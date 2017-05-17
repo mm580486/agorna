@@ -1,5 +1,5 @@
 class DeviseCreateUsers < ActiveRecord::Migration
-  def change
+  def up
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: true, default: ""
@@ -25,6 +25,24 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # level 3 admin
       t.integer  :level, default: 0, null: false
       t.string  :name, null: false
+      t.string  :phone
+      # Exposition detail
+      t.boolean :exposition,default: false
+      t.string :exposition_name
+      t.string :exposition_address
+      t.string :static_phone
+      t.string :avatar
+      t.string :background_image
+      t.string :instagram 
+      t.string :telegram
+      t.boolean :post_service , default: false
+      t.boolean :exposition_accept,default: false
+      
+      # marketers
+      
+      t.string :national_code, default: ''
+
+      
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
@@ -35,7 +53,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+      t.string :authentication_token, null: false
 
       t.timestamps null: false
     end
@@ -43,6 +61,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :users, :authentication_token, unique: true
+  end
+  
+  
+  def down
+    
+    drop_table :users
   end
 end

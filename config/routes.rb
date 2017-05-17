@@ -1,15 +1,34 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'page/index'
-  end
+
+
   
   
+
   namespace :admin do
     resources :pages,controller: 'pages' do
        member do
         get 'delete'
+        get 'toggle_lock'
        end
     end
+    
+    resources :categories,controller: 'categories' do
+       member do
+        get 'delete'
+       end
+    end
+    
+    
+    resources :marketers,controller: 'marketer' do
+       member do
+        get 'delete'
+       end
+    end
+    
+    
+    get 'dashboard/setting'
+    
+    
   end
 
 
@@ -24,6 +43,8 @@ Rails.application.routes.draw do
   
   namespace :admin do
   get 'dashboard/index'
+  get 'dashboard/change_development_mode'
+  
   end
 
   namespace :admin do
@@ -33,7 +54,16 @@ Rails.application.routes.draw do
   namespace :admin do
   get 'dashboard/logout'
   end
-
+  get 'update',to: 'public/home#update',:as => :update
+  
+ namespace :public do
+  namespace :home do
+    get 'register_exposition'
+    post 'save_exposition'
+  end
+  
+  
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -88,4 +118,23 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  
+  
+  
+  namespace :api do
+    namespace :v1 do
+      
+    get 'categories' 
+    match 'login',via: [:get,:post,:options]
+    match 'register',via: [:get,:post,:options]
+      
+    end
+    
+    
+  end
+  
+  
+  
+  
 end

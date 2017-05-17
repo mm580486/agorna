@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  name: MyString
+  price: MyString
+  off_price: MyString
+  position: 1
+  comment: false
+  view_product: 1
+  product_type_id: 
+  properties: MyText
+
+two:
+  user_id: 
+  name: MyString
+  price: MyString
+  off_price: MyString
+  position: 1
+  comment: false
+  view_product: 1
+  product_type_id: 
+  properties: MyText

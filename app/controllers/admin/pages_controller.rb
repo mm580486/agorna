@@ -1,7 +1,7 @@
 class Admin::PagesController < ApplicationController
   layout 'admin'
   before_action :admin_auth
-  before_action :find_page, only: [:show,:edit,:destroy,:delete,:update]
+  before_action :find_page, only: [:show,:edit,:destroy,:delete,:update,:toggle_lock]
   
   
   def index
@@ -15,6 +15,12 @@ class Admin::PagesController < ApplicationController
   end
 
   def edit
+  end
+  
+  def toggle_lock
+    @page.update_attribute(:lock,!@page.lock)
+    flash[:notice]=[5000,t("admin.toast.page_lock_#{@page.lock}")]
+    redirect_to admin_pages_path
   end
   
   def update

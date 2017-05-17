@@ -1,0 +1,66 @@
+<header>
+<nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper">
+              
+              <ul class="align left">
+                  <li>
+                      <a class="page-title" id='help'>راهنما</a>
+                  </li>
+              </ul>
+              
+               <div class="switch align left white-text">
+    <label class='white-text'>
+      
+      <input type="checkbox" id='development'>
+      <span class="lever"></span>
+      توسعه
+    </label>
+  </div>
+
+              
+            <ul class="align right">
+                  <li>
+                      <a class="user_name">
+                          بازاریاب 
+                          <%= current_user.name %>
+                      </a>
+                  </li>
+              </ul>
+          
+          </div>
+        </div>
+      </nav>
+    
+    <ul id="nav-mobile" class="side-nav fixed text-right" style="background-color:#2c3e50 !important;">
+        
+        <li class="logo align center">
+            <a id="logo-container"  style="text-align:center !important;" href="http://materializecss.com/" class="brand-logo">
+            فروشگاه ساز آگورنا
+            </a>
+        </li>
+
+        <li style="text-align:center !important;">
+           <%= gravatar_for current_user %>
+        </li>
+    
+        <li class="bold"><a href="about.html" class="waves-effect waves-teal">
+            افزودن فروشگاه
+            </a></li>
+            
+        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+             فروشگاه های افزوده شده
+        </a></li>
+
+                   <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+             خروج
+        </a></li>
+            
+       
+      </ul>
+
+
+
+
+
+   </header>

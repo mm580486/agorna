@@ -1,0 +1,254 @@
+    <%= render partial: 'partials/public/fix_menu' %>
+        <ul class="side-nav" id="nav-mobile" style="transform: translateX(0px);">
+            <li class="k"><a href="/pages/demo"><i class="material-icons">camera</i>Gallery</a></li>
+            <li><a href="/pages/dark-theme"><i class="material-icons">brightness_3</i>Dark Theme</a></li>
+            <li><a href="/pages/blog"><i class="material-icons">edit</i>Blog</a></li>
+            <li><a href="/pages/docs"><i class="material-icons">school</i>Docs</a></li>
+            <li><a href="/pages/full-header"><i class="material-icons">fullscreen</i>Fullscreen Header</a></li>
+            <li><a href="/pages/horizontal"><i class="material-icons">swap_horiz</i>Horizontal Style</a></li>
+            <li><a href="/pages/no-image"><i class="material-icons">texture</i>No Image Expand</a></li>
+        </ul>
+
+        <nav class="nav-extended x">
+            <div class="nav-background">
+                <div class="ea k" style="background-image: url('//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/icon-seamless.png?12295265317662713736');"></div>
+            </div>
+            <div class="nav-wrapper db container">
+                <a href="/pages/demo" class="brand-logo"><i class="material-icons">camera</i>Agorna</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="bt hide-on-med-and-down">
+                    <li><a href="/pages/demo">Gallery</a></li>
+                    <li><a href="/pages/dark-theme">Dark Theme</a></li>
+                    <li><a href="/pages/blog">Blog</a></li>
+                    <li class="k"><a href="/pages/docs">Docs</a></li>
+                    <li><a class="dropdown-button" href="#" data-activates="feature-dropdown" data-beloworigin="true" data-constrainwidth="false">Features<i class="material-icons bt">arrow_drop_down</i></a><ul id="feature-dropdown" class="dropdown-content">
+                        <li><a href="/pages/full-header">Fullscreen Header</a></li>
+                        <li><a href="/pages/horizontal">Horizontal Style</a></li>
+                        <li><a href="/pages/no-image">No Image Expand</a></li>
+                    </ul></li>
+                </ul>
+                
+                
+                
+                
+
+
+             <div class="nav-header de researcher ">
+
+
+
+                    <h5>ثبت نام فروشگاه ها در آگورنا</h5>
+
+
+
+                    </div>
+
+
+
+
+                    <!--<div class="ge">Learn how to do stuff</div>-->
+
+                </div>
+
+
+
+
+
+
+
+
+        </nav>
+
+
+
+
+
+        <nav id="fix-menu-bar" style="display: none;">
+            <div class="nav-wrapper">
+                <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul id="nav-dd" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">فرهنگ و هنز</a></li>
+                    <li><a href="badges.html">الکترونیک</a></li>
+                    <li><a href="collapsible.html">پوشاک</a></li>
+                </ul>
+
+                <a class="waves-effect waves-light btn" href="#LR_modal"><i class="material-icons right">person_pin</i>ورود \ ثبت نام</a>
+
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="inner">
+            <div class="row">
+
+
+                <div class="col s12 m10 offset-m1 left container right-align">
+                    <div class="card-panel right-align ExpositionRegisterCard">
+
+
+                        <div class="row">
+                            
+                                
+                            <% if @user.errors.full_messages.any? %>
+                              <% @user.errors.full_messages.each do |error_message| %>
+                                <% content_for :head do %>
+                                  <%= toast(error_message,4000,['red']) %>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+
+
+                                <%= form_for @user,url: public_home_save_exposition_path,html: {id: 'ExpositionRegisterForm',class: 'col s12 right-align'},method: :POST do |f| %>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :name,id: 'LFNAME' %>
+                                        <label for="LFNAME">نام و نام خانوادگی</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_name,id: 'ExpositionName' %>
+                                        <label for="ExpositionName">نام فروشگاه</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_address,id: 'ExpositionAdd' %>
+                                        <label for="ExpositionAdd">آدرس فروشگاه</label>
+                                    </div>
+                                </div>
+<!-- $('.chips-placeholder').material_chip('data'); -->
+
+
+                                <div class="row">
+                                    <div class="col s12 m5 right">
+                                        <div class="card-panel teal">
+          <span class="white-text">
+در فیلد زیر شماره تلفن های ثابت را وارد کنید بعد از تمام شدن هر شماره کلید enter را بزنید
+          </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <div class="chips chips-static-phone"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :phone,id: 'ExpositionPhone' %>
+                                        <label for="ExpositionPhone">شماره همراه</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :phone,id: 'ExpositionEmail' %>
+                                        <label for="ExpositionEmail">ایمیل</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                <div class="file-field input-field col s12">
+                                    <div class="btn">
+                                        <span>افزودن آواتار</span>
+                                        <input type="file" multiple>
+                                        
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="آپلود آواتار">
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn">
+                                            <span>افزودن بکگراند</span>
+                                            <input type="file" multiple>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="آپلود بکگراند برای فروشگاه">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                          <%= f.text_field :instagram,id: 'ExpositionInstagramId' %>
+                                        <label for="ExpositionInstagramId">اکانت اینستاگرام</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                       <%= f.text_field :telegram,id: 'ExpositionTelegramId' %>
+                                        <label for="ExpositionTelegramId">اکانت تلگرام</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                    
+                                    
+                                       <%= f.check_box :post_service,id: 'filled-in-box1',checked: 'checked',class: 'filled-in' %>
+                                    <label for="filled-in-box1">فروشگاه شما قابلیت ارسال محصول دارد ؟</label>
+
+                                    </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                        <input type="checkbox" class="filled-in" id="filled-in-box2" checked="checked" />
+                                        <label for="filled-in-box2">صفحه قوانین و مقررات را خوانده ام و شرایط را میپذیرم</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                
+                                <%= f.submit 'ثبت نام',class: 'waves-effect waves-light btn col s12'%>
+                                </div>
+
+
+                            <% end %>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        
+         <%= render partial: 'partials/public/footer' %>

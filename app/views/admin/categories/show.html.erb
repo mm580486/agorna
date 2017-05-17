@@ -1,0 +1,51 @@
+
+
+<%# content_for :head do %>
+  
+  
+<%# end %>
+
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+
+        <table class='striped highlight bordered'>
+            <thead>
+              <tr>
+                  <th>ویرایش</th>
+                 
+                  <th>پرمالینک</th>
+  <th>نام دسته بندی</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+            <% @categories.each do |category| %>
+              <tr>
+                <td>
+                  <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_admin_category_path(category.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
+                  <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_category_path(category.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
+                  
+                  
+                </td>
+                <td><%= category.permalink %></td>
+                <td><%= category.name %></td>
+              </tr>
+            <% end %>
+              
+              
+            
+            </tbody>
+          </table>
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+<%= link_to(raw('<i class="material-icons">add</i>'),new_admin_category_path(parent_id: params[:id]),class: 'btn-floating btn-large waves-effect waves-light red',style: 'position:fixed;bottom: 20px; left: 24px;') %>
+</main>

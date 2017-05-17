@@ -33,5 +33,15 @@ en:
             page_create: صفحه با موفقیت ساخته شد
             page_deleted: صفحه با موفقیت حذف شد
             page_updated: صفحه با موفقیت بروز شد
+            page_lock_true: صفحه با موفقیت پرایویت شد
+            page_lock_false: صفحه با موفقیت پابلیک شد
+            category_create: دسته بندی با موفقیت ساخته شد
+            category_deleted: دسته بندی با موفقیت حذف شد
+            category_updated: دسته بندی با موفقیت بروز شد
+            development_mod_true: حالت توسعه فعال شد
+            development_mod_false: حالت توسعه غیر فعال شد
+            cantRemoveMarketer: بازاریاب حذف نشد
+            RemoveMarketer: بازاریاب با موفقیت حذف شد
+            marketer_create: بازاریاب با موفقیت افزوده شد
             
           

@@ -1,0 +1,97 @@
+<header>
+<nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper">
+              
+              <ul class="align left">
+                  <li>
+                      <a class="page-title" id='help'>راهنما</a>
+                  </li>
+              </ul>
+              
+               <div class="switch align left white-text">
+    <label class='white-text'>
+      
+      <input type="checkbox" id='development'>
+      <span class="lever"></span>
+      توسعه
+    </label>
+  </div>
+
+              
+            <ul class="align right">
+                  <li>
+                      <a class="user_name">
+                          مدیر 
+                          <%= current_user.name %>
+                      </a>
+                  </li>
+              </ul>
+          
+          </div>
+        </div>
+      </nav>
+    
+    <ul id="nav-mobile" class="side-nav fixed text-right" style="background-color:#2c3e50 !important;">
+        
+        <li class="logo align center">
+            <a id="logo-container"  style="text-align:center !important;" href="http://materializecss.com/" class="brand-logo">
+            فروشگاه ساز آگورنا
+            </a>
+        </li>
+
+        <li style="text-align:center !important;">
+           <%= gravatar_for current_user %>
+        </li>
+    
+        <li class="bold"><a href="about.html" class="waves-effect waves-teal">
+            پیشخوان
+            </a></li>
+            
+        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+             محصولات
+        </a></li>
+        
+          <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+             فروشگاه ها
+        </a></li>
+            
+        <li class="bold">
+            <%= link_to 'بازاریاب ها',admin_marketers_path,class: 'waves-effect waves-teal' %>
+        </li>
+        
+        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+            تراکنش ها
+        </a>
+            
+            </li>
+        <li class="bold">
+            <%= link_to 'صفحات',admin_pages_path,class: 'waves-effect waves-teal' %>
+        </li>
+            
+            
+
+               <li class="bold">
+                 <%= link_to 'دسته بندی ها',admin_categories_path,class: 'waves-effect waves-teal' %>
+               </li>
+
+    <li class="bold">
+                 <%= link_to 'تنظیمات',admin_categories_path,class: 'waves-effect waves-teal' %>
+    </li>
+    
+         <li class="bold">
+            <%= link_to 'آپلود',admin_pages_path,class: 'waves-effect waves-teal' %>
+        </li>
+    
+      <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+            خروج
+        </a></li>
+        
+        
+      </ul>
+
+
+
+
+
+   </header>

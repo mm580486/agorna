@@ -1,4 +1,4 @@
-<%= render partial: 'partials/admin/aside' %>
+
 
 <%# content_for :head do %>
   
@@ -26,10 +26,10 @@
             <% @pages.each do |page| %>
               <tr>
                 <td>
-                  
                   <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
                   <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
-                  <%= link_to(raw('<i class="material-icons">lock_outline</i>'),new_admin_page_path,class: 'small btn-floating waves-effect btn-small waves-light green') %>
+                  <%= link_to(raw("<i class='material-icons'>#{page.lock? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
+                  <%= link_to(raw("<i class='material-icons'>cast</i>"),admin_page_path(page.id),class: 'small btn-floating waves-effect btn-small waves-light purple') %>
                 </td>
                 <td><%= page.permalink %></td>
                 <td><%= page.title %></td>

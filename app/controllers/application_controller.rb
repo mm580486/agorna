@@ -16,6 +16,48 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def seller_auth
+       unless is_login 
+      redirect_to root_path
+    else
+      redirect_to root_path unless current_user.level == 1
+    end
+    
+  end
+  
+    def add_seller_auth
+       unless is_login 
+      redirect_to root_path
+    else
+      redirect_to root_path unless current_user.level == 2
+    end
+    
+  end
+  
+  def dashboard_auth
+       unless is_login 
+      redirect_to root_path
+    else
+      redirect_to root_path unless [1,2,3].include?(current_user.level)
+    end
+    
+  end
+  
+  def exec_setting
+    @setting=Setting.first
+  end
+  
+  
+  def check_development_mod
+   return true unless @setting.site_down
+   if user_signed_in?
+    return true if current_user.level == 3  
+   end
+   redirect_to update_path
+    
+    
+  end
+  
   
   
   

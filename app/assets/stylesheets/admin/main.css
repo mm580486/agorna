@@ -610,3 +610,18 @@ text-align: right !important;
 .side-nav li:not(#logo-container){
     text-align: right !important;
 }
+
+/*.introjs-tooltipReferenceLayer{*/
+    
+/*    top:24px !important;*/
+/*}*/
+/*.introjs-tooltip{*/
+/*    top:52px !important;*/
+/*}*/
+.introjs-helperLayer {
+  background-color: rgba(255,255,255,0.5) !important;   
+}
+   
+a,li,span{
+        direction: rtl;
+}

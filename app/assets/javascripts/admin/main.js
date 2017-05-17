@@ -1,5 +1,42 @@
+$(document).on('ready page:load', function() {
 
-$(document).ready(function(){
+    var introguide = introJs();
+    introguide.setOptions({ 'nextLabel': 'بعد', 'prevLabel': 'قبل', 'skipLabel': 'خروج', 'doneLabel': 'اتمام' })
+    introguide.setOptions({
+        steps: [
+            {
+              element: '.user_name',
+              intro: 'This guided tour will explain the Hongkiat demo page interface.<br><br>Use the arrow keys for navigation or hit ESC to exit the tour immediately.',
+              position: 'bottom'
+            },
+            {
+              element: '.nav-logo',
+              intro: 'Click this main logo to view a list of all Hongkiat demos.',
+              position: 'bottom'
+            },
+            {
+              element: '.nav-title',
+              intro: 'Hover over each title to display a longer description.',
+              position: 'bottom'
+            },
+            {
+              element: '.readtutorial a',
+              intro: 'Click this orange button to view the tutorial article in a new tab.',
+              position: 'right'
+            },
+            {
+              element: '.nav-menu',
+              intro: "Each demo will link to the previous & next entries.",
+              position: 'bottom'
+            }
+        ]
+    });
+    
+    $('#help').click(function(e){
+         e.preventDefault();
+         introguide.start();
+    })
+   
 
 
 
@@ -14,6 +51,24 @@ $(document).ready(function(){
 
         return preloarder
     }
+    
+    
+    $('#development').click(function(){
+        var development_mod = $(this).is(':checked');
+        
+        $.ajax({
+            url: "/admin/dashboard/change_development_mode",
+            method: "GET",
+            data:   'development_mod='+development_mod,
+            dataType: "html"
+        }).success(function( msg ) {
+            Materialize.toast(msg,5000,'green');
+        }).fail(function(){
+             $('#development').prop('checked',!development_mod);
+             Materialize.toast('اشکال در تغییر توسعه',5000,'red');
+        })
+        
+    })
 
 
     $('.materialboxed').materialbox();
@@ -102,5 +157,8 @@ $('.SendMessageForm').slideDown();
         });
     }
     
-     Materialize.updateTextFields();
+
 });
+    
+         
+    
