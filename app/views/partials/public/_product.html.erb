@@ -1,9 +1,9 @@
         <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
-                            <%= image_tag product.images.first.url, alt: product.name, class: 'materialboxed' %>
+                            
                      <% unless product.images[0].blank? %>
-                     <%= image_tag product.images[0].url, alt: product.name, class: 'materialboxed' %>
+                     <%= image_tag product.images.first.url, alt: product.name, class: 'materialboxed' %>
                      <% else %>
 <img class="materialboxed" src="https://unsplash.it/200/300/?random">
                    
@@ -25,7 +25,7 @@
                         <div class="card-content">
                             <p class='align right'>
                                 
-                                توضیحات درباره چوبی برگر
+                               <%= product.user.exposition_detail %>
                                 </p>
                         </div>
                         <div class="card-action">

@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20170527124439) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",                            null: false
+    t.string   "name",                                 null: false
     t.integer  "category_id"
     t.string   "price"
     t.string   "off_price"
@@ -121,10 +121,11 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.boolean  "accept",          default: false
     t.integer  "view_product",    default: 0
     t.integer  "product_type_id"
-    t.text     "properties"
+    t.text     "properties",      default: "--- {}\n"
+    t.text     "hstore",          default: "--- {}\n"
     t.string   "images"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "products", ["product_type_id"], name: "index_products_on_product_type_id", using: :btree

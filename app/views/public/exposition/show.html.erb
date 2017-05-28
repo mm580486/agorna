@@ -1,5 +1,8 @@
-
-  
+<style>
+nav {
+    background-color: #757575 !important;
+  }
+</style>
     
 
     <div class="fixed-action-btn toolbar">
@@ -38,8 +41,8 @@
         </ul>
 
         <nav class="nav-extended x">
-            <div class="nav-background">
-                <div class="ea k" style="background-image: url('//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/icon-seamless.png?12295265317662713736');"></div>
+            <div class="nav-background" style="background-image: url('<%= @exposition.background_image.url %>');">
+                <div class="ea k" style="background-image: url('http://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/icon-seamless.png?12295265317662713736');"></div>
             </div>
             <div class="nav-wrapper db container">
                 <a href="/pages/demo" class="brand-logo"><i class="material-icons">camera</i>Agorna</a>
@@ -63,7 +66,8 @@
                     <div class="row">
 <div class="col s12 m6 push-m2 exposition-info right text-right">
     <div class="exposition-logo">
-        <img src="https://www.reyhoon.com/images/logo/242.jpeg?_=1488378913" alt="" class="responsive-img">
+        
+<%= image_tag(@exposition.avatar_url,class:'responsive-img',alt: @exposition.exposition_name )%>
     </div>
     <div class="detail">
         
@@ -212,7 +216,7 @@
                         <div class="divider"></div>
 
                         <h5>
-                            چوپی برگر
+                            <%= @exposition.exposition_name %>
 
                         </h5>
 

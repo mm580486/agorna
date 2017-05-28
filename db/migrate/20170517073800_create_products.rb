@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration
       t.boolean :accept,default: false
       t.integer :view_product,default: 0
       t.references :product_type, index: true, foreign_key: true
-      t.text :properties
+      t.text :properties, :hstore, default: {}
       t.column  :images, :string
 
       t.timestamps null: false

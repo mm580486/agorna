@@ -198,7 +198,8 @@
                                 <div class="file-field input-field col s12">
                                     <div class="btn">
                                         <span>افزودن آواتار</span>
-                                        <input type="file" multiple>
+                                        
+					<%= f.file_field :avatar %>
                                         
                                     </div>
                                     <div class="file-path-wrapper">
@@ -211,8 +212,9 @@
                                     <div class="file-field input-field col s12">
                                         <div class="btn">
                                             <span>افزودن بکگراند</span>
-                                            <input type="file" multiple>
-                                        </div>
+                                            
+					     <%= f.file_field :background_image %>                                        
+</div>
                                         <div class="file-path-wrapper">
                                             <input class="file-path validate" type="text" placeholder="آپلود بکگراند برای فروشگاه">
                                         </div>
