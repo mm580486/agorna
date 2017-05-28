@@ -42,10 +42,20 @@ class Admin::MarketerController < ApplicationController
     end
   end
   
+  
+  def update
+   if @marketer.update_attributes(marketers_white_list) && @marketer.valid?
+      flash[:notice]=[5000,t('admin.toast.marketer_updated')]
+      redirect_to admin_marketers_path
+   else
+     render('edit')
+   end
+  end
+  
   private
   
   def find_marketer
-    @user=User.find(params[:id])
+    @user=User.find(params[:id]) rescue ''
   end
   
   def marketers_white_list

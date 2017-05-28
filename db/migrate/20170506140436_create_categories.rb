@@ -5,6 +5,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name,null: false
       t.string :permalink,null: false
       t.integer :parent_id,default: nil
+      t.integer :product_type_id
 
       t.timestamps null: false
     end

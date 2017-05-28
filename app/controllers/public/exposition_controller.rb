@@ -1,0 +1,32 @@
+class Public::ExpositionController < ApplicationController
+  layout 'public'
+  def show
+    @exposition=User.sellers.find(params[:id])
+    @comment=@exposition.comments.new()
+    @comments=Comment.where(seller_id: @exposition.id)
+  end
+  
+  def create_comment
+    @comment=current_user.comments.new(seller_id: params[:ex_id],body: params[:comment][:body])
+    if @comment.save
+    flash[:notice]=[5000,t('public.toast.comment_created')]
+    else
+      flash[:notice]=[5000,@comment.errors]
+    end
+    redirect_to :back
+    
+  end
+  
+  def follow
+    if params[:followed]=='false'
+      User.find(params[:id]).followers << current_user
+    else
+      User.find(params[:id]).followers.delete(current_user)
+    end
+    
+    render text: User.find(params[:id]).followers.include?(current_user)
+    
+  end
+
+  
+end

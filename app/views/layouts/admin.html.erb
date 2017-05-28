@@ -6,14 +6,10 @@
   <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.5.0/introjs.min.css" integrity="sha256-xqkZ4mAs490xmDCAkpdxs8gHShKLKAoqpuxuxx7PMhQ=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.5.0/introjs-rtl.min.css" integrity="sha256-Tt7sT1gkz/4yvyEWEXeWxHVCRSVPx01WRJkycid7wMU=" crossorigin="anonymous">
-    
     <%= yield(:head) %>
     <script src="https://cdn.jsdelivr.net/intro.js/2.5.0/intro.min.js" integrity="sha256-FGXfn2ohE1fLIbGUUlx36Lp/BsmB2C7Z0R03Atw/x7Q=" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'admin/home', 'data-turbolinks-track' => true , async: true %>

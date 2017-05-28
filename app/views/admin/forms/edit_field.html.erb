@@ -1,0 +1,80 @@
+
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+        
+        
+        
+        
+        
+ <div class="row">
+    <% if @field.errors.full_messages.any? %>
+      <% @field.errors.full_messages.each do |error_message| %>
+        <% content_for :head do %>
+          <%= toast(error_message,4000,['red']) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= form_for @field ,url: save_fields_admin_form_path,html: {class: 'col s12'},method: :POST do |f| %>
+      <div class="row">
+
+      <div class="input-field col s12">
+        <%= f.select :field_type,%w[text_field text_area number_field check_box], {prompt: 'لطفا نوع فیلد را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default'}  %>
+        
+        
+        <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {}, {:multiple => true, autofocus: 'true', class: 'type_field browser-default'}  %>
+        
+       </div>
+       </div>
+       
+       
+       <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :name,class: 'validate', required: "required" %>
+          <%= f.label :name, 'نام فیلد' ,:'data-error' => "wrong", 'data-success'=> "" %>
+        </div>
+        
+        <div class="input-field col s12">
+          <%= f.text_field :permalink,class: 'validate', required: "required" %>
+          <%= f.label :permalink, 'پرمالینک' ,:'data-error' => "wrong", 'data-success'=> "" %>
+        </div>
+        
+        
+    
+        
+  
+        
+      
+      
+     </div>
+       
+      <div class="row">
+      
+        <%= button_tag :type => 'submit', :class => "waves-effect waves-light btn" do %>
+         <i class="material-icons left">cloud</i>ثبت
+        <% end %>
+    
+
+      </div>
+      
+      
+      
+      
+    <% end %>
+  </div>
+        
+        
+        
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+
+</main>

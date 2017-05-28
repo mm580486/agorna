@@ -107,7 +107,7 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :name,id: 'LFNAME' %>
+                                        <%= f.text_field :name,id: 'LFNAME',required: 'required' %>
                                         <label for="LFNAME">نام و نام خانوادگی</label>
                                     </div>
                                 </div>
@@ -115,15 +115,30 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :exposition_name,id: 'ExpositionName' %>
+                                        <%= f.text_field :exposition_name,id: 'ExpositionName',required: 'required' %>
                                         <label for="ExpositionName">نام فروشگاه</label>
                                     </div>
                                 </div>
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_detail,id: 'ExpositionDetail',required: 'required' %>
+                                        <label for="ExpositionDetail">بیوگرافی فروشگاه</label>
+                                    </div>
+                                </div>
+                                  <div class="row">
+                                
+                                 <%= f.select(:category_id, Category.where(parent_id: nil).collect {|cat|  [cat.name,cat.id]  },{},{class: 'browser-default'}) %>
+                                    
+                                  
+                                     </div>                           
+                            
 
                                 <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :exposition_address,id: 'ExpositionAdd' %>
+                                        <%= f.text_field :exposition_address,id: 'ExpositionAdd',required: 'required' %>
                                         <label for="ExpositionAdd">آدرس فروشگاه</label>
                                     </div>
                                 </div>
@@ -150,8 +165,7 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        
-                                        <%= f.text_field :phone,id: 'ExpositionPhone' %>
+                                        <%= f.text_field :phone,id: 'ExpositionPhone',required: 'required' %>
                                         <label for="ExpositionPhone">شماره همراه</label>
                                     </div>
                                 </div>
@@ -159,8 +173,24 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :phone,id: 'ExpositionEmail' %>
+                                        <%= f.text_field :email,id: 'ExpositionEmail' %>
                                         <label for="ExpositionEmail">ایمیل</label>
+                                    </div>
+                                </div>
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.password_field :password,id: 'ExpositionPass',required: 'required' %>
+                                        <label for="ExpositionPass">رمزعبور</label>
+                                    </div>
+                                </div>
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.password_field :password_confirmation,id: 'ExpositionPassConf',required: 'required' %>
+                                        <label for="ExpositionPassConf">تکرار رمزعبور</label>
                                     </div>
                                 </div>
 

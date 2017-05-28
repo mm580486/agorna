@@ -20,6 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+   errors:
+    models:
+     user:
+      attributes:
+       password:
+        confirmation: "فیلدهای رمز عبور با هم همخوانی ندارد "
+        too_short: "تعداد کاراکتر رمز عبور نباید کمتر از %{count} باشد"
+        
+  twitter: جیک جیکستان
+  instagram: اینستاگرام
+  google_oauth2: گوگل
+  facebook: فیسبوک
   alert:
        are_you_sure_delete: از حذف این رگورد مطمعن هستید ؟
   crud: 
@@ -43,5 +56,25 @@ en:
             cantRemoveMarketer: بازاریاب حذف نشد
             RemoveMarketer: بازاریاب با موفقیت حذف شد
             marketer_create: بازاریاب با موفقیت افزوده شد
+            seller_create: فروشگاه با موفقیت افزوده شد
+            seller_updated: فروشگاه با موفقیت بروز شد
+            marketer_updated: بازاریاب با موفقیت بروز شد
+            seller_removed: فروشگاه با موفقیت حذف شد
+            product_deleted: محصول با موفقیت حذف شد
+            seller_accepted_true: فروشنده با موفقیت تایید شد
+            seller_accepted_false: اکانت فروشنده قفل و از تمامی اکشن ها منع شد
+            product_accepted_true: محصول با موفقیت تایید شد
+            product_accepted_false: محصول با موفقیت از دسترس خارج شد
+            form_create: فرم ساخته شد
+            form_lock_true: فرم با موفقیت تایید شد
+            form_lock_false: فرم با موفقیت از دسترس خارج شد
+            form_update: فرم با موفقیت بروز شد
+            form_destroy: فرم با موفقیت حذف شد
+            field_create: فیلد با موفقیت ساخته شد
+            field_delete: فیلد با موفقیت حذف شد
+            product_create: محصول با موفقیت ساخته شد
+  public:
+        toast:
+             comment_created: نظر شما در لیست بررسی قرار گرفت
             
           

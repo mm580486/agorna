@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  body: MyString
+  accept: false
+  accept_by_seller: false
+
+two:
+  user_id: 
+  body: MyString
+  accept: false
+  accept_by_seller: false

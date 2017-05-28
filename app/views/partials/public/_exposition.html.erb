@@ -1,0 +1,30 @@
+ <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <% unless user.avatar.nil? %>
+                            <%= image_tag user.avatar.url, alt: user.exposition_name, class: 'materialboxed' %>
+                            <% else %>
+                            <img class="materialboxed" src="https://unsplash.it/200/300/?random">
+                            <% end %>
+                            <%= link_to user.exposition_name,exposition_show_path(user.id),class: 'card-title' %>
+
+                          
+                          <% unless current_user.nil? %>
+                           <a data-id='<%= user.id %>' followed='<%= user.followers.include? current_user %>' class="exposition-follow btn-floating halfway-fab waves-effect waves-light  <%= user.followers.include?(current_user)? 'blue':'red' %> left"><i class="material-icons"><%= user.followers.include?(current_user)? 'person':'person_add' %></i></a>
+                           
+                           <%= link_to raw('<i class="material-icons">message</i>'),new_public_ticket_path(id: user.id),class: 'btn-floating halfway-fab waves-effect waves-light red right' %>
+                            <% end %>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                            <%= user.exposition_detail %>
+                            </p>
+                        </div>
+                        <div class="card-action text-right">
+                            <a class="waves-effect grey lighten-1 btn btn-round"><%= user.exposition_address %>
+                            <i class="material-icons right">place</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                

@@ -1,4 +1,12 @@
-$(document).on('ready page:load', function() {
+$(document).ready(function(){
+    
+
+$( "#product_category_id" ).on( "change", function() {
+  
+  $('div').filter("[categories]").slideUp();
+  $("div").find("[categories*='" + $( this ).val() + "']").slideDown()
+  
+});
 
     var introguide = introJs();
     introguide.setOptions({ 'nextLabel': 'بعد', 'prevLabel': 'قبل', 'skipLabel': 'خروج', 'doneLabel': 'اتمام' })
@@ -51,7 +59,7 @@ $(document).on('ready page:load', function() {
 
         return preloarder
     }
-    
+       $('input#input_text, textarea#textarea1').characterCounter();
     
     $('#development').click(function(){
         var development_mod = $(this).is(':checked');
@@ -99,7 +107,7 @@ $(document).on('ready page:load', function() {
             stopPropagation: false // Stops event propagation
         }
     );
-
+$('select').material_select();
     $('ul.tabs').tabs();
     $('.modal').modal({
         startingTop: '1%', // Starting top style attribute
@@ -156,6 +164,8 @@ $('.SendMessageForm').slideDown();
             console.log('Rating: ' + e.detail);
         });
     }
+    
+
     
 
 });

@@ -1,6 +1,6 @@
 class Admin::DashboardController < ApplicationController
   before_action :dashboard_auth
-  before_action :admin_auth ,only: [:change_development_mode]
+  before_action :admin_auth ,only: [:change_development_mode,:sms_service]
   layout 'admin'
   def index
   end
@@ -23,5 +23,14 @@ class Admin::DashboardController < ApplicationController
   end
 
   def logout
+  end
+  
+  def sms_service
+    
+  end
+  
+  def transaction
+    
+    
   end
 end

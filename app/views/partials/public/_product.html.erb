@@ -1,0 +1,53 @@
+        <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            
+                     <% unless product.images[0].blank? %>
+                     <%= image_tag product.images[0].url, alt: product.name, class: 'materialboxed' %>
+                     <% else %>
+<img class="materialboxed" src="https://unsplash.it/200/300/?random">
+                   
+                      <% end %>
+                            
+                            
+                            
+                                
+                                
+                                <%= link_to product.name , product_show_path(id: product.id),class: 'card-title align right' %>
+                                
+                                
+<% unless current_user.nil? %>
+                            <a data-id='<%= product.id %>'  liked='<%= current_user.favorites.exists?(product_id: product.id) %>' class="product-favorite btn-floating halfway-fab waves-effect waves-light  <%=  current_user.favorites.exists?(product_id: product)? 'blue':'red' %> left"><i class="material-icons">favorite</i></a>
+                            
+                            <%= link_to raw('<i class="material-icons">message</i>'),new_public_ticket_path(id: product.user.id),class: 'btn-floating halfway-fab waves-effect waves-light red right' %>
+<% end %>
+                        </div>
+                        <div class="card-content">
+                            <p class='align right'>
+                                
+                                توضیحات درباره چوبی برگر
+                                </p>
+                        </div>
+                        <div class="card-action">
+                               <% unless product.off_price.nil? && product.off_price.blank? %>
+                            <a href="#" class='green-text float:left;'>
+                                     <span style='float:left;'>
+                                    تومان
+                                </span>
+                              <%= product.off_price.to_s %>  
+                            </a>
+                                
+                            <% end %>
+                           <br>
+                            <a href="#"  <%= raw('style="color: gainsboro !important;text-decoration:line-through;"') unless product.off_price.nil? %> >
+                                <span style='float:left;'>
+                                    تومان
+                                </span>
+                                
+                                <%= product.price %>
+                            </a>
+                             
+                         
+                        </div>
+                    </div>
+                </div>

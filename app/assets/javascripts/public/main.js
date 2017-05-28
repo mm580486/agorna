@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+document.addEventListener('turbolinks:load', function() {
 
 
 
@@ -101,4 +101,88 @@ $('.SendMessageForm').slideDown();
             console.log('Rating: ' + e.detail);
         });
     }
+   
+   
+   
+   $('.product-favorite').click(function(e){
+       
+       var product_id=$(this).data('id');
+       var liked=$(this).attr('liked');
+       var like_btn=$(this);
+       like_btn.attr('disabled',true);
+        $.ajax({
+            url: "/product/favorite/",
+            method: "GET",
+            data:   'id='+product_id+'&liked='+liked,
+            dataType: "html"
+        }).success(function( res ) {
+            if(res=='true'){
+                Materialize.toast('محصول به علاقه مندی ها اضافه شد',4000,'blue');
+                
+                like_btn.removeClass('red');
+                like_btn.addClass('blue');
+                
+            }else{
+                Materialize.toast('محصول از علاقه مندی ها حذف شد',4000,'blue');
+                
+                like_btn.removeClass('blue');
+                like_btn.addClass('red');  
+                
+            }
+            like_btn.attr('liked',res);
+        }).fail(function(msg){
+             console.log(msg)
+              Materialize.toast('اشکال در پسندیدن',4000,'blue');
+        }).complete(function(){
+            like_btn.attr('disabled',false);     
+        });
+       
+       
+       
+       
+       
+       
+       
+       
+   })
+   
+   $('.exposition-follow').click(function(e){
+       e.preventDefault();
+       
+       var exposition_id=$(this).data('id');
+       var followed=$(this).attr('followed');
+       var flw_btn=$(this);
+       flw_btn.attr('disabled',true);
+        $.ajax({
+            url: "/exposition/follow/",
+            method: "GET",
+            data:   'id='+exposition_id+'&followed='+followed,
+            dataType: "html"
+        }).success(function( res ) {
+            if(res=='true'){
+                Materialize.toast('فروشگاه به لیست فالورها اضافه شد',4000,'blue');
+                
+                flw_btn.removeClass('red');
+                flw_btn.addClass('blue');
+                flw_btn.find('i').html('person');
+            }else{
+                Materialize.toast('فروشگاه از لیست فالوینگ ها حذف شد',4000,'blue');
+                
+                flw_btn.removeClass('blue');
+                flw_btn.addClass('red');  
+                flw_btn.find('i').html('person_add');
+            }
+            flw_btn.attr('followed',res);
+        }).fail(function(msg){
+             console.log(msg)
+              Materialize.toast('اشکال در فالو',4000,'blue');
+        }).complete(function(){
+            flw_btn.attr('disabled',false);     
+        });
+       
+       
+       
+       
+   })
+    
 });

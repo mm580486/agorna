@@ -625,3 +625,13 @@ text-align: right !important;
 a,li,span{
         direction: rtl;
 }
+span.badge.new:after {
+    content: "" !important;
+}
+
+.btn-round{
+    border-radius: 50px !important;
+    -webkit-border-radius:50px !important;
+    -moz-border-radius:50px !important;
+}
+

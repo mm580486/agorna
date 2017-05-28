@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
 
   
-  
+
+
+
+
 
   namespace :admin do
     resources :pages,controller: 'pages' do
@@ -22,6 +25,43 @@ Rails.application.routes.draw do
     resources :marketers,controller: 'marketer' do
        member do
         get 'delete'
+       end
+    end
+    
+    
+     resources :sellers,controller: 'sellers' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
+       end
+    end
+    
+        
+     resources :forms,controller: 'forms' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
+        get 'show_fields'
+        get 'new_field'
+        post 'save_fields'
+        get 'delete_field'
+        get 'edit_field'
+       end
+    end
+    
+    
+        resources :products,controller: 'products' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
+       end
+    end
+    
+    
+            resources :seller_products,controller: 'seller_products' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
        end
     end
     
@@ -49,18 +89,43 @@ Rails.application.routes.draw do
 
   namespace :admin do
   get 'dashboard/login'
+  get 'dashboard/sms_service'
+  get 'dashboard/setting'
+  get 'dashboard/transaction'
   end
 
   namespace :admin do
   get 'dashboard/logout'
   end
   get 'update',to: 'public/home#update',:as => :update
+  get 'product/favorite',to: 'public/home#favorite'
+  get 'product/:id',to: 'public/home#product',:as => :product_show
+  
+  get 'exposition/show/:id',to: 'public/exposition#show',:as => :exposition_show
+  post 'exposition/create_comment',to: 'public/exposition#create_comment',:as => :create_comments
+  
+  get 'exposition/follow',to: 'public/exposition#follow'
+
   
  namespace :public do
   namespace :home do
     get 'register_exposition'
     post 'save_exposition'
+    get 'inbox'
+    get 'following'
+    get 'following_post'
+    get 'category'
+    
   end
+  
+    resources :tickets,controller: 'tickets' do
+     member do
+        get 'conversation'
+        post 'save_conversation'
+        
+       end
+    end
+ 
   
   
 end
@@ -70,58 +135,6 @@ end
   # You can have the root of your site routed with "root"
   root 'public/home#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-  
-  
-  
-  
   namespace :api do
     namespace :v1 do
       

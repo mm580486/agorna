@@ -5,14 +5,11 @@
   <%= stylesheet_link_tag    'public/home', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'public/home', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+    <%= yield(:head) %>
 </head>
 <body>
  <!--[if lte IE 9]>
@@ -27,6 +24,7 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<%= raw(toast(flash[:notice][1],flash[:notice][0])) unless flash[:notice].nil? %>
 
 </body>
 </html>

@@ -582,3 +582,33 @@ text-align: right;
 .material-placeholder img{
     height: 300px !important;
 }
+.dropdown-content li {
+    text-align:right !important;
+}
+.nav-extended h6 {
+  font-size: 1rem;
+  line-height: 13% !important;
+  margin: 0.5rem 0 0.4rem 0;
+}
+
+.btn-round{
+    border-radius: 50px !important;
+    -webkit-border-radius:50px !important;
+    -moz-border-radius:50px !important;
+}
+
+.text-right{
+    text-align:right !important;
+}
+.card .card-image .card-title {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0 !important;
+    left: auto !important;
+    max-width: 100%;
+    padding: 24px;
+}
+
+i::-moz-selection { background: none;color: none; }
+i::selection { background: none;color: none; }

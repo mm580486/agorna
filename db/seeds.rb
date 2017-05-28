@@ -12,7 +12,7 @@ Setting.create({
 })
 
 User.create(:name => 'محمد محمودی',
-            :email => 'mm580486@gmail.com',
+            :email => 'mm580486@yahoo.com',
             :password => 'Microlab12546',
             :password_confirmation => 'Microlab12546',
             :level => 3

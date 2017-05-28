@@ -19,6 +19,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
       
+      
+      t.integer :marketer_id
+      
       # level 0 visitor
       # level 1 seller
       # level 2 add-seller
@@ -30,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :exposition,default: false
       t.string :exposition_name
       t.string :exposition_address
+      t.string :exposition_detail
+      t.integer :category_id
       t.string :static_phone
       t.string :avatar
       t.string :background_image
@@ -37,6 +42,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :telegram
       t.boolean :post_service , default: false
       t.boolean :exposition_accept,default: false
+      
       
       # marketers
       

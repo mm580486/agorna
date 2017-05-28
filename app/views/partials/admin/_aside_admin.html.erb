@@ -44,26 +44,50 @@
            <%= gravatar_for current_user %>
         </li>
     
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">
+        <li class="bold"><a href="/" class="waves-effect waves-teal">
             پیشخوان
             </a></li>
             
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
-             محصولات
-        </a></li>
+        <li class="bold">
+        <%= link_to 'محصولات',admin_products_path,class: 'waves-effect waves-teal' %>
+        </li>
         
-          <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
-             فروشگاه ها
-        </a></li>
+        <% if Product.where(accept: false).length >= 1 %>
+         <li class="bold">
+                     <span class="new badge green left"><%= Product.where(accept: false).length %></span>
+        <%= link_to 'محصولات تایید نشده',admin_products_path(unaccept: true),class: 'waves-effect waves-teal' %>
+
+        </li>
+        
+        <% end %>
+        
+        <li class="bold">
+         <%= link_to 'فروشگاه ها',admin_sellers_path,class: 'waves-effect waves-teal' %>
+        </li>
+        
+        <% if User.sellers.where(exposition_accept: false).length >= 1 %>
+            <li class="bold">
+                <span class="new badge green left"><%= User.sellers.where(exposition_accept: false).length %></span>
+             <%= link_to 'فروشگاه های تایید نشده',admin_sellers_path(unaccept: true),class: 'waves-effect waves-teal' %>
+            </li>
+        <% end %>
+        
             
         <li class="bold">
             <%= link_to 'بازاریاب ها',admin_marketers_path,class: 'waves-effect waves-teal' %>
         </li>
         
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
-            تراکنش ها
-        </a>
-            
+        <li class="bold">
+         <%= link_to 'تراکنش ها',admin_dashboard_transaction_path,class: 'waves-effect waves-teal' %>
+
+      </li>
+             <li class="bold">
+         <%= link_to 'فرم ها',admin_forms_path,class: 'waves-effect waves-teal' %>
+
+      </li>
+      
+          <li class="bold">
+               <%= link_to 'پیام کوتاه',admin_dashboard_sms_service_path,class: 'waves-effect waves-teal' %>
             </li>
         <li class="bold">
             <%= link_to 'صفحات',admin_pages_path,class: 'waves-effect waves-teal' %>
@@ -76,7 +100,7 @@
                </li>
 
     <li class="bold">
-                 <%= link_to 'تنظیمات',admin_categories_path,class: 'waves-effect waves-teal' %>
+                 <%= link_to 'تنظیمات',admin_dashboard_setting_path,class: 'waves-effect waves-teal' %>
     </li>
     
          <li class="bold">

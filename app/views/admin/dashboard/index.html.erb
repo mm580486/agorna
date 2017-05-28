@@ -29,7 +29,7 @@
 
           <br>
           <h3 class="black-text">
-         10
+         <%= current_user.products.size %>
           </span>
 
         </div>
@@ -42,12 +42,12 @@
             <i class="material-icons dp48 large">visibility</i>
 <br>
           <span class="gray-text">
-         امار بازدید
+         دنبال کنندگان
           </span>
 
           <br>
           <h3 class="black-text">
-         10
+         <%= current_user.followers.size %>
           </span>
 
         </div>
@@ -59,12 +59,12 @@
             <i class="material-icons dp48 large">visibility</i>
 <br>
           <span class="gray-text">
-         امار بازدید
+         دنبال شوندگان
           </span>
 
           <br>
           <h3 class="black-text">
-         10
+         <%= current_user.following.size %>
           </span>
 
         </div>

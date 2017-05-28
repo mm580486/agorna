@@ -11,18 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517073800) do
+ActiveRecord::Schema.define(version: 20170527124439) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",       null: false
-    t.string   "permalink",  null: false
+    t.string   "name",            null: false
+    t.string   "permalink",       null: false
     t.integer  "parent_id"
+    t.integer  "product_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "seller_id"
+    t.string   "body"
+    t.boolean  "accept",           default: false
+    t.boolean  "accept_by_seller", default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "comments", ["product_id"], name: "index_comments_on_product_id"
+  add_index "comments", ["seller_id"], name: "index_comments_on_seller_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
+  add_index "favorites", ["product_id"], name: "index_favorites_on_product_id"
+  add_index "favorites", ["user_id", "product_id"], name: "index_favorites_on_user_id_and_product_id", unique: true
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,13 +86,15 @@ ActiveRecord::Schema.define(version: 20170517073800) do
   add_index "pages", ["user_id"], name: "index_pages_on_user_id"
 
   create_table "product_fields", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "required"
-    t.string   "permalink"
-    t.integer  "position"
+    t.string   "name",                                 null: false
+    t.boolean  "required",        default: false
+    t.string   "permalink",                            null: false
+    t.integer  "position",                             null: false
     t.integer  "product_type_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "field_type"
+    t.string   "categories",      default: "--- []\n"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "product_fields", ["product_type_id"], name: "index_product_fields_on_product_type_id"
@@ -73,26 +102,41 @@ ActiveRecord::Schema.define(version: 20170517073800) do
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
     t.string   "permalink"
+    t.boolean  "lock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",                           null: false
+    t.string   "name",                                 null: false
+    t.integer  "category_id"
     t.string   "price"
     t.string   "off_price"
     t.integer  "position"
     t.boolean  "comment",         default: true
+    t.boolean  "accept",          default: false
     t.integer  "view_product",    default: 0
     t.integer  "product_type_id"
     t.text     "properties"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "images",          default: "--- []\n"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "products", ["product_type_id"], name: "index_products_on_product_type_id"
   add_index "products", ["user_id"], name: "index_products_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
@@ -118,6 +162,25 @@ ActiveRecord::Schema.define(version: 20170517073800) do
     t.datetime "updated_at",                                  null: false
   end
 
+  create_table "ticketmessages", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.string   "file"
+    t.boolean  "seen",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "user_two"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "",    null: false
@@ -129,12 +192,15 @@ ActiveRecord::Schema.define(version: 20170517073800) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "marketer_id"
     t.integer  "level",                  default: 0,     null: false
     t.string   "name",                                   null: false
     t.string   "phone"
     t.boolean  "exposition",             default: false
     t.string   "exposition_name"
     t.string   "exposition_address"
+    t.string   "exposition_detail"
+    t.integer  "category_id"
     t.string   "static_phone"
     t.string   "avatar"
     t.string   "background_image"

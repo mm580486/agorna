@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'materialize-sass'
 gem 'jquery-turbolinks'
 gem 'material_icons'
+gem 'mini_magick'
+gem "rmagick"
 
 # Minify all html code and assets
 gem 'htmlcompressor'
@@ -31,6 +33,13 @@ gem 'twitter'
 gem 'instagram'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
+gem 'pg'
+
+# upload file
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+# manage position of record
+gem 'acts_as_list'
 
 # Save all secret key on database(Not cookie)
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
