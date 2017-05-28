@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170527124439) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name",            null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,9 +39,9 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",                       null: false
   end
 
-  add_index "comments", ["product_id"], name: "index_comments_on_product_id"
-  add_index "comments", ["seller_id"], name: "index_comments_on_seller_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["product_id"], name: "index_comments_on_product_id", using: :btree
+  add_index "comments", ["seller_id"], name: "index_comments_on_seller_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -47,9 +50,9 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "favorites", ["product_id"], name: "index_favorites_on_product_id"
-  add_index "favorites", ["user_id", "product_id"], name: "index_favorites_on_user_id_and_product_id", unique: true
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+  add_index "favorites", ["product_id"], name: "index_favorites_on_product_id", using: :btree
+  add_index "favorites", ["user_id", "product_id"], name: "index_favorites_on_user_id_and_product_id", unique: true, using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.integer  "user_id"
@@ -83,21 +86,21 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
+  add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
   create_table "product_fields", force: :cascade do |t|
-    t.string   "name",                                 null: false
+    t.string   "name",                            null: false
     t.boolean  "required",        default: false
-    t.string   "permalink",                            null: false
-    t.integer  "position",                             null: false
+    t.string   "permalink",                       null: false
+    t.integer  "position",        default: 0,     null: false
     t.integer  "product_type_id"
     t.string   "field_type"
-    t.string   "categories",      default: "--- []\n"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.text     "categories",      default: [],                 array: true
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  add_index "product_fields", ["product_type_id"], name: "index_product_fields_on_product_type_id"
+  add_index "product_fields", ["product_type_id"], name: "index_product_fields_on_product_type_id", using: :btree
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
@@ -109,7 +112,7 @@ ActiveRecord::Schema.define(version: 20170527124439) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",                                 null: false
+    t.string   "name",                            null: false
     t.integer  "category_id"
     t.string   "price"
     t.string   "off_price"
@@ -119,13 +122,13 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.integer  "view_product",    default: 0
     t.integer  "product_type_id"
     t.text     "properties"
-    t.string   "images",          default: "--- []\n"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "images"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  add_index "products", ["product_type_id"], name: "index_products_on_product_type_id"
-  add_index "products", ["user_id"], name: "index_products_on_user_id"
+  add_index "products", ["product_type_id"], name: "index_products_on_product_type_id", using: :btree
+  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -134,9 +137,9 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
@@ -145,8 +148,8 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "site_name",                default: "Agorna", null: false
@@ -214,8 +217,11 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "product_fields", "product_types"
+  add_foreign_key "products", "product_types"
+  add_foreign_key "products", "users"
 end

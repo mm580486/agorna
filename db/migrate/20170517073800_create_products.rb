@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :view_product,default: 0
       t.references :product_type, index: true, foreign_key: true
       t.text :properties
-      t.column  :images, :string, array: true, default: []
+      t.column  :images, :string
 
       t.timestamps null: false
     end

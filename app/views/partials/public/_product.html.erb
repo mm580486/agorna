@@ -1,7 +1,7 @@
         <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
-                            
+                            <%= image_tag product.images.first.url, alt: product.name, class: 'materialboxed' %>
                      <% unless product.images[0].blank? %>
                      <%= image_tag product.images[0].url, alt: product.name, class: 'materialboxed' %>
                      <% else %>
