@@ -108,7 +108,7 @@ class Admin::FormsController < ApplicationController
     if @props.save
       
            flash[:notice]=[5000,t('admin.toast.prop_create')]
-      redirect_to show_props_admin_form_path(@prop.product_field_id)
+      redirect_to show_props_admin_form_path(@props.product_field_id)
     else
           render 'new_prop' 
     end
