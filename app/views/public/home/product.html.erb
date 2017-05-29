@@ -25,7 +25,10 @@
     </div>
     <div class="detail">
         <h5>
+            <%= link_to(exposition_show_path(@product.user.id)) do %>
             <%= @product.user.exposition_name %>
+            
+            <% end %>
             
         </h5>
                          <% 
