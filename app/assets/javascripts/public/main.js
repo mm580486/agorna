@@ -178,12 +178,14 @@ $('.SendMessageForm').slideDown();
                 flw_btn.removeClass('red');
                 flw_btn.addClass('blue');
                 flw_btn.find('i').html('person');
+                 flw_btn.find('span').html('حذف از لیست دنبال شدگان');
             }else{
                 Materialize.toast('فروشگاه از لیست فالوینگ ها حذف شد',4000,'blue');
                 
                 flw_btn.removeClass('blue');
                 flw_btn.addClass('red');  
                 flw_btn.find('i').html('person_add');
+                flw_btn.find('span').html('دنبال کردن فروشـــــگاه');
             }
             flw_btn.attr('followed',res);
         }).fail(function(msg){
