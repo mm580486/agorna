@@ -51,6 +51,7 @@ Rails.application.routes.draw do
         post 'save_props'
         get 'delete_prop'
         get 'edit_prop'
+        get 'show_props'
         
        end
     end
