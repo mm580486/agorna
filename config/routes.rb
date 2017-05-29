@@ -124,6 +124,7 @@ Rails.application.routes.draw do
     get 'following_post'
     get 'category'
     get 'favorites'
+    get 'search'
     
   end
   

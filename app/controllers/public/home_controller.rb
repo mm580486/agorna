@@ -53,6 +53,14 @@ class Public::HomeController < ApplicationController
        @products=current_user.favorite_produts
     end
     
+    def search 
+       if params[:type]=='product'
+           @products = Product.where('name LIKE %?%',params[:q])
+       else
+           @expositions=User.sellers.where('exposition_name LIKE %?% OR name LIKE %?%',params[:q],params[:q]) 
+       end
+    end
+    
     
     def save_exposition
         @user = User.new(exposition_white_list)
