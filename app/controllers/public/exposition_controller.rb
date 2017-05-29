@@ -8,7 +8,7 @@ class Public::ExpositionController < ApplicationController
       sort=(params[:sort]=='asc')? 'ASC':'DESC'
       @products=@products.order(created_at: sort)
     end
-    
+    @products=@products.where.not(off_price: nil ) if params[:offers].present?
     
     @comment=@exposition.comments.new()
     @comments=Comment.where(seller_id: @exposition.id)
