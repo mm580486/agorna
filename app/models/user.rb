@@ -9,7 +9,12 @@ class User < ActiveRecord::Base
   has_many :pages
   has_many :categories
   has_many :products, :dependent => :destroy
-  has_many :favorites, :dependent => :destroy
+  # has_many :favorites, :dependent => :destroy
+  has_many :passive_favorites, class_name:  "Favorite",
+             foreign_key: "user_id",
+             dependent:   :destroy
+  has_many :favorite_produts, through: :passive_favorites
+  
   has_many :active_relationships,  class_name:  "Relationship",
              foreign_key: "follower_id",
              dependent:   :destroy

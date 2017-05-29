@@ -50,7 +50,7 @@ class Public::HomeController < ApplicationController
     
     end
     def favorites
-       @products=current_user.favorites 
+       @products=current_user.favorites
     end
     
     
