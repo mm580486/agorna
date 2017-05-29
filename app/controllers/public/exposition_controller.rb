@@ -2,6 +2,8 @@ class Public::ExpositionController < ApplicationController
   layout 'public'
   def show
     @exposition=User.sellers.find(params[:id])
+    @products=@exposition.products
+    @products=@products.where(category_id: Category.find_by_permalink(params[:category]).id ) if params[:category].present?
     @comment=@exposition.comments.new()
     @comments=Comment.where(seller_id: @exposition.id)
   end
