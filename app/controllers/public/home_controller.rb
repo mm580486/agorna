@@ -55,9 +55,9 @@ class Public::HomeController < ApplicationController
     
     def search 
        if params[:type]=='product'
-           @products = Product.where("name LIKE '%?%'",params[:q])
+           @products = Product.where("name LIKE ?", "%#{params[:q]}%")
        else
-           @expositions=User.sellers.where("exposition_name LIKE '%?%' OR name LIKE '%?%'",params[:q],params[:q]) 
+           @expositions=User.sellers.where("exposition_name LIKE ? OR name LIKE ?", "%#{params[:q]}%","%#{params[:q]}%") 
        end
     end
     
