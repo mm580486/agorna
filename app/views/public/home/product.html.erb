@@ -40,7 +40,7 @@
      
         <span class="rating" disabled="disabled"  data-default-rating="<%= default_rate %>"></span>
         <% else %>
-        <span class="rating" <%= 'disabled="disabled"' unless  current_user.voteing.find_by_exposition_id(product.user.id).nil?  %> data-default-rating="<%=  default_rate %>" exposition_id='<%= product.user.id %>'></span>
+        <span class="rating" <%= 'disabled="disabled"' unless  current_user.voteing.find_by_exposition_id(@product.user.id).nil?  %> data-default-rating="<%=  default_rate %>" exposition_id='<%= @product.user.id %>'></span>
 <% end %>
 
 
