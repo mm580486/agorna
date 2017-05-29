@@ -612,3 +612,6 @@ text-align: right;
 
 i::-moz-selection { background: none;color: none; }
 i::selection { background: none;color: none; }
+.gray-text{
+color: #757575 !important;    
+}
