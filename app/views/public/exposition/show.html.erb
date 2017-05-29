@@ -62,12 +62,13 @@ nav {
         <h5>
             <%= @exposition.exposition_name %>
         </h5>
-        <span class="new badge green accent-4" data-badge-caption="<%= @exposition.votes.sum(:vote).to_f / @exposition.votes.size.to_f rescue 0  %> از ۵ "></span>
-          <% 
+             <% 
         default_rate=(@exposition.votes.sum(:vote).to_f / @exposition.votes.size.to_f) 
         default_rate=0 if default_rate.nan?
         default_rate=default_rate.round(2)
         %> 
+        <span class="new badge green accent-4" data-badge-caption="<%= default_rate  %> از ۵ "></span>
+     
         <% if current_user.nil? %>
         
      
