@@ -1,12 +1,6 @@
     <%= render partial: 'partials/public/fix_menu' %>
          <ul class="side-nav" id="nav-mobile" style="transform: translateX(0px);">
-            <li class="k"><a href="/pages/demo"><i class="material-icons">camera</i>Gallery</a></li>
-            <li><a href="/pages/dark-theme"><i class="material-icons">brightness_3</i>Dark Theme</a></li>
-            <li><a href="/pages/blog"><i class="material-icons">edit</i>Blog</a></li>
-            <li><a href="/pages/docs"><i class="material-icons">school</i>Docs</a></li>
-            <li><a href="/pages/full-header"><i class="material-icons">fullscreen</i>Fullscreen Header</a></li>
-            <li><a href="/pages/horizontal"><i class="material-icons">swap_horiz</i>Horizontal Style</a></li>
-            <li><a href="/pages/no-image"><i class="material-icons">texture</i>No Image Expand</a></li>
+          <%= render partial: 'public/home/menu_links' %>
         </ul>
 
         <nav class="nav-extended x">
@@ -14,18 +8,10 @@
                 <div class="ea k" style="background-image: url('//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/icon-seamless.png?12295265317662713736');"></div>
             </div>
             <div class="nav-wrapper db container">
-                <a href="/pages/demo" class="brand-logo"><i class="material-icons">camera</i>Agorna</a>
+                <a href="/" class="brand-logo"><i class="material-icons">camera</i>PinSood</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="bt hide-on-med-and-down">
-                    <li><a href="/pages/demo">Gallery</a></li>
-                    <li><a href="/pages/dark-theme">Dark Theme</a></li>
-                    <li><a href="/pages/blog">Blog</a></li>
-                    <li class="k"><a href="/pages/docs">Docs</a></li>
-                    <li><a class="dropdown-button" href="#" data-activates="feature-dropdown" data-beloworigin="true" data-constrainwidth="false">Features<i class="material-icons bt">arrow_drop_down</i></a><ul id="feature-dropdown" class="dropdown-content">
-                        <li><a href="/pages/full-header">Fullscreen Header</a></li>
-                        <li><a href="/pages/horizontal">Horizontal Style</a></li>
-                        <li><a href="/pages/no-image">No Image Expand</a></li>
-                    </ul></li>
+              <%= render partial: 'public/home/menu_links' %>
                 </ul>
                 <!-- Dropdown Structure -->
 
