@@ -99,7 +99,7 @@ class Admin::FormsController < ApplicationController
   end
   
   def new_prop
-    @field=ProductField.find(params[:id]).props.new
+    @prop=ProductField.find(params[:id]).props.new
   end
   
   def save_props
