@@ -21,6 +21,11 @@ end
     
   end
   
+  def rate
+    render text: 'salam'
+    
+  end
+  
   def follow
     if params[:followed]=='false'
       User.find(params[:id]).followers << current_user

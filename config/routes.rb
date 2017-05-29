@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   post 'exposition/create_comment',to: 'public/exposition#create_comment',:as => :create_comments
   
   get 'exposition/follow',to: 'public/exposition#follow'
+  get 'exposition/rate',to: 'public/exposition#rate'
 
   
  namespace :public do

@@ -99,12 +99,15 @@ $('.SendMessageForm').slideDown();
 
         ratings[i].addEventListener('rate', function(e) {
             console.log('Rating: ' + e.detail);
-            
-           
-            
-            
-            
-            
+            $.ajax({
+            url: "/exposition/rate/",
+            method: "GET",
+            data:   'exposition_id='+'2332'+'&vote='+'232',
+            dataType: "html"
+            }).success(function( res ) {
+                alert(res)
+            })
+        
         });
     }
    
