@@ -98,14 +98,17 @@ $('.SendMessageForm').slideDown();
         var r = new SimpleStarRating(ratings[i]);
 
         ratings[i].addEventListener('rate', function(e) {
+            var ex_id=ratings[i].attr('exposition_id');
+            
             console.log('Rating: ' + e.detail);
             $.ajax({
             url: "/exposition/rate/",
             method: "GET",
-            data:   'exposition_id='+'2332'+'&vote='+'232',
+            data:   'exposition_id='+ex_id+'&vote='+e.detail,
             dataType: "html"
             }).success(function( res ) {
-                alert(res)
+                 Materialize.toast('امتیاز شما ثبت شد',4000,'blue');
+                console.log(res)
             })
         
         });

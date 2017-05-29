@@ -22,7 +22,14 @@ end
   end
   
   def rate
-    render text: 'salam'
+     if current_user.voteing.create(vote: params[:vote].to_f,exposition_id: params[:exposition_id])
+
+       user=User.find(params[:exposition_id])
+       vote=User.first.votes.sum(:vote).to_f / User.first.votes.size
+       render text: vote
+
+    end
+    
     
   end
   
