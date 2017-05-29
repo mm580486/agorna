@@ -10,6 +10,21 @@ class Public::ExpositionController < ApplicationController
     end
     @products=@products.where.not(off_price: '' ) if params[:offers].present?
     
+ 
+    filter_name=params[:filter_name].split('@') if params[:props].present? && params[:filter_name].present?
+    props=params[:props].split('@') if params[:props].present? && params[:filter_name].present?
+    
+    if params[:props].present? && params[:filter_name].present?
+    filter_name.each do |filter|
+      props.each do |prop|
+       ids.append @products.where(Product.arel_table[:properties].matches("%#{ProductField.find_by_permalink(filter).name}: #{Prop.find_by_permalink(prop).name}%")).ids 
+      end
+    end
+  end
+  
+  @products=@products.where(id: ids) unless ids.nil?
+    
+    
     @comment=@exposition.comments.new()
     @comments=Comment.where(seller_id: @exposition.id)
   end
