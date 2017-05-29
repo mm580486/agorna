@@ -88,7 +88,7 @@
 
 <%= form_for(@ticket,url: public_tickets_path,method: :POST,html:{id: 'ExpositionRegisterForm',class: 'col s12 right-align'}) do |f| %>
                                 
-
+<%= f.hidden_field :user_two , params[:id] %>
 
                                 <div class="row">
                                     <div class="input-field col s12">
