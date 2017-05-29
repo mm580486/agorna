@@ -13,7 +13,7 @@
                             
                                 
                                 
-                                <%= link_to product.name , product_show_path(id: product.id),class: 'card-title align right' %>
+                                <%= link_to product.name , product_show_path(id: product.id),class: 'card-title align right gray-text' %>
                                 
                                 
 <% unless current_user.nil? %>
@@ -23,7 +23,7 @@
 <% end %>
                         </div>
                         <div class="card-content">
-                            <p class='align right'>
+                            <p class='align right' style='direction:rtl;'>
                                 
                                <%= product.detail %>
                                 </p>
