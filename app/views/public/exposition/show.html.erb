@@ -62,7 +62,7 @@ nav {
         <h5>
             <%= @exposition.exposition_name %>
         </h5>
-        <span class="new badge green accent-4" data-badge-caption="امتیاز از ۵ ">4.5</span>
+        <span class="new badge green accent-4" data-badge-caption="<%= @exposition.votes.sum(:vote).to_f / @exposition.votes.size.to_f rescue 0  %>یاز از ۵ ">4.5</span>
         <span class="rating" data-default-rating="<%= @exposition.votes.sum(:vote).to_f / @exposition.votes.size.to_f rescue 0  %>" exposition_id='<%= @exposition.id %>'></span>
 
 
