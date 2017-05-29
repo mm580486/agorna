@@ -184,18 +184,20 @@
               <img src="http://takhfifan.com/skin/frontend/v3/default/images/deal-time.png" alt="">
               <br>
               <span>
-                  ارسال تیکت به فروشـــــگاه
+                  
+                  <%= link_to 'ارسال تیکت به فروشـــــگاه',new_public_ticket_path(id: @product.user.id) %>
               </span>
             </div>
           </div>
                              
        <div class="card-panel col s12 m3">
-         
+         <a class='exposition-follow' href="#" data-id='<%= @product.user.id %>' followed='<%= @product.user.followers.include? current_user %>'>
             <div class="inner align center clear">
               <img src="http://takhfifan.com/skin/frontend/v3/default/images/deal-time.png" alt="">
               <br>
               <span>دنبال کردن فروشـــــگاه</span>
             </div>
+            </a>
           </div>
           
           
