@@ -52,9 +52,8 @@
              فروشگاه های افزوده شده
         </a></li>
 
-                   <li class="bold"><a href="/users/sign_out" class="waves-effect waves-teal">
-             خروج
-        </a></li>
+          <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
+          </li>
             
        
       </ul>
