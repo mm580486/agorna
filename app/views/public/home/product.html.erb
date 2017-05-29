@@ -191,14 +191,16 @@
           </div>
                              
        <div class="card-panel col s12 m3">
-         <a class='exposition-follow' href="#" data-id='<%= @product.user.id %>' followed='<%= @product.user.followers.include? current_user %>'>
+         
             <div class="inner align center clear">
               
     <i class="material-icons" style='font-size: -webkit-xxx-large;'>person_add</i>
+    <a class='exposition-follow' href="#" data-id='<%= @product.user.id %>' followed='<%= @product.user.followers.include? current_user %>'>
               <br>
               <span>دنبال کردن فروشـــــگاه</span>
+               </a>
             </div>
-            </a>
+           
           </div>
           
           

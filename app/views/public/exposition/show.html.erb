@@ -194,6 +194,60 @@ nav {
 
                 <div class="col s12 m6 left container right-align">
                     <div class="card-panel exposition-info-card">
+                        
+                        
+                        
+                                    
+            <div class="deal-features-list clear col s12 m12 container">
+        <div class="card-panel col s12 m3">
+         
+            <div class="inner align center clear">
+              <i class="material-icons" style='font-size: -webkit-xxx-large;'>forum</i>
+              <br>
+              <span>
+                  
+                  <%= link_to 'ارسال تیکت به فروشـــــگاه',new_public_ticket_path(id: @exposition.id) %>
+              </span>
+            </div>
+          </div>
+                             
+       <div class="card-panel col s12 m3">
+         
+            <div class="inner align center clear">
+              
+    <i class="material-icons" style='font-size: -webkit-xxx-large;'>person_add</i>
+    <a class='exposition-follow' href="#" data-id='<%= @exposition.id %>' followed='<%= @exposition.followers.include? current_user %>'>
+              <br>
+              <span>دنبال کردن فروشـــــگاه</span>
+               </a>
+            </div>
+           
+          </div>
+          
+          
+                <div class="card-panel col s12 m3">
+         
+            <div class="inner align center clear">
+              <i class="material-icons" style='font-size: -webkit-xxx-large;'>flag</i>
+              <br>
+              <span>شکایت از فروشـــــگاه</span>
+            </div>
+          </div>
+          
+                <div class="card-panel col s12 m3">
+         
+            <div class="inner align center clear">
+              <i class="material-icons" style='font-size: -webkit-xxx-large;'>location_on</i>
+              <br>
+              <span>فروشـــــگاه در گوگل مپ</span>
+            </div>
+          </div>
+          
+          
+          
+        </div>
+        
+        
 
             <h6>
                 اطلاعات فروشگاه
