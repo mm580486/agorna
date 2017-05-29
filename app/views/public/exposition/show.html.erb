@@ -23,7 +23,7 @@ nav {
       <li><a class="subheader">کتگوری</a></li>
     <% Category.where(parent_id: @exposition.category_id).each do |category| %>
     <li>
-        <%= active_link_to category.name ,{category: category.permalink,offers: params[:offers],sort: params[:sort],filter_name: params[:filter_name],props: params[:props] } %>
+        <%= active_link_to category.name ,{category: category.permalink,offers: params[:offers],sort: params[:sort],filter_name: params[:filter_name],props: params[:props] }, active: :exact %>
         
     </li>
     <% end %>
@@ -31,17 +31,17 @@ nav {
     <li><a class="subheader">ترتیب</a></li>
     <li>
         
-        <%= active_link_to 'نزولی',{sort: 'asc',category: params[:category],offers: params[:offers],filter_name: params[:filter_name],props: params[:props] } %>
+        <%= active_link_to 'نزولی',{sort: 'asc',category: params[:category],offers: params[:offers],filter_name: params[:filter_name],props: params[:props] }, active: :exact %>
         
     
     </li>
     <li>
-        <%= active_link_to 'صعودی',{sort: 'desc',category: params[:category],offers: params[:offers],filter_name: params[:filter_name],props: params[:props] } %>
+        <%= active_link_to 'صعودی',{sort: 'desc',category: params[:category],offers: params[:offers],filter_name: params[:filter_name],props: params[:props] }, active: :exact %>
     </li>
     
        <li><div class="divider"></div></li>
     
-    <li><%= active_link_to 'تخفیف خورده ها',{offers: 'true',sort: params[:sort],category: params[:category],filter_name: params[:filter_name],props: params[:props] } %></li>
+    <li><%= active_link_to 'تخفیف خورده ها',{offers: 'true',sort: params[:sort],category: params[:category],filter_name: params[:filter_name],props: params[:props] }, active: :exact %></li>
     
        <li><div class="divider"></div></li>
        
@@ -50,7 +50,7 @@ nav {
     <% field.props.each do |prop| %>
      <li>
          
-         <%= active_link_to prop.name,{props: prop.permalink,filter_name: prop.product_field.permalink,sort: params[:sort],category: params[:category],offers: params[:offers] } %>
+         <%= active_link_to prop.name,{props: prop.permalink,filter_name: prop.product_field.permalink,sort: params[:sort],category: params[:category],offers: params[:offers] }, active: :exact %>
      
      </li>
     <% end %>
