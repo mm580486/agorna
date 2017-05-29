@@ -108,7 +108,8 @@ $('.SendMessageForm').slideDown();
             dataType: "html"
             }).success(function( res ) {
                  Materialize.toast('امتیاز شما ثبت شد',4000,'blue');
-                console.log(res)
+                console.log(res);
+                $(ratings).attr('disabled','disabled');
             })
         
         });
