@@ -115,7 +115,7 @@ class Admin::FormsController < ApplicationController
   end
   
   def edit_prop
-     @field=Prop.find(params[:id])
+     @prop=Prop.find(params[:id])
   end
   
   def delete_prop
