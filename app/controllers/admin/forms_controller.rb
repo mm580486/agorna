@@ -89,6 +89,43 @@ class Admin::FormsController < ApplicationController
     redirect_to show_fields_admin_form_path(@field.product_type_id)
   end
   
+  
+  
+  # Props manager 
+  
+  def show_props
+    @props=ProductField.find(params[:id]).props
+    
+  end
+  
+  def new_prop
+    @field=ProductField.find(params[:id]).props.new
+  end
+  
+  def save_props
+    @props=ProductField.find(params[:id]).props.new(props_white_list)
+    
+    if @props.save
+      
+           flash[:notice]=[5000,t('admin.toast.prop_create')]
+      redirect_to show_props_admin_form_path(@prop.product_field_id)
+    else
+          render 'new_prop' 
+    end
+  end
+  
+  def edit_prop
+     @field=Prop.find(params[:id])
+  end
+  
+  def delete_prop
+    @prop=Prop.find(params[:id])
+    @prop.destroy
+    flash[:notice]=[5000,t('admin.toast.prop_delete')]
+    redirect_to show_props_admin_form_path(@prop.product_field_id)
+  end
+  
+  
   private
   def find_form
     @form=ProductType.find(params[:id])
@@ -100,6 +137,10 @@ class Admin::FormsController < ApplicationController
   
   def fields_white_list
     params.require(:product_field).permit(:name,:permalink,:field_type)
-    
   end
+  
+  def props_white_list
+    params.require(:prop).permit(:name,:permalink)
+  end
+  
 end

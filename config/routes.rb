@@ -46,6 +46,12 @@ Rails.application.routes.draw do
         post 'save_fields'
         get 'delete_field'
         get 'edit_field'
+        
+        get 'new_prop'
+        post 'save_props'
+        get 'delete_prop'
+        get 'edit_prop'
+        
        end
     end
     

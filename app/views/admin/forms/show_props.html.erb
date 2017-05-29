@@ -1,0 +1,53 @@
+
+
+<%# content_for :head do %>
+  
+  
+<%# end %>
+
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+
+        <table class='striped highlight bordered'>
+            <thead>
+              <tr>
+                  <th>ویرایش</th>
+                  
+                
+                 
+                  <th>پرمالینک</th>
+  <th>نام پروپرتی</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+            <% @props.each do |prop| %>
+              <tr>
+                <td>
+                  <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_prop_admin_form_path(prop.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
+                  <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_prop_admin_form_path(prop.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
+        
+                </td>
+               
+                <td><%= prop.permalink %></td>
+                <td><%= prop.name %></td>
+              </tr>
+            <% end %>
+              
+              
+            
+            </tbody>
+          </table>
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+<%= link_to(raw('<i class="material-icons">add</i>'),new_field_admin_form_path,class: 'btn-floating btn-large waves-effect waves-light red',style: 'position:fixed;bottom: 20px; left: 24px;') %>
+</main>
