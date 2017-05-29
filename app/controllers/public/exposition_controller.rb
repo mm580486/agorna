@@ -7,7 +7,11 @@ class Public::ExpositionController < ApplicationController
   end
   
   def create_comment
+unless params[:p_id].nil?
+@comment=current_user.comments.new(product_id: params[:p_id],body: params[:comment][:body])
+else
     @comment=current_user.comments.new(seller_id: params[:ex_id],body: params[:comment][:body])
+end
     if @comment.save
     flash[:notice]=[5000,t('public.toast.comment_created')]
     else

@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration
       t.references :product_type, index: true, foreign_key: true
       t.text :properties, :hstore, default: {}
       t.column  :images, :string
-
+      t.string :detail 
       t.timestamps null: false
     end
   end

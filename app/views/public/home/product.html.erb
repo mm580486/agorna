@@ -35,7 +35,7 @@
                     <div class="row">
 <div class="col s12 m6 push-m2 exposition-info right text-right">
     <div class="exposition-logo">
-        <img src="https://www.reyhoon.com/images/logo/242.jpeg?_=1488378913" alt="" class="responsive-img">
+     <%= image_tag(@product.user.avata_url,class: "responsive-img")  %>
     </div>
     <div class="detail">
         <h5>
@@ -138,15 +138,14 @@
             <div class="card-panel">
 
                 <div class="carousel">
-                    <a class="carousel-item" href="#one!"><img class="materialboxed" src="http://lorempixel.com/550/550/nature/1"></a>
-                    <a class="carousel-item" href="#two!"><img class="materialboxed" src="http://lorempixel.com/550/550/nature/2"></a>
-                    <a class="carousel-item" href="#three!"><img class="materialboxed" src="http://lorempixel.com/550/550/nature/3"></a>
-                    <a class="carousel-item" href="#four!"><img class="materialboxed" src="http://lorempixel.com/550/550/nature/4"></a>
-                    <a class="carousel-item" href="#five!"><img class="materialboxed" src="http://lorempixel.com/250/250/nature/5"></a>
-
+<% @product.images.each do |image| %>
+                    <a class="carousel-item" href="#one!">
+<%= image_tag(image.url,class: 'materialboxed') %>
+</a>
+<% end %>                    
                 </div>
 
-
+<%= @product.detail %>
 
        <% @product.properties.each do |name, value| %>
        
@@ -177,20 +176,19 @@
                         <div class="divider"></div>
 
                         <h5>
-                            چوپی برگر
-
+                           <%= @product.user.exposition_name %>
                         </h5>
 
 
                         <h6>
-با مدیریت محمد محمودی
+با مدیریت <%= @product.user.name %>
                         </h6>
 <h6>
-    آدرس: میدان سپاه، خیابان سپاه، نبش کوچه حسینی
+    آدرس: <%= @product.user.exposition_address %>
 
 </h6>
                         <h6>
-تلفن تماس: ۰۲۱۷۷۶۲۹۳۱۹
+تلفن تماس: ۰۲۱۷۷۶۲
                         </h6>
 
                         <h6>
@@ -212,14 +210,14 @@
                      </h6>
                         <div class="divider"></div>
 
-
+<% @product.comments.each do |comment| %>
                         <div class="row">
                             <div class="col s12 m12">
                                 <div class="card grey lighten-5">
                                     <div class="card-content black-text">
-                                        <span class="card-title">مصطفی</span>
+                                        <span class="card-title"><%= comment.user.name %></span>
                                         <p>
-                                            ماشروم برگر خوشمزه وخوب بود.ولی پیتزای مخصوص خیلی کالباس داشت با توجه به مواد تشکیل دهنده که نوشته بودن پیتزا مخصوص شامل گوشت چرخ کرده مرغ و ژامبون هست 85 درصد ژامبون بود 5درصد گوشت چرخ کرده و 10 درصد مرغ.که با توجه به اینکه من خودم خیلی علاقه ای به سوسیس وکالباس ندارم خیلی جالب نبود
+                                            <%= comment.body %>
 
                                         </p>
                                     </div>
@@ -230,9 +228,9 @@
                                     </div>
                                 </div>
                             </div>
+<% end %>
 
-
-                               <%= form_for @comment ,url: create_comments_path(ex_id: @exposition.id),html: {class: 'col s12 SendMessageForm',style: 'display:none;'},method: :POST do |f| %>
+                               <%= form_for @comment ,url: create_comments_path(p_id: @product.id),html: {class: 'col s12 SendMessageForm',style: 'display:none;'},method: :POST do |f| %>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         

@@ -35,7 +35,7 @@
         
                 <div class="file-field input-field col s12">
                                     <div class="btn">
-                                        <span>افزودن عکس</span>
+                                        <span>افزودن آواتار</span>
                                         <%= f.file_field :images, multiple: true,id: 'product_images' %>
                                         
                                     </div>
@@ -51,22 +51,94 @@
           <%= f.label :price, 'قیمت' ,:'data-error' => "wrong", 'data-success'=> "" %>
         </div>
     
-   
+    <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+	     <%= f.text_area :detail ,id: "textarea1" ,class: "materialize-textarea" ,'data-length':"120" %>
+            <label for="textarea1">توضیحات محصول
+
+
+
+</label>
+          </div>
+        </div>
         
+
+
+
+
+
+
+
+
+
+
+کوحک
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="input-field col s12">
           <%= f.text_field :off_price,class: 'validate', required: "required" %>
           <%= f.label :off_price, 'قیمت تخفیف خورده' ,:'data-error' => "wrong", 'data-success'=> "" %>
         </div>  
         
-   
-    <div class="row">
-          <div class="input-field col s12">
-
-             <%= f.text_area :detail ,id: "textarea1" ,class: "materialize-textarea" ,'data-length':"120" %>
-            <label for="textarea1">توضیحات محصول</label>
-          </div>
-        </div>
-     
+        
         <div class=" col s12">
           <%= f.check_box :comment,class: 'filled-in' %>
           <%= f.label :comment, 'نظرات' %>

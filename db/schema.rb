@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170527124439) do
     t.text     "properties",      default: "--- {}\n"
     t.text     "hstore",          default: "--- {}\n"
     t.string   "images"
+    t.string   "detail"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end

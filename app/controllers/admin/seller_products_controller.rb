@@ -39,7 +39,7 @@ class Admin::SellerProductsController < ApplicationController
     end
 
   def product_white_list
-    params.require(:product).permit(:name, :product_type_id,:price,:off_price, {images: []}).tap do |whitelisted|
+    params.require(:product).permit(:name, :product_type_id,:price,:off_price,:detail, {images: []}).tap do |whitelisted|
       whitelisted[:properties] = params[:product][:properties]
     end
     end
