@@ -19,24 +19,24 @@ nav {
       <li><a class="subheader">کتگوری</a></li>
     <% Category.where(parent_id: @exposition.category_id).each do |category| %>
     <li>
-        <%= link_to category.name ,{category: category.permalink } %>
+        <%= link_to category.name ,{category: category.permalink,offers: params[:offers],sort: params[:sort] } %>
         
     </li>
     <% end %>
     
     <li><a class="subheader">ترتیب</a></li>
     <li>
-        <%= link_to 'صعودی',{sort: 'asc' } %>
+        <%= link_to 'صعودی',{sort: 'asc',category: params[:category],offers: params[:offers] } %>
         
     
     </li>
     <li>
-        <%= link_to 'نزولی',{sort: 'desc' } %>
+        <%= link_to 'نزولی',{sort: 'desc',category: params[:category],offers: params[:offers] } %>
     </li>
     
        <li><div class="divider"></div></li>
     
-    <li><%= link_to 'تخفیف خورده ها',{offers: 'true' } %></li>
+    <li><%= link_to 'تخفیف خورده ها',{offers: 'true',sort: params[:sort],category: params[:category] } %></li>
     
        <li><div class="divider"></div></li>
        
