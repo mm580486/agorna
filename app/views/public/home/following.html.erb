@@ -18,15 +18,33 @@
                 <a href="/pages/demo" class="brand-logo"><i class="material-icons">camera</i>Agorna</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="bt hide-on-med-and-down">
-                    <li><a href="/pages/demo">Gallery</a></li>
-                    <li><a href="/pages/dark-theme">Dark Theme</a></li>
-                    <li><a href="/pages/blog">Blog</a></li>
-                    <li class="k"><a href="/pages/docs">Docs</a></li>
-                    <li><a class="dropdown-button" href="#" data-activates="feature-dropdown" data-beloworigin="true" data-constrainwidth="false">Features<i class="material-icons bt">arrow_drop_down</i></a><ul id="feature-dropdown" class="dropdown-content">
-                        <li><a href="/pages/full-header">Fullscreen Header</a></li>
-                        <li><a href="/pages/horizontal">Horizontal Style</a></li>
-                        <li><a href="/pages/no-image">No Image Expand</a></li>
-                    </ul></li>
+           
+           
+                  <% unless current_user.nil? %>
+                  <li>
+                      <%= link_to 'دنبال شدگان',public_home_following_path %>
+                  </li>
+                  <li>
+                      <%= link_to 'تایم لاین',public_home_following_post_path %>
+                  </li>
+                  
+                   <li>
+                      <%= link_to 'تیکت ها',public_tickets_path %>
+                  </li>
+                  <% end %>
+                  
+                        <li><a href="/pages/demo">
+                    فرصت‌های شغلی
+                    </a></li>
+                    <li><a href="/pages/dark-theme">
+                        درباره آگورنا
+                    </a></li>
+                    <li><a href="/pages/blog">
+                    وبلاگ
+                    </a></li>
+           
+           
+           
                 </ul>
                 <!-- Dropdown Structure -->
 
@@ -35,7 +53,7 @@
 
 
 
-                    <h5>صندوق پیام</h5>
+                    <h5>دنبال شدگان</h5>
 
 
 
