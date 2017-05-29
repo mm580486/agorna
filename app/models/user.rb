@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :identities
   has_many :pages
   has_many :categories
+  
+  has_many :voteing,foreign_key: "user_id",class_name: 'Rate',dependent:   :destroy
+  has_many :votes,foreign_key: "exposition_id",class_name: 'Rate',dependent:   :destroy
+  
   has_many :products, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
   has_many :passive_favorites, class_name:  "Favorite",

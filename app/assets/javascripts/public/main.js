@@ -99,6 +99,12 @@ $('.SendMessageForm').slideDown();
 
         ratings[i].addEventListener('rate', function(e) {
             console.log('Rating: ' + e.detail);
+            
+           
+            
+            
+            
+            
         });
     }
    
