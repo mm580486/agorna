@@ -29,7 +29,18 @@
             
         </h5>
         <span class="new badge green accent-4" data-badge-caption="امتیاز از ۵ ">4.5</span>
-        <span class="rating" data-default-rating="4.5" disabled></span>
+                  <% 
+        default_rate=(product.user.votes.sum(:vote).to_f / product.user.votes.size.to_f) 
+        default_rate=0 if default_rate.nan?
+        default_rate=default_rate.round(2)
+        %> 
+        <% if current_user.nil? %>
+        
+     
+        <span class="rating" disabled="disabled"  data-default-rating="<%= default_rate %>"></span>
+        <% else %>
+        <span class="rating" <%= 'disabled="disabled"' unless  current_user.voteing.find_by_exposition_id(product.user.id).nil?  %> data-default-rating="<%=  default_rate %>" exposition_id='<%= product.user.id %>'></span>
+<% end %>
 
 
         <h6 class="phone clearfix">
