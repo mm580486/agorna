@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :passive_favorites, class_name:  "Favorite",
              foreign_key: "user_id",
              dependent:   :destroy
-  has_many :favorite_produts, through: :passive_favorites
+  has_many :favorite_produts, through: :passive_favorites,  source: :product
   
   has_many :active_relationships,  class_name:  "Relationship",
              foreign_key: "follower_id",
