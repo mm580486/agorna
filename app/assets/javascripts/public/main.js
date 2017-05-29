@@ -98,7 +98,7 @@ $('.SendMessageForm').slideDown();
         var r = new SimpleStarRating(ratings[i]);
 
         ratings[i].addEventListener('rate', function(e) {
-            var ex_id=ratings[i].attr('exposition_id');
+            var ex_id=$(ratings).attr('exposition_id');
             
             console.log('Rating: ' + e.detail);
             $.ajax({
