@@ -47,17 +47,43 @@
 
                 <div class="row">
                     <div class="col l3 s12 right">
-                        <h6 class="white-text">درباره آگورنا
+                        <h6 class="white-text">
+                            دسترسی سریع
 
                         </h6>
 
                         <div class="divider"></div>
                         <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">لینک</a></li>
-
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                       
+                             <% unless current_user.nil? %>
+   <li>
+                      <%= link_to 'علاقه مندی ها',public_home_favorites_path,class:"grey-text text-lighten-3" %>
+                  </li>
+                  <li>
+                      <%= link_to 'دنبال شدگان',public_home_following_path,class:"grey-text text-lighten-3" %>
+                  </li>
+                  <li>
+                      <%= link_to 'تایم لاین',public_home_following_post_path,class:"grey-text text-lighten-3" %>
+                  </li>
+                  
+                   <li>
+                      <%= link_to 'تیکت ها',public_tickets_path ,class:"grey-text text-lighten-3"%>
+                  </li>
+                  <% end %>
+                  
+                        <li><a href="/pages/demo" class="grey-text text-lighten-3">
+                    فرصت‌های شغلی
+                    </a></li>
+                  
+                    <li><a href="/" class="grey-text text-lighten-3">
+                    صفحه اصلی
+                    </a>
+                    
+                    </li>
+                            
+                            
+                            
+                            
                         </ul>
                     </div>
 
@@ -70,11 +96,11 @@
 
                     <div class="divider"></div>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">لینک</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">درباره پین سود</a></li>
 
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">تماس با ما</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">قوانین و مقررات</a></li>
+                        
                     </ul>
                 </div>
 
