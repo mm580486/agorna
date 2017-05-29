@@ -16,10 +16,14 @@ nav {
         </li>
     
     <li><div class="divider"></div></li>
-    <li>کتگوری</li>
+      <li><a class="subheader">کتگوری</a></li>
     <% Category.where(parent_id: @exposition.category_id).each do |category| %>
     <li><a href="#!"><%= category.name %></a></li>
     <% end %>
+    <li><a class="subheader">ترتیب</a></li>
+    <li><a href="#!">صعودی</a></li>
+    <li><a href="#!">نزولی</a></li>
+    
     
     
     
