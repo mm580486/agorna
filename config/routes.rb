@@ -115,6 +115,7 @@ Rails.application.routes.draw do
     get 'following'
     get 'following_post'
     get 'category'
+    get 'favorites'
     
   end
   

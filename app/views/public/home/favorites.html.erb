@@ -1,0 +1,84 @@
+
+    <%= render partial: 'partials/public/fix_menu' %>
+         <ul class="side-nav" id="nav-mobile" style="transform: translateX(0px);">
+              <%= render partial: 'public/home/menu_links' %>
+        </ul>
+
+        <nav class="nav-extended x">
+            <div class="nav-background">
+                <div class="ea k" style="background-image: url('//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/icon-seamless.png?12295265317662713736');"></div>
+            </div>
+            <div class="nav-wrapper db container">
+                <a href="/" class="brand-logo"><i class="material-icons">camera</i>PinSood</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="bt hide-on-med-and-down">
+           
+           <%= render partial: 'public/home/menu_links' %>
+                
+           
+           
+           
+                </ul>
+                <!-- Dropdown Structure -->
+
+
+                <div class="nav-header de researcher ">
+
+
+
+                    <h5>دنبال شدگان</h5>
+
+
+
+                    </div>
+
+
+
+
+                    <!--<div class="ge">Learn how to do stuff</div>-->
+
+                </div>
+
+
+
+
+
+
+
+
+        </nav>
+
+
+
+
+
+        <nav id="fix-menu-bar" style="display: none;">
+            <div class="nav-wrapper">
+                <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul id="nav-dd" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">فرهنگ و هنز</a></li>
+                    <li><a href="badges.html">الکترونیک</a></li>
+                    <li><a href="collapsible.html">پوشاک</a></li>
+                </ul>
+
+                <a class="waves-effect waves-light btn" href="#LR_modal"><i class="material-icons right">person_pin</i>ورود \ ثبت نام</a>
+
+            </div>
+        </nav>
+
+
+        <div class="inner">
+            <div class="row">
+                
+                
+               <% @products.each do |product| %>
+               <%= render partial: 'partials/public/product',locals: {product: product} %>
+<% end %>
+
+ 
+        </div>
+        
+        </div>
+
+
+         <%= render partial: 'partials/public/footer' %>

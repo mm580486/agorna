@@ -49,6 +49,11 @@ class Public::HomeController < ApplicationController
     
     
     end
+    def favorites
+       @products=current_user.favorites 
+    end
+    
+    
     def save_exposition
         @user = User.new(exposition_white_list)
         @user.level = 1
