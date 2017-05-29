@@ -22,7 +22,7 @@ class Public::ExpositionController < ApplicationController
     end
   end
   
-  @products=@products.where(id: ids) unless ids.nil?
+  @products=@products.where(id: ids) unless ids.blank?
     
     
     @comment=@exposition.comments.new()
