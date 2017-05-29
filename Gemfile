@@ -35,6 +35,8 @@ gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
 gem 'pg'
 
+gem 'active_link_to'
+
 # upload file
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
