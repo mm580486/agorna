@@ -29,7 +29,7 @@
             
         </h5>
                          <% 
-        default_rate=(product.user.votes.sum(:vote).to_f / product.user.votes.size.to_f) 
+        default_rate=(@product.user.votes.sum(:vote).to_f / @product.user.votes.size.to_f) 
         default_rate=0 if default_rate.nan?
         default_rate=default_rate.round(1)
         %> 
