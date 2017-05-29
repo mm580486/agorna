@@ -5,20 +5,34 @@ nav {
 </style>
     
     <%= render partial: 'partials/public/fix_menu' %>
-    <div class="fixed-action-btn toolbar">
-        <a class="btn-floating btn-large red">
-            <i class="large material-icons">mode_edit</i>
-        </a>
-        <ul>
-            <li class="waves-effect waves-light"><%= link_to 'ارسال پیام',new_public_ticket_path(id: @exposition.id) %> </li>
-            <li class="waves-effect waves-light"><a href="#!"> شکایت </a></li>
-            <li class="waves-effect waves-light">
-                
-                <a class='exposition-follow' href="#" data-id='<%= @exposition.id %>' followed='<%= @exposition.followers.include? current_user %>'>دنبال کردن</a>
-            
-            </li>
+    
+    
+    
+      <ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <a href="#" ><i class="material-icons">menu</i></a>
+  
 
-        </ul>
+
+    
+    <div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large red " data-activates="slide-out" class="button-collapse">
+            <i class="large material-icons">filter</i>
+        </a>
+     
     </div>
 
         <!--[if lte IE 9]>
