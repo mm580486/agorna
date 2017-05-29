@@ -24,7 +24,12 @@ nav {
     <li><a href="#!">صعودی</a></li>
     <li><a href="#!">نزولی</a></li>
     
-    
+    <% ProductType.find(Category.find(@exposition.category_id).product_type_id).fields.where(field_type: 'select_box').each do |field| %>
+    <li><a class="subheader"><%= field.name %></a></li>
+    <% field.props.each do |prop| %>
+     <li><a href="#!"><%= prop.name %></a></li>
+    <% end %>
+    <% end %>
     
     
     <li><a class="subheader">Subheader</a></li>

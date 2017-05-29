@@ -20,9 +20,6 @@
     <% end %>
 
     <%= form_for @prop ,url: save_props_admin_form_path,html: {class: 'col s12'},method: :POST do |f| %>
-
- 
-       
        <div class="row">
         <div class="input-field col s12">
           <%= f.text_field :name,class: 'validate', required: "required" %>
