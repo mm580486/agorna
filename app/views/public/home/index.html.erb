@@ -31,7 +31,8 @@
                         
                     </ul>
                     <div id="test-swipe-1" class="col s12 blue">
- <form action='/public/home/search?type=product' method='get'>
+ <form action='/public/home/search' method='get'>
+     <%= hidden_field_tag :type,value: 'product' %>
                         <div class="input-field col s4">
                             <input placeholder="نام محل خود را وارد کنید" id="first_name" name='q' type="text" class="validate clear">
                             <br>
@@ -42,7 +43,8 @@
 
                     </div>
                     <div id="test-swipe-2" class="col s12 red">
-  <form action='/public/home/search?type=exposition' method='get'>
+  <form action='/public/home/search' method='get'>
+      <%= hidden_field_tag :type,value: 'exposition' %>
                         <div class="input-field col s4">
                           
                             <input placeholder="نام فروشگاه را وارد کنید" type="text" name='q' class="validate clear">
