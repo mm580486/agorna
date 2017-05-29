@@ -23,9 +23,16 @@ nav {
         
     </li>
     <% end %>
+    
     <li><a class="subheader">ترتیب</a></li>
-    <li><a href="#!">صعودی</a></li>
-    <li><a href="#!">نزولی</a></li>
+    <li>
+        <%= link_to 'صعودی',{sort: 'asc' } %>
+        
+    
+    </li>
+    <li>
+        <%= link_to 'نزولی',{sort: 'desc' } %>
+    </li>
     
     <li><a href="#!">تخفیف دار ها</a></li>
     
@@ -180,7 +187,7 @@ nav {
 
 
         <div class="inner">
-                <h5 class="center-align">جدیدترین اجناس</h5>
+                <h5 class="center-align">اجناس</h5>
                 <div class="divider center-align product-divider"></div>
             <div class="row">
 

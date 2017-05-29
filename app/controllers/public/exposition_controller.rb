@@ -4,6 +4,12 @@ class Public::ExpositionController < ApplicationController
     @exposition=User.sellers.find(params[:id])
     @products=@exposition.products
     @products=@products.where(category_id: Category.find_by_permalink(params[:category]).id ) if params[:category].present?
+    if params[:sort].present?
+      sort=(params[:sort]=='asc')? 'ASC':'DESC'
+      @products=@products.order(created_at: sort)
+    end
+    
+    
     @comment=@exposition.comments.new()
     @comments=Comment.where(seller_id: @exposition.id)
   end
