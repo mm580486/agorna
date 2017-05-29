@@ -15,9 +15,14 @@ nav {
         
         </li>
     
-    
-    <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
+    <li>کتگوری</li>
+    <% Category.where(parent_id: @exposition.category_id).each do |category| %>
+    <li><a href="#!"><%= category.name %></a></li>
+    <% end %>
+    
+    
+    
     <li><a class="subheader">Subheader</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
