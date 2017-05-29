@@ -13,7 +13,7 @@ class Public::ExpositionController < ApplicationController
  
     filter_name=params[:filter_name].split('@') if params[:props].present? && params[:filter_name].present?
     props=params[:props].split('@') if params[:props].present? && params[:filter_name].present?
-    
+    ids=[]
     if params[:props].present? && params[:filter_name].present?
     filter_name.each do |filter|
       props.each do |prop|
