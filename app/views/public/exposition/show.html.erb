@@ -65,7 +65,7 @@ nav {
              <% 
         default_rate=(@exposition.votes.sum(:vote).to_f / @exposition.votes.size.to_f) 
         default_rate=0 if default_rate.nan?
-        default_rate=default_rate.round(2)
+        default_rate=default_rate.round(1)
         %> 
         <span class="new badge green accent-4" data-badge-caption="<%= default_rate  %> از ۵ "></span>
      

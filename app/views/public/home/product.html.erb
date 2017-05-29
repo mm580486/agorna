@@ -31,7 +31,7 @@
                          <% 
         default_rate=(product.user.votes.sum(:vote).to_f / product.user.votes.size.to_f) 
         default_rate=0 if default_rate.nan?
-        default_rate=default_rate.round(2)
+        default_rate=default_rate.round(1)
         %> 
         <span class="new badge green accent-4" data-badge-caption="امتیاز از ۵ <%= default_rate %>"></span>
  
