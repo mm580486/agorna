@@ -21,6 +21,7 @@ class Public::TicketsController < ApplicationController
   def conversation
     @ticket=Ticket.find(params[:id])
     
+    @ticket.ticketmessages.where(user_two: current_user.id).update_all(seen: true)
   end
   
   def save_conversation
