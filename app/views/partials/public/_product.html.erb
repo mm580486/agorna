@@ -39,7 +39,9 @@
                                 
                             <% end %>
                            <br>
-                            <a href="#"  <%= raw('style="color: gainsboro !important;text-decoration:line-through;"') unless product.off_price.nil? %> >
+                           
+                           
+                            <a href="#"  <%= raw('style="color: gainsboro !important;text-decoration:line-through;"') unless product.off_price.nil? || product.off_price.blank? %> >
                                 <span style='float:left;'>
                                     تومان
                                 </span>
