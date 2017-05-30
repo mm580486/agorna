@@ -293,8 +293,9 @@
 
                      </h6>
                         <div class="divider"></div>
-
+<% unless current_user.nil? %>
 <% @product.comments.each do |comment| %>
+
 <% if comment.accept? || comment.user.id == current_user.id %>
                         <div class="row">
                             <div class="col s12 m12">
@@ -318,10 +319,49 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            </div>
                             <% end %>
                             
+                            
+                            
 <% end %>
+
+<% else %>
+
+
+<% @product.comments.where(accept: true).each do |comment| %>
+
+
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <div class="card gray lighten-5">
+                                    
+                                    
+                                    <div class="card-content black-text">
+                                        <span class="card-title"><%= comment.user.name %></span>
+                                        <p>
+                                            <%= comment.body %>
+
+                                        </p>
+                                    </div>
+                                    <div class="card-action">
+
+                                        اسفند ۹۵
+                                        
+                                 
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            
+                            
+<% end %>
+
+
+<% end %>
+
 
                                <%= form_for @comment ,url: create_comments_path(p_id: @product.id),html: {class: 'col s12 SendMessageForm',style: 'display:none;'},method: :POST do |f| %>
                                 <div class="row">
