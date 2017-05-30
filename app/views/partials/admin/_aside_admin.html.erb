@@ -36,7 +36,7 @@
         
         <li class="logo align center">
             <a id="logo-container"  style="text-align:center !important;" href="http://materializecss.com/" class="brand-logo">
-            فروشگاه ساز آگورنا
+            
             </a>
         </li>
 
@@ -59,12 +59,19 @@
 
         </li>
         
+        
+        
         <% end %>
         
-        <li class="bold">
-            <%= link_to 'نظرات',admin_comments_path,class: 'waves-effect waves-teal' %>
-        </li>
-        
+           <li class="bold">
+                 <%= link_to 'دسته بندی ها',admin_categories_path,class: 'waves-effect waves-teal' %>
+               </li>
+               
+                      <li class="bold">
+         <%= link_to 'فرم ها',admin_forms_path,class: 'waves-effect waves-teal' %>
+
+      </li>
+ 
         <li class="bold">
          <%= link_to 'فروشگاه ها',admin_sellers_path,class: 'waves-effect waves-teal' %>
         </li>
@@ -85,10 +92,7 @@
          <%= link_to 'تراکنش ها',admin_dashboard_transaction_path,class: 'waves-effect waves-teal' %>
 
       </li>
-             <li class="bold">
-         <%= link_to 'فرم ها',admin_forms_path,class: 'waves-effect waves-teal' %>
-
-      </li>
+      
       
           <li class="bold">
                <%= link_to 'پیام کوتاه',admin_dashboard_sms_service_path,class: 'waves-effect waves-teal' %>
@@ -99,9 +103,13 @@
             
             
 
-               <li class="bold">
-                 <%= link_to 'دسته بندی ها',admin_categories_path,class: 'waves-effect waves-teal' %>
-               </li>
+            
+               
+                      
+        <li class="bold">
+            <%= link_to 'نظرات',admin_comments_path,class: 'waves-effect waves-teal' %>
+        </li>
+        
 
     <li class="bold">
                  <%= link_to 'تنظیمات',admin_dashboard_setting_path,class: 'waves-effect waves-teal' %>
