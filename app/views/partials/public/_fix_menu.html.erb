@@ -9,16 +9,7 @@
              
                   
                 </ul>
-<% if current_user.nil? %>
-                <a class="waves-effect waves-light btn" href="/users/sign_in"><i class="material-icons right">person_pin</i>ورود \ ثبت نام</a>
-<% else %>
-                <% unless current_user.level == 0%>
-                <a class="waves-effect waves-light btn" href="/admin/dashboard/index"><i class="material-icons right">person_pin</i>داشبورد</a>
-                
-                <% else %>
-                <a class="waves-effect waves-light btn" href="/users/sign_out"><i class="material-icons right">person_pin</i>خروج</a>
-                <% end %>
-<% end %>
+
             </div>
         </nav>
         
