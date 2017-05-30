@@ -1,5 +1,4 @@
-  <% unless current_user.nil? %>
-              <li>
+                <li>
                       
                       <% if current_user.nil? %>
                 <a href="/users/sign_in"><i class="material-icons right">person_pin</i>ورود \ ثبت نام</a>
@@ -15,6 +14,8 @@
                       
                       <%# link_to 'تایم لاین',public_home_following_post_path %>
                   </li>
+  <% unless current_user.nil? %>
+
                   
    <li>
                       <%= link_to 'علاقه مندی ها',public_home_favorites_path %>
