@@ -37,6 +37,8 @@ gem 'pg'
 
 gem 'active_link_to'
 
+gem 'kave_rest_api'
+
 # upload file
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
