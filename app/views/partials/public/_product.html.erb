@@ -13,7 +13,7 @@
                             
                                 
                                 
-                                <%= link_to product.name , product_show_path(id: product.id),class: 'card-title align right gray-text' %>
+                                <%= link_to product.name[0..20] , product_show_path(id: product.id),class: 'card-title align right gray-text' %>
                                 
                                 
 <% unless current_user.nil? %>
@@ -25,7 +25,7 @@
                         <div class="card-content">
                             <p class='align right' style='direction:rtl;'>
                                 
-                               <%= product.detail %>
+                               <%= product.detail[0..30] %>
                                 </p>
                         </div>
                         <div class="card-action">

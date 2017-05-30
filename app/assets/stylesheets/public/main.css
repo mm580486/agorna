@@ -615,3 +615,6 @@ i::selection { background: none;color: none; }
 .gray-text{
 color: #757575 !important;    
 }
+.card .card-title{
+    font-size: 19px !important;
+}
