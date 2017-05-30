@@ -1,6 +1,6 @@
 class Admin::SellersController < ApplicationController
   layout 'admin'
-  before_action :admin_auth
+  before_action :admin_and_mekter_auth
   before_action :find_seller, :only => [:edit, :delete, :show,:toggle_lock]
   
   def index

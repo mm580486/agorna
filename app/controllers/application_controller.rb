@@ -23,6 +23,16 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def admin_and_mekter_auth
+    
+    unless is_login 
+      redirect_to root_path
+    else
+      redirect_to root_path unless (current_user.level == 3 && current_user.level == 2)
+    end
+    
+  end
+  
   def seller_auth
        unless is_login 
       redirect_to root_path
