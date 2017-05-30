@@ -16,7 +16,7 @@ class Admin::SellerProductsController < ApplicationController
   end
   
    def toggle_lock
-    @page.update_attribute(:lock,!@page.lock)
+    @product.update_attribute(:lock,!@product.lock)
     flash[:notice]=[5000,t("admin.toast.page_lock_#{@page.lock}")]
     redirect_to admin_pages_path
   end
@@ -28,6 +28,15 @@ class Admin::SellerProductsController < ApplicationController
   def edit
     
   end
+  
+  def update
+  if @product.update_attributes(product_white_list)
+  flash[:notice]=[5000,t("admin.toast.product_updated")]
+else
+  
+  render 'edit'
+end
+end
 
   def show
   end
