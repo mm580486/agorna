@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :categories
   has_many :marketer_subscribers,foreign_key: "marketer_id",class_name: 'User'
   
+  belongs_to :marketer,foreign_key: "marketer_id",class_name: 'User'
+  
   has_many :voteing,foreign_key: "user_id",class_name: 'Rate',dependent:   :destroy
   has_many :votes,foreign_key: "exposition_id",class_name: 'Rate',dependent:   :destroy
   

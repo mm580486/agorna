@@ -16,7 +16,7 @@
             <thead>
               <tr>
                   <th>ویرایش</th>
-                 
+                 <th>بازاریاب</th>
                   <th>تلفن</th>
   <th>نام </th>
               </tr>
@@ -31,6 +31,7 @@
                   <%= link_to(raw("<i class='material-icons'>#{user.exposition_accept? ? 'lock_open':'lock_outline'}</i>"),toggle_lock_admin_seller_path(user.id),class: "small btn-floating waves-effect btn-small waves-light  #{user.exposition_accept? ? 'green':'yellow' }") %>
                   <%= link_to(raw("<i class='material-icons'>cast</i>"),admin_seller_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light purple') %>
                 </td>
+                <td><%= user.marketer.name.nil? 'ندارد':user.marketer.name %></td>
                 <td><%= user.phone %></td>
                 <td><%= user.name %></td>
               </tr>
