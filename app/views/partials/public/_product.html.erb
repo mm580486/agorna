@@ -29,7 +29,7 @@
                                 </p>
                         </div>
                         <div class="card-action">
-                               <% unless product.off_price.nil? && product.off_price.blank? %>
+                               <% unless product.off_price.nil? || product.off_price.blank? %>
                             <a href="#" class='green-text float:left;'>
                                      <span style='float:left;'>
                                     تومان
