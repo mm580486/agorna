@@ -40,6 +40,7 @@ class Admin::SellerProductsController < ApplicationController
   def update
   if @product.update_attributes(product_white_list)
   flash[:notice]=[5000,t("admin.toast.product_updated")]
+  redirect_to product_sellers_path
 else
   render 'edit'
 end
