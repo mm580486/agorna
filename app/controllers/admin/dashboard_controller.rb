@@ -15,13 +15,14 @@ class Admin::DashboardController < ApplicationController
   end 
   
   def update_profile
-    @user = current_user
-    if @user.update_attributes(user_white_list)
-    flash[:notice]=[5000,t("admin.toast.profile_updated")]
-    redirect_to :back
-  else
-    render('profile')
-    end
+render json: params.inspect    
+  #   @user = current_user
+  #   if @user.update_attributes(user_white_list)
+  #   flash[:notice]=[5000,t("admin.toast.profile_updated")]
+  #   redirect_to :back
+  # else
+  #   render('profile')
+  #   end
   end
   
   def change_development_mode
