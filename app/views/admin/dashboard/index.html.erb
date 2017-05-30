@@ -8,6 +8,18 @@
           <span class="black-text text-right">
               پنل مدیریت
           </span>
+          
+          
+          
+          <% if current_user.exposition_accept? && current_user.level == 1 %>
+          
+          <div class="card-panel green white-text" style='text-align: right;'>
+              فروشگاه شما در دست بررسی است
+              </div
+          
+          <% end %>
+          
+          
         </div>
       </div>
 </div>

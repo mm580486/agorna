@@ -48,6 +48,8 @@
             پیشخوان
             </a></li>
             
+        <% if current_user.exposition_accept? %>
+        
         <li class="bold">
             <%= link_to 'محصولات',admin_seller_products_path,class: 'waves-effect waves-teal' %>
              
@@ -65,6 +67,10 @@
                 <%= Ticketmessage.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id).ids).where(seen: false).length %></span>
        <%= link_to 'تیکت ها',public_tickets_path,class: 'waves-effect waves-teal' %>
   </li>
+  
+  <% end %>
+  
+  
         
         <li class="bold">
             <a href="/admin/dashboard/profile" class="waves-effect waves-teal">
