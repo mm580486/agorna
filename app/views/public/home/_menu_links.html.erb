@@ -1,13 +1,28 @@
   <% unless current_user.nil? %>
+              <li>
+                      
+                      <% if current_user.nil? %>
+                <a href="/users/sign_in"><i class="material-icons right">person_pin</i>ورود \ ثبت نام</a>
+<% else %>
+                <% unless current_user.level == 0%>
+                <a href="/admin/dashboard/index"><i class="material-icons right">person_pin</i>داشبورد</a>
+                
+                <% else %>
+                <a href="/users/sign_out"><i class="material-icons right">person_pin</i>خروج</a>
+                <% end %>
+<% end %>
+
+                      
+                      <%# link_to 'تایم لاین',public_home_following_post_path %>
+                  </li>
+                  
    <li>
                       <%= link_to 'علاقه مندی ها',public_home_favorites_path %>
                   </li>
                   <li>
                       <%= link_to 'دنبال شدگان',public_home_following_path %>
                   </li>
-                  <li>
-                      <%= link_to 'تایم لاین',public_home_following_post_path %>
-                  </li>
+                 
                   
                    <li>
                       <%= link_to 'تیکت ها',public_tickets_path %>
@@ -20,6 +35,9 @@
                     <li><a href="/pages/dark-theme">
                         
                     </a></li>
+                    
+         
+                  
                     <li><a href="/">
                     صفحه اصلی
                     </a>
