@@ -85,9 +85,15 @@
                                 <tbody>
                                     <% @tickets.each do |ticket| %>
                                 <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
-                                    <td>$0.87</td>
+                                    <td>باز</td>
+                                    <td><%= link_to ticket.title,conversation_public_ticket_path(ticket.id) %></td>
+                                    <td><%= 
+                                    if ticket.user_id == current_user.id
+                                    User.find(ticket.user_two).name
+                                    else
+                                       User.find(ticket.user_id).name
+                                    end
+                                    %></td>
                                 </tr>
                                 
                                 <% end %>
