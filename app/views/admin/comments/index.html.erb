@@ -15,7 +15,7 @@
         <table class='striped highlight bordered'>
             <thead>
               <tr>
-                  <th></th>
+                  <th>ویرایش</th>
                   <th>نظر</th>
                  
                   <th>نام </th>
@@ -33,9 +33,9 @@
               <tr>
                 <td>
 
-                  <%= link_to(raw("<i class='material-icons'>#{comment.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_comment_path(comment.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
+                  <%= link_to(raw("<i class='material-icons'>#{comment.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_comment_path(comment.id),class: "small btn-floating waves-effect btn-small waves-light #{comment.accept? ? 'green':'gray'}") %>
               
-                  <%= link_to(raw("<i class='material-icons'>cast</i>"),path,class: 'small btn-floating waves-effect btn-small waves-light purple') %>
+                  <%= link_to(raw("<i class='material-icons'>cast</i>"),path,class: 'small btn-floating waves-effect btn-small waves-light purple',target: '_blank') %>
                   
                 </td>
                 <td><%= comment.body %></td>
