@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
 
+
   namespace :admin do
     resources :pages,controller: 'pages' do
        member do
@@ -36,7 +37,14 @@ Rails.application.routes.draw do
        end
     end
     
-        
+     resources :comments,controller: 'comments' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
+       end
+    end
+    
+    
      resources :forms,controller: 'forms' do
        member do
         get 'delete'

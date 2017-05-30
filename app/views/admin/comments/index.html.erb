@@ -1,0 +1,58 @@
+
+
+<%# content_for :head do %>
+  
+  
+<%# end %>
+
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+
+        <table class='striped highlight bordered'>
+            <thead>
+              <tr>
+                  <th></th>
+                  <th>نظر</th>
+                 
+                  <th>نام </th>
+  <th>صفحه</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+            <% @comments.each do |comment| %>
+               <%
+                 path = comment.exposition_id.nil? ? product_show_path(id: comment.product_id):exposition_show_path(comment.exposition_id)
+                 name = comment.exposition_id.nil? ? comment.product.name: User.sellers.find(comment.exposition_id).exposition_name
+                 
+                 %>
+              <tr>
+                <td>
+
+                  <%= link_to(raw("<i class='material-icons'>#{comment.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_comment_path(comment.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
+              
+                  <%= link_to(raw("<i class='material-icons'>cast</i>"),path,class: 'small btn-floating waves-effect btn-small waves-light purple') %>
+                  
+                </td>
+                <td><%= comment.body %></td>
+                <td><%= name %></td>
+              </tr>
+            <% end %>
+              
+              
+            
+            </tbody>
+          </table>
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+<%= link_to(raw('<i class="material-icons">add</i>'),new_admin_page_path,class: 'btn-floating btn-large waves-effect waves-light red',style: 'position:fixed;bottom: 20px; left: 24px;') %>
+</main>
