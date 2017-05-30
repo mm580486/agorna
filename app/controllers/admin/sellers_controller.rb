@@ -5,7 +5,7 @@ class Admin::SellersController < ApplicationController
   
   def index
     if current_user.level == 2
-      return @user=current_user.marketer_subscribers
+      return @users=current_user.marketer_subscribers
     end
     
     if params[:unaccept]=='true'
