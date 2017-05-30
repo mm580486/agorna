@@ -15,8 +15,6 @@ class Admin::CommentsController < ApplicationController
     redirect_to admin_comments_path
   end
   
-
-  
   def delete
      if @comment.destroy
       flash[:notice]=[5000,t('admin.toast.comment_deleted')]
