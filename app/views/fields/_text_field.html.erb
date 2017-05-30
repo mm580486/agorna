@@ -1,5 +1,5 @@
 
    <div class="input-field dynamic_field col s12" style='<%= 'display:none;' if field.categories.size > 1 %>' categories='<%= field.categories %>' >
-          <%= f.text_field field.name,class: 'validate', required: field.required?  %>
+          <%= f.text_field field.name,class: 'validate', required: field.required?,value: @product.properties[field.name]  %>
           <%= f.label field.name, field.name ,:'data-error' => "wrong", 'data-success'=> "" %>
 </div> 
