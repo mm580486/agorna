@@ -61,14 +61,16 @@
         
       
         <li class="bold">
-            <span class="new badge green left"><%= Ticketmessage.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id).ids).where(seen: false).length %></span>
-        <a href="getting-started.html" class="waves-effect waves-teal">
-تیکت ها
-        </a></li>
+            <span class="new badge green left">
+                <%= Ticketmessage.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id).ids).where(seen: false).length %></span>
+       <%= link_to 'تیکت ها',public_tickets_path,class: 'waves-effect waves-teal' %>
+  </li>
         
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
+        <li class="bold">
+            <a href="/admin/dashboard/profile" class="waves-effect waves-teal">
 پروفایل
-        </a></li>
+        </a>
+        </li>
         
            
                <li class="bold">

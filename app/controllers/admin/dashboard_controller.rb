@@ -17,7 +17,10 @@ class Admin::DashboardController < ApplicationController
   def update_profile
     @user = current_user
     if @user.update_attributes(user_white_list)
-      
+    flash[:notice]=[5000,t("admin.toast.profile_updated")]
+    redirect_to :back
+  else
+    render('profile')
     end
   end
   
