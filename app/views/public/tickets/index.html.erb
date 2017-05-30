@@ -1,3 +1,9 @@
+    <style>
+        th,tr,td{
+            text-align:right;
+            direction: rtl;
+        }
+    </style>
     <%= render partial: 'partials/public/fix_menu' %>
          <ul class="side-nav" id="nav-mobile" style="transform: translateX(0px);">
            <%= render partial: 'public/home/menu_links' %>
@@ -76,8 +82,8 @@
                             <table class='striped highlight bordered'>
                                 <thead>
                                 <tr>
-                                    <th>وضعیت</th>
-                                    <th>مضوع بحث</th>
+                                    
+                                    <th>موضوع</th>
                                     <th>از طرف</th>
                                 </tr>
                                 </thead>
@@ -85,7 +91,7 @@
                                 <tbody>
                                     <% @tickets.each do |ticket| %>
                                 <tr>
-                                    <td>باز</td>
+                                    
                                     <td><%= link_to ticket.title,conversation_public_ticket_path(ticket.id) %></td>
                                     <td><%= 
                                     if ticket.user_id == current_user.id
