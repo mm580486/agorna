@@ -46,21 +46,10 @@
 <!-- $('.chips-placeholder').material_chip('data'); -->
 
 
-                                <div class="row">
-                                    <div class="col s12 m5 right">
-                                        <div class="card-panel teal">
-          <span class="white-text">
-در فیلد زیر شماره تلفن های ثابت را وارد کنید بعد از تمام شدن هر شماره کلید enter را بزنید
-          </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <div class="chips chips-static-phone"></div>
+              <div class="row">
+                                  <div class="input-field col s12">
+                                        <%= f.text_field :static_phone,id: 'ExpositionStaticStaticPhone' %>
+                                        <label for="ExpositionStaticStaticPhone">تلفن ثابت</label>
                                     </div>
                                 </div>
 
