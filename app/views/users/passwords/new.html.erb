@@ -81,16 +81,17 @@
 
 
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_tag(reset_password_path) do %>
+  
 
   <div class="field">
-    <%= f.label :email,value: 'ایمیل' %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <lable>تلفن</lable>
+    <br />
+    <%= text_field_tag :phone, autofocus: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "ارسال لینک تغییر رمز عبور",class: 'waves-effect waves-light btn' %>
+    <%= submit_tag "ارسال لینک تغییر رمز عبور",class: 'waves-effect waves-light btn' %>
   </div>
 <% end %>
 

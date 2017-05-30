@@ -2,6 +2,29 @@ class Public::HomeController < ApplicationController
     layout 'public'
     before_action :exec_setting
     before_action :check_development_mod,except: :update
+    
+    def reset_password
+       if User.exists?(phone: params[:phone])
+           @user=User.find_by_phone(params[:phone])
+           password=rand(10000000...99999999)
+           @user.update_attributes(password: password,password_confirmation: password)
+           
+           client=KaveRestApi::SendSimple.new({
+            receptor: '09359435466', # can be array ['09127105568','09123456789'] < = 3000 
+            message: "رمز عبور شما در پین سود
+            #{password}
+            "
+            }).call
+            flash[:notice]=[5000,'رمز عبور جدید ارسال شد']
+            redirect_to :back
+       else
+                 flash[:notice]=[5000,'کاربری با این شماره وجود ندارد']
+            redirect_to :back 
+       end
+        
+        
+    end
+    
     def index
         @products=Product.all
         @expositions=User.sellers
