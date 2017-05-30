@@ -1,7 +1,7 @@
 class Admin::MarketerController < ApplicationController
   layout 'admin'
   before_action :admin_auth
-  before_action :find_marketer, except: [:index,:new]
+  before_action :find_marketer, except: [:index,:new,:show]
   
   def index
     @users=User.marketers
@@ -15,6 +15,7 @@ class Admin::MarketerController < ApplicationController
   end
 
   def show
+    @users=@user.marketer_subscribers
   end
   def create 
     @user = User.new(marketers_white_list)
