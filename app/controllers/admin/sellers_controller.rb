@@ -37,7 +37,7 @@ class Admin::SellersController < ApplicationController
   def create 
     @user = User.new(seller_white_list)
     @user.level = 1
-    @user.accept = true
+    @user.exposition_accept = true
     @user.marketer_id=current_user.id
     
     if @user.save
