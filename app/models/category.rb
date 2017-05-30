@@ -1,5 +1,8 @@
 class Category < ActiveRecord::Base
   belongs_to :user,required: true
+  has_many :users, :class_name => "User", :foreign_key => "category_id", :dependent => :destroy
+  has_many :products, :class_name => "Product", :foreign_key => "category_id", :dependent => :destroy
+  
   validates_presence_of :name
   validates_length_of :name, :minimum => 2, :maximum => 255
   validates_presence_of :permalink

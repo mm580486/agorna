@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   mount_uploader :background_image, BackgroundUploader
   
   has_many :comments, :dependent => :destroy
-  has_many :identities
+  has_many :identities,dependent:   :destroy
   has_many :pages
   has_many :categories
   has_many :marketer_subscribers,foreign_key: "marketer_id",class_name: 'User'
