@@ -226,9 +226,9 @@ Devise.setup do |config|
   config.scoped_views = true
   
   config.omniauth :google_oauth2, '917040165425-ia05h8ml2e04dlhgl0uf45677cc18sv2.apps.googleusercontent.com', 'Tvt-0j2UnOlKuH3xyiGrT4p5', scope: "email,profile,offline", prompt: "consent", setup: true
-  config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET'], setup: true
-  config.omniauth :facebook, '215287488967745','9083d20b2702c3da3bfe7af99916e7f3', scope: "email", setup: true
-  config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET'], setup: true
+  # config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET'], setup: true
+  # config.omniauth :facebook, '215287488967745','9083d20b2702c3da3bfe7af99916e7f3', scope: "email", setup: true
+  # config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET'], setup: true
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
