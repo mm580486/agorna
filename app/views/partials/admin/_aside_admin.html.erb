@@ -44,7 +44,7 @@
            <%= gravatar_for current_user %>
         </li>
     
-        <li class="bold"><a href="/" class="waves-effect waves-teal">
+        <li class="bold"><a href="/admin/dashboard/index" class="waves-effect waves-teal">
             پیشخوان
             </a></li>
             
@@ -107,10 +107,7 @@
                  <%= link_to 'تنظیمات',admin_dashboard_setting_path,class: 'waves-effect waves-teal' %>
     </li>
     
-         <li class="bold">
-            <%= link_to 'آپلود',admin_pages_path,class: 'waves-effect waves-teal' %>
-        </li>
-    
+      
       <li class="bold">
           
           <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
