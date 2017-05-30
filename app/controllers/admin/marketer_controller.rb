@@ -59,7 +59,7 @@ class Admin::MarketerController < ApplicationController
   end
   
   def marketers_white_list
-   params.require(:user).permit(:email,:name,:phone,:national_code) 
+   params.require(:user).permit(:email,:name,:phone,:national_code,:password,:password_confirmation) 
   end
   
 end
