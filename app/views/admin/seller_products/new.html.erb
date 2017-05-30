@@ -22,7 +22,7 @@
     <%= form_for @product ,url: admin_seller_products_path,html: {class: 'col s12',multipart: true},method: :POST do |f| %>
        <div class="row">
 
-      <%= f.select(:category_id, Category.where(parent_id: current_user.category_id).collect {|cat|  [cat.name,cat.id]  },{prompt: 'رسته مورد نظر را انتخاب کنید'},{class: 'browser-default form_category'}) %>
+      <%= f.select(:category_id, Category.where(parent_id: current_user.category_id).collect {|cat|  [cat.name,cat.id]  },{prompt: 'رسته مورد نظر را انتخاب کنید' ,required: 'required'},{class: 'browser-default form_category'}) %>
       </div>
       <div class="row">
 
