@@ -77,6 +77,7 @@ en:
             comment_lock_false: نظر با موفقیت از دسترس خارج شد
             comment_deleted: نظر حذف شد
             profile_updated: پروفایل با موفقیت بروز شد
+            
   public:
         toast:
              comment_created: نظر شما در لیست بررسی قرار گرفت

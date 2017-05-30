@@ -19,7 +19,7 @@
       <% end %>
     <% end %>
 
-    <%= form_for @product ,url: admin_seller_products_path(id: @product.id ),html: {class: 'col s12',multipart: true},method: :PATCH do |f| %>
+    <%= form_for @product ,url: admin_seller_products_path(id: @product.id ),html: {class: 'col s12',multipart: true},method: :patch do |f| %>
        <div class="row">
 
       <%= f.select(:category_id, Category.where(parent_id: current_user.category_id).collect {|cat|  [cat.name,cat.id]  },{prompt: 'رسته مورد نظر را انتخاب کنید'},{class: 'browser-default form_category'}) %>

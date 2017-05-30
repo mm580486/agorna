@@ -73,7 +73,7 @@ Rails.application.routes.draw do
     end
     
     
-            resources :seller_products,controller: 'seller_products' do
+   resources :seller_products,controller: 'seller_products' do
        member do
         get 'delete'
         get 'toggle_lock'
