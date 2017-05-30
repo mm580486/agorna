@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     unless is_login 
       redirect_to root_path
     else
-      redirect_to root_path unless (current_user.level == 3 && current_user.level == 2)
+      redirect_to root_path unless (current_user.level == 3 || current_user.level == 2)
     end
     
   end
