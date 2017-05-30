@@ -15,14 +15,14 @@ class Admin::DashboardController < ApplicationController
   end 
   
   def update_profile
-render json: params.inspect    
-  #   @user = current_user
-  #   if @user.update_attributes(user_white_list)
-  #   flash[:notice]=[5000,t("admin.toast.profile_updated")]
-  #   redirect_to :back
-  # else
-  #   render('profile')
-  #   end
+  
+    @user = current_user
+    if @user.update_attributes(user_white_list)
+    flash[:notice]=[5000,t("admin.toast.profile_updated")]
+    redirect_to :back
+  else
+    render('profile')
+    end
   end
   
   def change_development_mode
@@ -50,19 +50,8 @@ render json: params.inspect
   end
   private
   
-    def user_white_list
-    params.require(:form_user).permit(
-      :name,
-      :email,
-      :phone,
-      :password,
-      :password_confirmation,
-      :exposition_name,
-      :exposition_address,
-      :instagram,
-      :telegram,
-      :post_service
-    )
+  def user_white_list
+    params.require(:form_user).permit(:name,:email,:phone,:password,:password_confirmation,:exposition_name,:exposition_address,:instagram,:telegram,:post_service)
   end
   
 end

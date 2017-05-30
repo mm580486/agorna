@@ -78,6 +78,7 @@ en:
             comment_deleted: نظر حذف شد
             profile_updated: پروفایل با موفقیت بروز شد
             product_updated: محصول با موفقیت افزوده شد
+            
   public:
         toast:
              comment_created: نظر شما در لیست بررسی قرار گرفت
