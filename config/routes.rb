@@ -107,6 +107,8 @@ Rails.application.routes.draw do
   get 'dashboard/sms_service'
   get 'dashboard/setting'
   get 'dashboard/transaction'
+  get 'dashboard/profile'
+  post 'dashboard/update_profile'
   end
 
   namespace :admin do

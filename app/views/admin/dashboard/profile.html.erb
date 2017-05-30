@@ -1,0 +1,182 @@
+
+<main>
+
+ <div class="row">
+      <div class="col s12 m12">
+          
+        <div class="card-panel white">
+        
+        
+        
+        
+        
+ <div class="row">
+    <% if @user.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |error_message| %>
+        <% content_for :head do %>
+          <%= toast(error_message,4000,['red']) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= form_for @user ,url: admin_sellers_path,html: {class: 'col s12'},method: :POST do |f| %>
+      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :name,id: 'LFNAME' %>
+                                        <label for="LFNAME">نام و نام خانوادگی</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_name,id: 'ExpositionName' %>
+                                        <label for="ExpositionName">نام فروشگاه</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_address,id: 'ExpositionAdd' %>
+                                        <label for="ExpositionAdd">آدرس فروشگاه</label>
+                                    </div>
+                                </div>
+<!-- $('.chips-placeholder').material_chip('data'); -->
+
+
+                                <div class="row">
+                                    <div class="col s12 m5 right">
+                                        <div class="card-panel teal">
+          <span class="white-text">
+در فیلد زیر شماره تلفن های ثابت را وارد کنید بعد از تمام شدن هر شماره کلید enter را بزنید
+          </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <div class="chips chips-static-phone"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :phone,id: 'ExpositionPhone' %>
+                                        <label for="ExpositionPhone">شماره همراه</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :email,id: 'ExpositionEmail' %>
+                                        <label for="ExpositionEmail">ایمیل</label>
+                                    </div>
+                                </div>
+                                
+                                          <div class="input-field col s12">
+    <%= f.label :password,value: 'رمز عبور' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.label :password_confirmation,value: 'تایید رمز عبور' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+                                <div class="row">
+                                <div class="file-field input-field col s12">
+                                    <div class="btn">
+                                        <span>افزودن آواتار</span>
+                                        <%= f.file_field :avatar %>
+                                        
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="آپلود آواتار">
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn">
+                                            <span>افزودن بکگراند</span>
+                                            
+                                            <%= f.file_field :background_image %>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="آپلود بکگراند برای فروشگاه">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                          <%= f.text_field :instagram,id: 'ExpositionInstagramId' %>
+                                        <label for="ExpositionInstagramId">اکانت اینستاگرام</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                       <%= f.text_field :telegram,id: 'ExpositionTelegramId' %>
+                                        <label for="ExpositionTelegramId">اکانت تلگرام</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                    
+                                    
+                                       <%= f.check_box :post_service,id: 'filled-in-box1',checked: 'checked',class: 'filled-in' %>
+                                    <label for="filled-in-box1">فروشگاه شما قابلیت ارسال محصول دارد ؟</label>
+
+                                    </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                        <input type="checkbox" class="filled-in" id="filled-in-box2" checked="checked" />
+                                        <label for="filled-in-box2">صفحه قوانین و مقررات را خوانده ام و شرایط را میپذیرم</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                
+                                <%= f.submit 'ثبت نام',class: 'waves-effect waves-light btn col s12'%>
+                                </div>
+
+      
+      
+      
+      
+    <% end %>
+  </div>
+        
+        
+        
+            
+            
+          
+          
+        </div>
+      </div>
+ </div>
+
+</main>
