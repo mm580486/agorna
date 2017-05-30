@@ -371,12 +371,7 @@
                                         <label for="textarea1" class="">متن نظر</label>
                                     </div>
                                     <%= f.submit 'پاسخ',class: 'waves-effect waves-light btn' %>
-                                   
                                 </div>
-
-
-
-
                              <% end %>
 
 
@@ -384,8 +379,9 @@
 
                                 <a href="#" class="btn waves-effect waves-light load_more_comment col s6">بارگذاری نظرات بیشتر</a>
 
+                                <% unless current_user.nil? %>
                                 <a href="#" class="btn waves-effect waves-light add_comment col s6" >افزودن نظر</a>
-
+                                <% end %>
                             </div>
 
 
