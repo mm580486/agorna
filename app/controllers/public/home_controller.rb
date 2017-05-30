@@ -100,7 +100,7 @@ class Public::HomeController < ApplicationController
     private
     
     def exposition_white_list
-        params.require(:user).permit(:static_phone,:avatar,:background_image,:category_id,:email,:name,:phone,:exposition_name,:exposition_detail,:exposition_address,:instagram,:telegram,:post_service)
+        params.require(:user).permit(:password,:password_confirmation,:static_phone,:avatar,:background_image,:category_id,:email,:name,:phone,:exposition_name,:exposition_detail,:exposition_address,:instagram,:telegram,:post_service)
     end
     
     
