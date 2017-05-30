@@ -16,6 +16,11 @@ class Admin::SellerProductsController < ApplicationController
     end
   end
   
+  def delete
+    
+    
+  end
+  
    def toggle_lock
     @product.update_attribute(:lock,!@product.lock)
     flash[:notice]=[5000,t("admin.toast.page_lock_#{@page.lock}")]
