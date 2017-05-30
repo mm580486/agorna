@@ -82,24 +82,24 @@
                             <table class='striped highlight bordered'>
                                 <thead>
                                 <tr>
-                                    
+                                    <th>فرستنده</th>
                                     <th>موضوع</th>
-                                    <th>از طرف</th>
+                                    
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                     <% @tickets.each do |ticket| %>
                                 <tr>
-                                    
-                                    <td><%= link_to ticket.title,conversation_public_ticket_path(ticket.id) %></td>
-                                    <td><%= 
+                                        <td><%= 
                                     if ticket.user_id == current_user.id
                                     User.find(ticket.user_two).name
                                     else
                                        User.find(ticket.user_id).name
                                     end
                                     %></td>
+                                    <td><%= link_to ticket.title,conversation_public_ticket_path(ticket.id) %></td>
+                                
                                 </tr>
                                 
                                 <% end %>
