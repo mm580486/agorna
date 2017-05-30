@@ -17,8 +17,10 @@ class Admin::SellerProductsController < ApplicationController
   end
   
   def delete
-    
-    
+    if @product.destroy 
+    flash[:notice]=[5000,t('admin.toast.product_deleted')]
+    redirect_to admin_seller_products_path
+  end
   end
   
    def toggle_lock
