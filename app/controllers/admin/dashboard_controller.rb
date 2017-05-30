@@ -50,7 +50,7 @@ class Admin::DashboardController < ApplicationController
   private
   
     def user_white_list
-    params.require(:user).permit(
+    params.require(:form_user).permit(
       :name,
       :email,
       :phone,
