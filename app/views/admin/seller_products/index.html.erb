@@ -16,7 +16,7 @@
               <tr>
                   <th>ویرایش</th>
                  
-                  <th>پرمالینک</th>
+                  <th>شاخه</th>
   <th>نام محصول</th>
               </tr>
             </thead>
@@ -30,7 +30,7 @@
                   <%= link_to(raw("<i class='material-icons'>#{product.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_product_path(product.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
                   <%= link_to(raw("<i class='material-icons'>cast</i>"),admin_product_path(product.id),class: 'small btn-floating waves-effect btn-small waves-light purple') %>
                 </td>
-                <td><%= product.user_id %></td>
+                <td><%= CCategory.find(product.category_id).name %></td>
                 <td><%= product.name %></td>
               </tr>
             <% end %>
