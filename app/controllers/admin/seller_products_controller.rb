@@ -1,6 +1,6 @@
 class Admin::SellerProductsController < ApplicationController
   layout 'admin'
-  before_action :find_product,:only => [:edit,:delete]
+  before_action :find_product,:only => [:edit,:delete,:update]
   def new
     @product=Product.new(product_type_id: Category.find(current_user.category_id).product_type_id)
   end
