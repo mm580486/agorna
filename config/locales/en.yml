@@ -73,6 +73,9 @@ en:
             field_create: فیلد با موفقیت ساخته شد
             field_delete: فیلد با موفقیت حذف شد
             product_create: محصول با موفقیت ساخته شد
+            comment_lock_true: نظر تایید شد
+            comment_lock_false: نظر با موفقیت از دسترس خارج شد
+            comment_deleted: نظر حذف شد
   public:
         toast:
              comment_created: نظر شما در لیست بررسی قرار گرفت
