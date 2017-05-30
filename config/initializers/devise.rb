@@ -65,7 +65,7 @@ Devise.setup do |config|
   # enable it only for database authentication. The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
-config.authentication_keys = [:phone,:email]
+# config.authentication_keys = [:phone,:email]
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
 

@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,:omniauthable, :authentication_keys => [:phone,:email]
+         :recoverable, :rememberable, :trackable,:omniauthable
   before_save :ensure_authentication_token    
 
   scope :marketers, lambda { where(:level => 2) }
