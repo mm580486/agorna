@@ -44,13 +44,11 @@
            <%= gravatar_for current_user %>
         </li>
     
-        <li class="bold"><a href="about.html" class="waves-effect waves-teal">
-            افزودن فروشگاه
-            </a></li>
+        <li class="bold">
+         <%= link_to 'فروشگاه ها',admin_sellers_path,class: 'waves-effect waves-teal' %>
+        </li>
             
-        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">
-             فروشگاه های افزوده شده
-        </a></li>
+     
 
           <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
           </li>

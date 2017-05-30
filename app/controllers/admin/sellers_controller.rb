@@ -4,11 +4,17 @@ class Admin::SellersController < ApplicationController
   before_action :find_seller, :only => [:edit, :delete, :show,:toggle_lock]
   
   def index
+    if current_user.level == 2
+      return @user=current_user.marketer_subscribers
+    end
+    
     if params[:unaccept]=='true'
       @users=User.sellers.where(:exposition_accept => false)
     else
       @users=User.sellers
     end
+    
+    
     
   end
   
@@ -31,6 +37,8 @@ class Admin::SellersController < ApplicationController
   def create 
     @user = User.new(seller_white_list)
     @user.level = 1
+    @user.marketer_id=current_user.id
+    
     if @user.save
       flash[:notice]=[5000,t('admin.toast.seller_create')]
       redirect_to admin_sellers_path
