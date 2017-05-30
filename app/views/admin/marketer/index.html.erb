@@ -29,7 +29,7 @@
                   <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_admin_marketer_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
                   <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_marketer_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
                   <%= link_to(raw("<i class='material-icons'>#{user.id? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_page_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
-                  <%= link_to(raw("<i class='material-icons'>cast</i>"),admin_page_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light purple') %>
+                  <%= link_to(raw("<i class='material-icons'>cast</i>"),admin_marketer_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light purple') %>
                 </td>
                 <td><%= user.phone %></td>
                 <td><%= user.name %></td>
