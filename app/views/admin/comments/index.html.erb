@@ -26,8 +26,8 @@
             <tbody>
             <% @comments.each do |comment| %>
                <%
-                 path = comment.exposition_id.nil? ? product_show_path(id: comment.product_id):exposition_show_path(comment.exposition_id)
-                 name = comment.exposition_id.nil? ? comment.product.name: User.sellers.find(comment.exposition_id).exposition_name
+                 path = comment.seller_id.nil? ? product_show_path(id: comment.product_id):exposition_show_path(comment.seller_id)
+                 name = comment.seller_id.nil? ? comment.product.name: User.sellers.find(comment.seller_id).exposition_name
                  
                  %>
               <tr>
