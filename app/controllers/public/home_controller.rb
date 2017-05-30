@@ -10,7 +10,7 @@ class Public::HomeController < ApplicationController
            @user.update_attributes(password: password,password_confirmation: password)
            
            client=KaveRestApi::SendSimple.new({
-            receptor: '09359435466', # can be array ['09127105568','09123456789'] < = 3000 
+            receptor: @user.phone, # can be array ['09127105568','09123456789'] < = 3000 
             message: "رمز عبور شما در پین سود
             #{password}
             "
