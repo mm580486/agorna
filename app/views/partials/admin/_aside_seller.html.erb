@@ -5,8 +5,7 @@
               
               <ul class="align left">
                   <li>
-                      
-                      <%= link_to 'خروج' ,destroy_user_session_path,class: "page-title", :method => :delete %>
+                      <a class="page-title" id='help'>راهنما</a>
                   </li>
               </ul>
               
@@ -74,7 +73,10 @@
         </li>
         
            
-            
+               <li class="bold">
+            <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
+            </li>
+        
            
       </ul>
 
