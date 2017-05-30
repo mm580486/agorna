@@ -35,6 +35,8 @@ unless params[:p_id].nil?
 else
     @comment=current_user.comments.new(seller_id: params[:ex_id],body: params[:comment][:body])
 end
+    @comment.accept = true if (current_user.level==3 || current_user.id == @comment.product.user.id)
+
     if @comment.save
     flash[:notice]=[5000,t('public.toast.comment_created')]
     else
