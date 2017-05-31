@@ -74,7 +74,10 @@
     <%= f.label :email,value: 'ایمیل' %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-
+  <div class="field">
+    <%= f.label :name,value: 'نام کاربری' %><br />
+    <%= f.text_field :name, autofocus: true,required: 'required' %>
+  </div>
   <div class="field">
     <%= f.label :password,value: 'رمز عبور' %>
     <% if @minimum_password_length %>
