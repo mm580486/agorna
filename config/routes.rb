@@ -164,7 +164,8 @@ end
     namespace :v1 do
       
     get 'categories' 
-    get 'subcategories/:id'
+    
+    match 'subcategories/:id' => '#subcategories',via: [:get]
     match 'login',via: [:get,:post,:options]
     match 'register',via: [:get,:post,:options]
       
