@@ -156,10 +156,15 @@ end
   # You can have the root of your site routed with "root"
   root 'public/home#index'
 
+
+
+
+ # API routes
   namespace :api do
     namespace :v1 do
       
     get 'categories' 
+    get 'subcategories/:id'
     match 'login',via: [:get,:post,:options]
     match 'register',via: [:get,:post,:options]
       

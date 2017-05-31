@@ -17,7 +17,9 @@ class Api::V1Controller < ApplicationController
     def categories
        render json: Category.where(parent_id: nil) 
     end
-    
+    def subcategories
+       render json: Category.where(parent_id: params[:id]) 
+    end
     
     def login
         data = JSON.parse(params[:formdata])
