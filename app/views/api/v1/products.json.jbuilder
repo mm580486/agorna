@@ -1,1 +1,1 @@
-json.(@product, :id, :name)
+json.(@products, :id, :name)
