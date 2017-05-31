@@ -165,7 +165,7 @@ end
       
     get 'categories' 
     
-    match 'subcategories/:id' , action: :subcategories
+    get 'subcategories/:id' , action: :subcategories
     match 'login',via: [:get,:post,:options]
     match 'register',via: [:get,:post,:options]
       
