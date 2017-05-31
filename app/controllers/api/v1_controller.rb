@@ -40,7 +40,7 @@ class Api::V1Controller < ApplicationController
       when 'last_products'
         @products=Product.all
       end
-      render json: @products
+      
     end
     
     
