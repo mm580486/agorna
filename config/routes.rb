@@ -169,6 +169,7 @@ end
     get 'expositions/:type',action: :expositions
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
+    get 'product/:id',action: :product
     match 'login',via: [:get,:post,:options]
     match 'register',via: [:get,:post,:options]
       

@@ -43,6 +43,10 @@ class Api::V1Controller < ApplicationController
       
     end
     
+    def product
+        @product=Product.find(params[:id])
+    end
+    
     
     
     def login
