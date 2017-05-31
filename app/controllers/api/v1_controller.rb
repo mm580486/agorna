@@ -39,6 +39,8 @@ class Api::V1Controller < ApplicationController
      case params[:type] 
       when 'last_products'
         @products=Product.all
+      when 'category'
+        @products=Product.where(category_id: params[:category_id])
       end
       
     end
