@@ -31,6 +31,12 @@ class Api::V1Controller < ApplicationController
       render json: @expositions
     end
     
+    def show_exposition
+       render json: User.sellers.find(params[:id]) 
+    end
+    
+    
+    
     def login
         data = JSON.parse(params[:formdata])
         @user=User.find_for_authentication(email: data['email'])
