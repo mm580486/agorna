@@ -35,6 +35,12 @@ class Api::V1Controller < ApplicationController
        render json: User.sellers.find(params[:id]) 
     end
     
+    def products
+        
+        
+        
+    end
+    
     
     
     def login

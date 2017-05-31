@@ -89,7 +89,8 @@ class Admin::SellersController < ApplicationController
       :exposition_address,
       :instagram,
       :telegram,
-      :post_service
+      :post_service,
+      :category_id
     )
   end
   
