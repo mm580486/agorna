@@ -41,7 +41,6 @@ class Api::V1Controller < ApplicationController
         @products=Product.all
       end
       render json: @products
-        
     end
     
     
