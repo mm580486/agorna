@@ -21,6 +21,16 @@ class Api::V1Controller < ApplicationController
        render json: Category.where(parent_id: params[:id]) 
     end
     
+    def expositions
+      case params[:type] 
+      
+      when 'top_rate'
+        @expositions=User.sellers
+      end
+     
+      render json: @expositions
+    end
+    
     def login
         data = JSON.parse(params[:formdata])
         @user=User.find_for_authentication(email: data['email'])

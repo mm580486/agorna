@@ -166,6 +166,7 @@ end
     get 'categories' 
     
     get 'subcategories/:id' , action: :subcategories
+    get 'expositions/:type',action: :expositions
     match 'login',via: [:get,:post,:options]
     match 'register',via: [:get,:post,:options]
       
