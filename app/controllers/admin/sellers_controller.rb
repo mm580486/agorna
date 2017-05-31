@@ -50,7 +50,7 @@ class Admin::SellersController < ApplicationController
   end
   
    def update
-   if @user.update_attributes(marketers_white_list) && @user.valid?
+   if @user.update_attributes(seller_white_list) && @user.valid?
       flash[:notice]=[5000,t('admin.toast.seller_updated')]
       redirect_to admin_sellers_path
    else
