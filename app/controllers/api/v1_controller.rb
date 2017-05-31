@@ -36,8 +36,11 @@ class Api::V1Controller < ApplicationController
     end
     
     def products
-        
-        
+     case params[:type] 
+      when 'last_products'
+        @products=Product.all
+      end
+      render json: @products
         
     end
     
