@@ -47,6 +47,10 @@ class Api::V1Controller < ApplicationController
         @product=Product.find(params[:id])
     end
     
+    def product_comments
+        @comments=Product.find(params[:id]).comments
+    end
+    
     
     
     def login
