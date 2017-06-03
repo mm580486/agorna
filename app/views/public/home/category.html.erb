@@ -104,8 +104,6 @@
 
 
         <div class="inner">
-                <h5 class="center-align">جدیدترین اجناس</h5>
-                <div class="divider center-align product-divider"></div>
             <div class="row">
 
                 <% @products.each do |product| %>
@@ -123,25 +121,5 @@
 
 
 
-
-            <h5 class="center-align">محصولات تخفیف دار</h5>
-            <div class="divider center-align product-divider"></div>
-            <div class="row">
- <% @products.each do |product| %>
-      <%= render partial: 'partials/public/product',locals: {product: product} %>
- <% end %>
-
-            </div>
-
-
-            <h5 class="center-align">فروشندگان برتر</h5>
-            <div class="divider center-align product-divider"></div>
-            <div class="row">
-<% @expositions.each do |user| %>
-               <%= render partial: 'partials/public/exposition',locals: {user: user} %>
-<% end %>
-
-              
-            </div>
         </div>
          <%= render partial: 'partials/public/footer' %>
