@@ -73,7 +73,7 @@
 
                 <ul id="nav-mobile" class="right">
             
-                <% @categories.each do |category| %>
+                        <% @categories.each do |category| %>
                     <li>
                         <a href="#" <%= raw("class='dropdown-button' data-activates='dropdown#{category.id}'") if category.subcategories.length > 0  %>>
                             <%= category.name %>
@@ -81,7 +81,9 @@
                     <% if category.subcategories.length > 0 %>
                         <ul id='dropdown<%= category.id %>' class='dropdown-content'>
                             <% category.subcategories.each do |subcategory| %>
-                            <li><a href="#!"><%= subcategory.name %></a></li>
+                            <li>
+                                <%= link_to subcategory.name,public_home_category_path(permalink: subcategory.permalink) %>
+                            </li>
                             <% end %>
                         </ul>
                         <% end %>
