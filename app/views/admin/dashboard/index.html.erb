@@ -37,7 +37,7 @@
 
    <div class="row">
 
-
+<% if current_user.level == 1 %>
       <div class="col s12 m4">
         <div class="card-panel white align center">
             <i class="material-icons dp48 large">work</i>
@@ -53,9 +53,6 @@
 
         </div>
       </div>
-
-
-
       <div class="col s12 m4">
         <div class="card-panel white align center">
             <i class="material-icons dp48 large">visibility</i>
@@ -89,7 +86,57 @@
 
         </div>
       </div>
+      
+      <% elsif current_user.level == 3 %>
+<div class="col s12 m4">
+        <div class="card-panel white align center">
+            <i class="material-icons dp48 large">work</i>
+<br>
+          <span class="gray-text">
+          تعداد کل محصولات
+          </span>
 
+          <br>
+          <h3 class="black-text">
+         <%= Product.all.size %>
+          </span>
+
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="card-panel white align center">
+            <i class="material-icons dp48 large">visibility</i>
+<br>
+          <span class="gray-text">
+         فروشندگان
+          </span>
+
+          <br>
+          <h3 class="black-text">
+         <%= User.sellers.size %>
+          </span>
+
+        </div>
+      </div>
+
+
+      <div class="col s12 m4">
+        <div class="card-panel white align center">
+            <i class="material-icons dp48 large">visibility</i>
+<br>
+          <span class="gray-text">
+                  بازاریاب ها
+
+          </span>
+
+          <br>
+          <h3 class="black-text">
+         <%= User.marketers.size %>
+          </span>
+
+        </div>
+      </div>
+      <% end %>
       
 
 
