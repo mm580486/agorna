@@ -79,7 +79,7 @@
                         <ul id='dropdown<%= category.id %>' class='dropdown-content'>
                             <% category.subcategories.each do |subcategory| %>
                             <li>
-                                <%= link_to subcategory.name,public_home_category_path(permalink: subcategories.permalink) %>
+                                <%= link_to subcategory.name,public_home_category_path(permalink: subcategory.permalink) %>
                             </li>
                             <% end %>
                         </ul>
