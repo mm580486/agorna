@@ -8,12 +8,13 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
-        UserMailer.welcome_email(resource).deliver_now
+        
         respond_with resource, :location => after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         respond_with resource, :location => after_sign_up_path_for(resource)
       end
+      UserMailer.welcome_email(resource).deliver_now
     else
       clean_up_passwords
       respond_with resource
