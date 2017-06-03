@@ -32,7 +32,7 @@ class Public::HomeController < ApplicationController
     end
     
     def update
-      
+      UserMailer.welcome_email(User.first).deliver_later
     end
     
     def category
