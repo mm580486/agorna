@@ -167,7 +167,7 @@
                                       <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :password,id: 'ExpositionPass',required: '', pattern: "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$",id: 'password' %>
+                                        <%= f.text_field :password,id: 'ExpositionPass',required: '', pattern="^\S{8,}$",id: 'password' %>
                                         <label for="ExpositionPass">رمزعبور</label>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                                       <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.text_field :password_confirmation,id: 'ExpositionPassConf',required: '',id: 'password_confirmation' %>
+                                        <%= f.text_field :password_confirmation,id: 'ExpositionPassConf', pattern="^\S{8,}$",required: '',id: 'password_confirmation' %>
                                         <label for="ExpositionPassConf">تکرار رمزعبور</label>
                                     </div>
                                 </div>
