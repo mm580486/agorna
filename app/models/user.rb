@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :background_image, BackgroundUploader
   
+  validates :telegram, uniqueness: true, if: 'telegram.present?'
+  validates :instagram, uniqueness: true, if: 'instagram.present?'
+  validates :email, uniqueness: true, if: 'email.present?'
+  validates :phone, uniqueness: true
+  
   has_many :comments, :dependent => :destroy
   has_many :identities,dependent:   :destroy
   has_many :pages
