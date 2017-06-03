@@ -89,6 +89,7 @@ class Public::HomeController < ApplicationController
         @user = User.new(exposition_white_list)
         @user.level = 1
         if @user.save
+            UserMailer.welcome_email(@user).deliver_now
             redirect_to root_path
         else 
             render 'register_exposition'
