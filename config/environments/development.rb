@@ -22,7 +22,7 @@ config.action_mailer.smtp_settings = {
   :port => 25,
   :domain => "pinsood.com",
 }
-
+config.action_mailer.perform_deliveries = true
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
