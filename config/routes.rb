@@ -124,7 +124,7 @@ post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
   
   get 'exposition/follow',to: 'public/exposition#follow'
   get 'exposition/rate',to: 'public/exposition#rate'
-
+  get 'page/:permalink' => 'public/home#page',as: :page
   
  namespace :public do
   namespace :home do
@@ -136,7 +136,7 @@ post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
     get 'category'
     get 'favorites'
     get 'search'
-    get 'page/:permalink',action: :page
+   
     
   end
   
