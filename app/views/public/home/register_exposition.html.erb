@@ -239,7 +239,7 @@
                                 <div class="row">
                                     <div class=" input-field col s12">
 
-                                        <input type="checkbox" class="filled-in" id="filled-in-box2" />
+                                        <input type="checkbox" class="filled-in" id="filled-in-box2" onchange="document.getElementById('submit_tag').disabled = !this.checked;"  />
                                         <label for="filled-in-box2">صفحه قوانین و مقررات را خوانده ام و شرایط را میپذیرم</label>
 
                                     </div>
@@ -247,7 +247,7 @@
 
                                 <div class="row">
                                 
-                                <%= f.submit 'ثبت نام',class: 'waves-effect waves-light btn col s12'%>
+                                <%= f.submit 'ثبت نام',class: 'waves-effect waves-light btn col s12' ,id: 'submit_tag',disabled: 'disabled' %>
                                 </div>
 
 
