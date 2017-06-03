@@ -209,7 +209,6 @@ $('.SendMessageForm').slideDown();
        if($(this).val()==$('#password').val()){
          $(this).parents('div').removeClass('red-text');
        }else{
-           
           $(this).parents('div').addClass('red-text');  
        }
        
