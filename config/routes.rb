@@ -136,6 +136,7 @@ post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
     get 'category'
     get 'favorites'
     get 'search'
+    get 'page/:permalink',action: :page
     
   end
   

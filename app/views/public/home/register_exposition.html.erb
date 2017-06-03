@@ -88,7 +88,15 @@
 
 
                                 <%= form_for @user,url: public_home_save_exposition_path,html: {id: 'ExpositionRegisterForm',class: 'col s12 right-align'},method: :POST do |f| %>
-
+    
+    <% if @user.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |error_message| %>
+        <% content_for :head do %>
+          <%= toast(error_message,4000,['red']) %>
+        <% end %>
+      <% end %>
+    <% end %>
+    
 
                                 <div class="row">
                                     <div class="input-field col s12">
@@ -159,7 +167,7 @@
                                       <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.password_field :password,id: 'ExpositionPass',required: 'required' %>
+                                        <%= f.text_field :password,id: 'ExpositionPass',required: 'required' %>
                                         <label for="ExpositionPass">رمزعبور</label>
                                     </div>
                                 </div>
@@ -167,7 +175,7 @@
                                       <div class="row">
                                     <div class="input-field col s12">
                                         
-                                        <%= f.password_field :password_confirmation,id: 'ExpositionPassConf',required: 'required' %>
+                                        <%= f.text_field :password_confirmation,id: 'ExpositionPassConf',required: 'required' %>
                                         <label for="ExpositionPassConf">تکرار رمزعبور</label>
                                     </div>
                                 </div>
@@ -204,7 +212,7 @@
                                     <div class="input-field col s12">
                                         
                                           <%= f.text_field :instagram,id: 'ExpositionInstagramId' %>
-                                        <label for="ExpositionInstagramId">اکانت اینستاگرام</label>
+                                        <label for="ExpositionInstagramId">اکانت اینستاگرام (به طور مثال @example)</label>
                                     </div>
                                 </div>
 
@@ -213,7 +221,7 @@
                                     <div class="input-field col s12">
                                         
                                        <%= f.text_field :telegram,id: 'ExpositionTelegramId' %>
-                                        <label for="ExpositionTelegramId">اکانت تلگرام</label>
+                                        <label for="ExpositionTelegramId"> اکانت تلگرام (به طور مثال @example)</label>
                                     </div>
                                 </div>
 
@@ -231,7 +239,7 @@
                                 <div class="row">
                                     <div class=" input-field col s12">
 
-                                        <input type="checkbox" class="filled-in" id="filled-in-box2" checked="checked" />
+                                        <input type="checkbox" class="filled-in" id="filled-in-box2" />
                                         <label for="filled-in-box2">صفحه قوانین و مقررات را خوانده ام و شرایط را میپذیرم</label>
 
                                     </div>

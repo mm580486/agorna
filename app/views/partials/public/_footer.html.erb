@@ -84,17 +84,19 @@
 
 
                 <div class="col l3 s12 right">
-                    <h6 class="white-text">درباره پین سود
+                    <h6 class="white-text">صفحات
 
                     </h6>
 
                     <div class="divider"></div>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">درباره پین سود</a></li>
-
-                        <li><a class="grey-text text-lighten-3" href="#!">تماس با ما</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">قوانین و مقررات</a></li>
-                        
+<% Page.all.each do |page| %>
+                        <li>
+                            <%= link_to page.title , public_home_page_path(permalink: page.permalink),class: 'grey-text text-lighten-3' %>
+                            
+                        </li>
+<% end %>
+                   
                     </ul>
                 </div>
 

@@ -96,6 +96,11 @@ class Public::HomeController < ApplicationController
     end
     
     
+    def page
+       @page=Page.find_by_permalink(params[:permalink]) 
+    end
+    
+    
     
     private
     
