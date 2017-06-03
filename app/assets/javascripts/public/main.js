@@ -1,5 +1,5 @@
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('ready turbolinks:load', function() {
 
 
 
