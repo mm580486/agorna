@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
   validates :phone, uniqueness: true
+  validates_exclusion_of :password, in: ->(user) { [user.email, person.phone] },
+                         message: 'should not be the same as your username or first name'
+   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
+   validates :password, confirmation: true
   
   has_many :comments, :dependent => :destroy
   has_many :identities,dependent:   :destroy
