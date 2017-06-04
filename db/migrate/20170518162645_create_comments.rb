@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.references :user, index: true, foreign_key: true
       t.references :product, index: true, foreign_key: true
-      t.references :seller, index: true, foreign_key: true
+      t.integer :seller_id
       t.string :body
       t.boolean :accept,default: false
       t.boolean :accept_by_seller,default: false
