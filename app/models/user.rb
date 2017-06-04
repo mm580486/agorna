@@ -9,13 +9,13 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, if: 'email.present?'
   validates :phone, uniqueness: true
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
-                         message: 'should not be the same as your username or first name'
+                         message: 'should not be the same as your username or first name', allow_blank: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
-  validates :password, confirmation: true
-  validates_length_of :email, within: 6..50, too_long: 'pick a shorter name', too_short: 'pick a longer name'
-  validates_length_of :instagram, within: 3..50, too_long: 'pick a shorter name', too_short: 'pick a longer name'
-  validates_length_of :telegram, within: 3..50, too_long: 'pick a shorter name', too_short: 'pick a longer name'
-  validates_length_of :password, within: 7..100, too_long: 'pick a shorter name', too_short: 'pick a longer name'
+  validates :password, confirmation: true,message: 'password not match'
+  validates_length_of :email, within: 6..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
+  validates_length_of :instagram, within: 3..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
+  validates_length_of :telegram, within: 3..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
+  validates_length_of :password, within: 7..100, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
   validates_format_of :instagram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
   validates_format_of :telegram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
   
