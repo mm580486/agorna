@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
   mount_uploader :background_image, BackgroundUploader
-  
+  validates_acceptance_of :terms
   validates :telegram, uniqueness: true, if: 'telegram.present?'
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
