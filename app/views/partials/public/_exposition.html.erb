@@ -5,7 +5,7 @@
                             <% unless user.avatar_url.nil? %>
                             <%= image_tag user.avatar_url, alt: user.exposition_name %>
                             <% else %>
-                            <img class="materialboxed" src="https://unsplash.it/200/300/?random">
+                            <img class="" src="https://unsplash.it/200/300/?random">
                             <% end %>
                             <%= link_to user.exposition_name,exposition_show_path(user.id),class: 'card-title  gray-text' %>
 
