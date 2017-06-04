@@ -26,8 +26,8 @@ class Public::HomeController < ApplicationController
     end
     
     def index
-        @products=Product.all
-        @expositions=User.sellers
+        @products=Product.all.limit(8)
+        @expositions=User.sellers.limit(8)
         @categories = Category.where(parent_id: nil)
     end
     
@@ -79,7 +79,6 @@ class Public::HomeController < ApplicationController
     def search 
        if params[:type]=='product'
            @products = Product.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
-           
        else
            @expositions=User.sellers.where("lower(exposition_name) LIKE ? OR lower(name) LIKE ?", "%#{params[:q].downcase}%","%#{params[:q].downcase}%") 
        end
