@@ -1,14 +1,15 @@
  <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
-                            <% unless user.avatar.nil? %>
-                            <%= image_tag user.avatar.url, alt: user.exposition_name, class: 'materialboxed' %>
+                             <%= link_to exposition_show_path(user.id) do %>
+                            <% unless user.avatar_url.nil? %>
+                            <%= image_tag user.avatar_url, alt: user.exposition_name %>
                             <% else %>
                             <img class="materialboxed" src="https://unsplash.it/200/300/?random">
                             <% end %>
                             <%= link_to user.exposition_name,exposition_show_path(user.id),class: 'card-title  gray-text' %>
 
-                          
+                          <% end %>
                           <% unless current_user.nil? %>
                            <a data-id='<%= user.id %>' followed='<%= user.followers.include? current_user %>' class="exposition-follow btn-floating halfway-fab waves-effect waves-light  <%= user.followers.include?(current_user)? 'blue':'red' %> left"><i class="material-icons"><%= user.followers.include?(current_user)? 'person':'person_add' %></i></a>
                            
