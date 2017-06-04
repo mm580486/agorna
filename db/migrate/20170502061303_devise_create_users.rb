@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :static_phone
       t.string :avatar
       t.string :background_image
-      t.string :instagram 
+      t.string :instagram_id
       t.string :telegram
       t.boolean :post_service , default: false
       t.boolean :exposition_accept,default: false
