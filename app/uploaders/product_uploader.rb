@@ -22,19 +22,16 @@ end
     %w(jpg jpeg png)
  end
  
-process :resize_to_fill => [850, 315]
-process :convert => 'png'
+
+
 process :watermark
 
-
-  
-  
-  
   def watermark
     mark = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
     mark.background_color = "none"
 
-    manipulate! do |image|
+    manipulate! do |images|
+     images.each do |image|
       tile = Magick::ImageList.new
       page = Magick::Rectangle.new(0, 0, 0, 0)
 
@@ -49,6 +46,7 @@ process :watermark
 
       image.composite(tile.mosaic, 0, 0, Magick::OverCompositeOp)
     end
+   end
   end
   
   
