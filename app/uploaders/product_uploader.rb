@@ -22,16 +22,16 @@ end
     %w(jpg jpeg png)
  end
  
- 
- process :watermark
- 
-  def watermark
-    manipulate! do |img|
-      logo = Magick::Image.read("#{Rails.root}/public/images/pinsood.jpg").first
-      img = img.composite(logo, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
-    end
+process :resize_to_fill => [850, 315]
+process :convert => 'png'
+process :watermark
+
+def watermark
+  manipulate! do |img|
+    logo = Magick::Image.read("#{Rails.root}/app/assets/images/pinsood.png").first
+    img = img.composite(logo, Magick::NorthWestGravity, 15, 0, Magick::OverCompositeOp)
   end
-  
+end
   
   
   
