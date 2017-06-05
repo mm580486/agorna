@@ -25,25 +25,14 @@ end
  
  process :watermark
  
-   def watermark(opacity = 0.99, size = 'm')
-  
+  def watermark
     manipulate! do |img|
       logo = Magick::Image.read("#{Rails.root}/public/images/pinsood.jpg").first
-      logo.alpha(Magick::ActivateAlphaChannel)
-  
-      white_canvas = Magick::Image.new(logo.columns, logo.rows) { self.background_color = "none" }
-      white_canvas.alpha(Magick::ActivateAlphaChannel)
-      white_canvas.opacity = Magick::QuantumRange - (Magick::QuantumRange * opacity)
-  
-      # Important: DstIn composite operation (white canvas + watermark)
-      logo_opacity = logo.composite(white_canvas, Magick::NorthWestGravity, 0, 0, Magick::DstInCompositeOp)
-      logo_opacity.alpha(Magick::ActivateAlphaChannel)
-  
-      # Important: Over composite operation (original image + white canvas watermarked)
-      img = img.composite(logo_opacity, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
+      img = img.composite(logo, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
     end
-  
   end
+  
+  
   
   
   
