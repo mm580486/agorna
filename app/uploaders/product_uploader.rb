@@ -15,12 +15,38 @@ class ProductUploader < CarrierWave::Uploader::Base
   end
   
    version :thumb do
-    process :resize_to_fit => [100, 100]
+    process :resize_to_fit => [200, 200]
 end
 
  def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg png)
+ end
+ 
+ 
+ 
+ 
+   def watermark(opacity = 0.99, size = 'm')
+  
+    manipulate! do |img|
+      logo = Magick::Image.read("#{Rails.root}/public/img/pinsood.jpg").first
+      logo.alpha(Magick::ActivateAlphaChannel)
+  
+      white_canvas = Magick::Image.new(logo.columns, logo.rows) { self.background_color = "none" }
+      white_canvas.alpha(Magick::ActivateAlphaChannel)
+      white_canvas.opacity = Magick::QuantumRange - (Magick::QuantumRange * opacity)
+  
+      # Important: DstIn composite operation (white canvas + watermark)
+      logo_opacity = logo.composite(white_canvas, Magick::NorthWestGravity, 0, 0, Magick::DstInCompositeOp)
+      logo_opacity.alpha(Magick::ActivateAlphaChannel)
+  
+      # Important: Over composite operation (original image + white canvas watermarked)
+      img = img.composite(logo_opacity, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
+    end
+  
   end
+  
+  
+  
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
