@@ -23,7 +23,7 @@ end
  end
  
  
- 
+ process :watermark
  
    def watermark(opacity = 0.99, size = 'm')
   
