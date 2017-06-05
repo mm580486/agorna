@@ -29,7 +29,7 @@ super
     private
 
   def registration_params
-    params.require(:user).permit(:email,:name, :title_id, :first_name, :last_name, 
+    params.require(:user).permit(:email,:name,:phone, :title_id, :first_name, :last_name, 
       :province_id, :password, :password_confirmation)
   end
   
