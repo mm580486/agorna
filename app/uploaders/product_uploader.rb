@@ -26,13 +26,30 @@ process :resize_to_fill => [850, 315]
 process :convert => 'png'
 process :watermark
 
-def watermark
-  manipulate! do |img|
-    logo = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
-    img = img.composite(logo, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
-  end
-end
+
   
+  
+  
+  def watermark
+    mark = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
+    mark.background_color = "none"
+
+    manipulate! do |image|
+      tile = Magick::ImageList.new
+      page = Magick::Rectangle.new(0, 0, 0, 0)
+
+      (image.columns / mark.columns.to_f).ceil.times do |x|
+        (image.rows / mark.rows.to_f).ceil.times do |y|
+          tile << mark.dup
+          page.x = x * tile.columns
+          page.y = y * tile.rows
+          tile.page = page
+        end
+      end
+
+      image.composite(tile.mosaic, 0, 0, Magick::OverCompositeOp)
+    end
+  end
   
   
   
