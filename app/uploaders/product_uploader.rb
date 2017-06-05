@@ -29,7 +29,7 @@ process :watermark
 def watermark
   manipulate! do |img|
     logo = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
-    img = img.composite(logo, Magick::NorthWestGravity, 15, 0, Magick::OverCompositeOp)
+    img = img.composite(logo, Magick::NorthWestGravity, 0, 0, Magick::OverCompositeOp)
   end
 end
   
