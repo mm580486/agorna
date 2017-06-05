@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :exposition_name
       t.string :exposition_address
       t.string :exposition_detail
-      t.integer :category_id
+      t.integer :category_id,default: nil
       t.string :static_phone
       t.string :avatar
       t.string :background_image
