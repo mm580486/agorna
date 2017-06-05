@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 #  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
  #   :message => "Subdomain is reserved." },if: 'level==1'
 
-  validates :phone, uniqueness: true
+  
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
                          message: 'should not be the same as your email or phone', allow_blank: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
