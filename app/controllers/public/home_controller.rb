@@ -27,6 +27,7 @@ class Public::HomeController < ApplicationController
     
     def index
         @products=Product.all.limit(8)
+        @off_products=Product.all.where.not(off_price: nil).limit(8)
         @expositions=User.sellers.limit(8)
         @categories = Category.where(parent_id: nil)
     end

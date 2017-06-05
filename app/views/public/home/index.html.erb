@@ -126,7 +126,7 @@
             <h5 class="center-align">محصولات تخفیف دار</h5>
             <div class="divider center-align product-divider"></div>
             <div class="row">
- <% @products.each do |product| %>
+ <% @off_products.each do |product| %>
       <%= render partial: 'partials/public/product',locals: {product: product} %>
  <% end %>
 
