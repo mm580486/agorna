@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20170529124832) do
   end
 
   add_index "comments", ["product_id"], name: "index_comments_on_product_id", using: :btree
-  add_index "comments", ["seller_id"], name: "index_comments_on_seller_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
@@ -225,7 +224,7 @@ ActiveRecord::Schema.define(version: 20170529124832) do
     t.string   "static_phone"
     t.string   "avatar"
     t.string   "background_image"
-    t.string   "instagram"
+    t.string   "instagram_id"
     t.string   "telegram"
     t.boolean  "post_service",           default: false
     t.boolean  "exposition_accept",      default: false
@@ -239,6 +238,11 @@ ActiveRecord::Schema.define(version: 20170529124832) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
+  add_foreign_key "identities", "users"
+  add_foreign_key "pages", "users"
   add_foreign_key "product_fields", "product_types"
   add_foreign_key "products", "product_types"
   add_foreign_key "products", "users"
