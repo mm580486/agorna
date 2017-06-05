@@ -31,7 +31,7 @@ process :watermark
     mark.background_color = "none"
 
     manipulate! do |images|
-     JSON.paras(images).each do |image|
+     JSON.parse(images).each do |image|
       tile = Magick::ImageList.new
       page = Magick::Rectangle.new(0, 0, 0, 0)
 
