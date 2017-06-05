@@ -3,9 +3,9 @@
                         <div class="card-image">
                             
                      <% unless product.images[0].blank? %>
-                     <%= image_tag product.images.first.url, alt: product.name, class: 'materialboxed' %>
+                     <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;width: 301px;' %>
                      <% else %>
-<img class="materialboxed" src="https://unsplash.it/200/300/?random">
+<img class="materialboxed" src="https://unsplash.it/200/300/?random" style='height: 301px;width: 301px;'>
                    
                       <% end %>
                             
