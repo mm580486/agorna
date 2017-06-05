@@ -1,6 +1,6 @@
-require 'mini_magick'
+
 class Product < ActiveRecord::Base
-  after_save :set_watermark
+  
   belongs_to :user
   belongs_to :product_type
   has_many :favorites, :dependent => :destroy
@@ -10,20 +10,7 @@ class Product < ActiveRecord::Base
   serialize :properties, Hash
   
   
-  def set_watermark
-    self.images.each do |image|
-    img = MiniMagick::Image.from_file(image.path)
-
-img.combine_options do |c|
-  c.gravity 'SouthWest'
-  c.draw "image Over 0,0 0,0 '#{Rails.root}/public/images/watermark.png'"
-end
-
-img.write(image.path)
-    
-  end
   
-end
   
   
 end

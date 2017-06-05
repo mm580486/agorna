@@ -3,7 +3,16 @@
                         <div class="card-image">
                             
                      <% unless product.images[0].blank? %>
-                     <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;width: 301px;' %>
+                     
+                     
+        <%=
+             
+             
+             
+             cl_image_tag(product.images.first.url, :overlay => "text:bold_dark:PinSood", 
+             :gravity => :south_east, :x => 8, :y => 8, alt: product.name)
+             
+             %>
                      <% else %>
 <img class="materialboxed" src="https://unsplash.it/200/300/?random" style='height: 301px;width: 301px;'>
                    
