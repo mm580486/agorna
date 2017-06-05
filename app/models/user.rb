@@ -4,11 +4,14 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :background_image, BackgroundUploader
   validates_acceptance_of :terms
+  
   validates :telegram, uniqueness: true, if: 'telegram.present?'
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
+  
   validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
     :message => "Subdomain is reserved." },if: 'level==1'
+    
   validates :phone, uniqueness: true
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
                          message: 'should not be the same as your email or phone', allow_blank: true

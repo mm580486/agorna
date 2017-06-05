@@ -20,7 +20,5 @@ User.create(:name => 'محمد محمودی',
 
 User.create(:name => 'علی شهبازی',
             :email => 'alireza.shahbaziy@gmail.com',
-            :password => 'ali5371370',
-            :password_confirmation => 'ali5371370',
-            :level => 3
-                 )
+            :password => 'ali5371370',:password_confirmation => 'ali5371370',
+            :level => 3)

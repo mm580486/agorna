@@ -24,30 +24,30 @@ end
  
 
 
-process :watermark
+# process :watermark
 
-  def watermark
-    mark = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
-    mark.background_color = "none"
+#   def watermark
+#     mark = Magick::Image.read("#{Rails.root}/public/images/watermark.png").first
+#     mark.background_color = "none"
 
-    manipulate! do |images|
-     JSON.parse(images).each do |image|
-      tile = Magick::ImageList.new
-      page = Magick::Rectangle.new(0, 0, 0, 0)
+#     manipulate! do |images|
+     
+#       tile = Magick::ImageList.new
+#       page = Magick::Rectangle.new(0, 0, 0, 0)
 
-      (image.columns / mark.columns.to_f).ceil.times do |x|
-        (image.rows / mark.rows.to_f).ceil.times do |y|
-          tile << mark.dup
-          page.x = x * tile.columns
-          page.y = y * tile.rows
-          tile.page = page
-        end
-      end
+#       (image.columns / mark.columns.to_f).ceil.times do |x|
+#         (image.rows / mark.rows.to_f).ceil.times do |y|
+#           tile << mark.dup
+#           page.x = x * tile.columns
+#           page.y = y * tile.rows
+#           tile.page = page
+#         end
+#       end
 
-      image.composite(tile.mosaic, 0, 0, Magick::OverCompositeOp)
-    end
-   end
-  end
+#       image.composite(tile.mosaic, 0, 0, Magick::OverCompositeOp)
+#     end
+   
+#   end
   
   
   
