@@ -28,7 +28,7 @@ end
    def watermark(opacity = 0.99, size = 'm')
   
     manipulate! do |img|
-      logo = Magick::Image.read("#{Rails.root}/public/img/pinsood.jpg").first
+      logo = Magick::Image.read("#{Rails.root}/public/images/pinsood.jpg").first
       logo.alpha(Magick::ActivateAlphaChannel)
   
       white_canvas = Magick::Image.new(logo.columns, logo.rows) { self.background_color = "none" }
