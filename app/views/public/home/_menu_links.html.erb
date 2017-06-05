@@ -7,7 +7,8 @@
                 <a href="/admin/dashboard/index"><i class="material-icons right">person_pin</i>داشبورد</a>
                 
                 <% else %>
-                <a href="/users/sign_out"><i class="material-icons right">person_pin</i>خروج</a>
+                
+                <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
                 <% end %>
 <% end %>
 
