@@ -42,7 +42,7 @@ class Api::V1Controller < ApplicationController
       when 'category'
         @products=Product.where(category_id: params[:category_id])
       when 'favorites'
-        @products=Product.where(category_id: params[:category_id])
+        @products=Product.all
       end
       
     end
