@@ -38,7 +38,8 @@ class Public::HomeController < ApplicationController
     
     def category
       @categories = Category.where(parent_id: nil)  
-      @products=Product.where(category_id: Category.find_by_permalink(params[:permalink]).id )
+      @category=Category.find_by_permalink(params[:permalink])
+      @products=Product.where(category_id: @category.id )
     end
     
     def register_exposition

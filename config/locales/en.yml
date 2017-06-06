@@ -87,6 +87,15 @@ en:
       title:
            root: پین سود
            product: محصول
+           register_exposition: ثبت نام فروشگاه در پین سود
+           sign_in: ورود به پین سود
+           sign_up: ثبت نام در پین سود
+           tickets: تیکت ها
+           new_ticket: تیکت جدید
+           conversation: گفتگو با کاربر
+           exposition_show: فروشگاه
+           following: دنبال کنندگان
+           favorites: علاقه مندی ها
            
             
           
