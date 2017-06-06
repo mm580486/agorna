@@ -41,6 +41,8 @@ class Api::V1Controller < ApplicationController
         @products=Product.all
       when 'category'
         @products=Product.where(category_id: params[:category_id])
+      when 'favorites'
+        @products=Product.where(category_id: params[:category_id])
       end
       
     end
