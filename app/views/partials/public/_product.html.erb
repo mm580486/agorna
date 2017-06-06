@@ -1,7 +1,7 @@
         <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
-                            
+                            <%= link_to product_show_path(id: product.id) do %>
                      <% unless product.images[0].blank? %>
                      <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;width: 301px;' %>
                      
@@ -9,12 +9,9 @@
 <img class="materialboxed" src="https://unsplash.it/200/300/?random" style='height: 301px;width: 301px;'>
                    
                       <% end %>
-                            
-                            
-                                
-                                
+                              
                                 <%= link_to product.name[0..20] , product_show_path(id: product.id),class: 'card-title align right gray-text' %>
-                                
+                               <% end %> 
                                 
 <% unless current_user.nil? %>
                             <a data-id='<%= product.id %>'  liked='<%= current_user.favorites.exists?(product_id: product.id) %>' class="product-favorite btn-floating halfway-fab waves-effect waves-light  <%=  current_user.favorites.exists?(product_id: product)? 'blue':'red' %> left"><i class="material-icons">favorite</i></a>
