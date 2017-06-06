@@ -46,7 +46,9 @@ class Api::V1Controller < ApplicationController
       end
       
     end
-    
+    def favorites
+        render json: Product.all
+    end
     def product
         @product=Product.find(params[:id])
     end
