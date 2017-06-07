@@ -46,6 +46,16 @@ class Api::V1Controller < ApplicationController
       end
       
     end
+    
+    def save_comment
+        @product=Product.find(params[:id])
+        if @product.comments.build(body: params[:content]).save
+            render json: {status: :ok}
+        else
+            render status: 400
+        end
+        
+    end
     def favorites
         render json: Product.all
     end
