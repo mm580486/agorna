@@ -53,7 +53,7 @@ class Api::V1Controller < ApplicationController
             render json: {status: :ok}
         else
             
-            render status: 204
+            render nothing: true,status: 204
         end
         
     end
