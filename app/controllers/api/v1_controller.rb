@@ -52,7 +52,8 @@ class Api::V1Controller < ApplicationController
         if @product.comments.build(body: params[:content]).save
             render json: {status: :ok}
         else
-            render status: 400
+            
+            render status: 204
         end
         
     end
