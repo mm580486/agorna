@@ -48,7 +48,7 @@ class Api::V1Controller < ApplicationController
     end
     
     def save_comment
-        @user=User.find_by_token(params[:token])
+        @user=User.find_by_authentication_token(params[:token])
         @product=Product.find(params[:id])
         if @product.comments.build(body: params[:content],user_id: @user.id).save
             render json: {status: :ok}
