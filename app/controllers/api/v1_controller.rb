@@ -62,7 +62,8 @@ class Api::V1Controller < ApplicationController
         
     end
     def favorites
-        render json: Product.all
+        @products=Product.all
+        render 'products'
     end
     def product
         @product=Product.find(params[:id])
@@ -72,7 +73,11 @@ class Api::V1Controller < ApplicationController
         @comments=Product.find(params[:id]).comments
     end
     
-    
+    def tickets
+        @user=
+        @tickets=Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id)
+        render json: @tickets
+    end
     
     def login
         data = JSON.parse(params[:formdata])
