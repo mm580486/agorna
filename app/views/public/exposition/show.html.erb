@@ -21,7 +21,7 @@ nav {
     
     <li><div class="divider"></div></li>
       <li><a class="subheader">کتگوری</a></li>
-    <% Category.where(parent_id: @exposition.category_id).each do |category| %>
+    <% @categories.each do |category| %>
     <li>
         <%= active_link_to category.name ,{category: category.permalink,offers: params[:offers],sort: params[:sort],filter_name: params[:filter_name],props: params[:props] }, active: :exact %>
         
