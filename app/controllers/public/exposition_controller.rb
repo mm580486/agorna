@@ -4,7 +4,7 @@ class Public::ExpositionController < ApplicationController
     @exposition=User.sellers.find(params[:id])
     @categories=Category.where(parent_id: @exposition.category_id)
     @products=@exposition.products
-    @categories.where(id: @products.pluck(:category_id))
+    @categories=@categories.where(id: @products.pluck(:category_id))
     @products=@products.where(category_id: Category.find_by_permalink(params[:category]).id ) if params[:category].present?
     if params[:sort].present?
       sort=(params[:sort]=='asc')? 'ASC':'DESC'
