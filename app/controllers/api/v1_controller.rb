@@ -74,8 +74,8 @@ class Api::V1Controller < ApplicationController
     end
     
     def tickets
-        @user=
-        @tickets=Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id)
+        @user=User.find_by_authentication_token(params[:token])
+        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id)
         render json: @tickets
     end
     
