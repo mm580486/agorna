@@ -80,7 +80,7 @@ class Api::V1Controller < ApplicationController
     
     def conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessages=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).ticketmessages
+        @ticketmessages=Ticket.find(params[:id]).ticketmessages
     end
     
     
