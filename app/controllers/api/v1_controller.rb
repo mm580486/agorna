@@ -78,12 +78,20 @@ class Api::V1Controller < ApplicationController
         @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id)
     end
     
+    def conversation
+        @user=User.find_by_authentication_token(params[:token])
+        @ticketmessages=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).ticketmessages
+    end
+    
+    
     def login
         data = JSON.parse(params[:formdata])
         @user=User.find_for_authentication(email: data['email'])
         @user.valid_password?(data['password'])
         render status: :ok,json: @user
     end
+    
+    
     
     def register
 
