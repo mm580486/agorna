@@ -75,12 +75,12 @@ class Api::V1Controller < ApplicationController
     
     def tickets
         @user=User.find_by_authentication_token(params[:token])
-        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id)
+        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC')
     end
     
     def conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessages=Ticket.find(params[:id]).ticketmessages
+        @ticketmessages=Ticket.find(params[:id]).ticketmessages.order('id DESC')
     end
     
     def build_conversation
