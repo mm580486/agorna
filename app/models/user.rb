@@ -60,15 +60,6 @@ class User < ActiveRecord::Base
   scope :marketers, lambda { where(:level => 2) }
   scope :sellers, lambda { where(:level => 1) }
 
-
-
-
-  
-
-
-
-
-
   def twitter
     identities.where( :provider => "twitter" ).first
   end

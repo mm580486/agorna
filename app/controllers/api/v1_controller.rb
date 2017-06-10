@@ -83,6 +83,12 @@ class Api::V1Controller < ApplicationController
         @ticketmessages=Ticket.find(params[:id]).ticketmessages
     end
     
+    def build_conversation
+        @user=User.find_by_authentication_token(params[:token])
+        @ticketmessage=Ticket.find(params[:id]).ticketmessages.build(body: params[:message]).save
+        render status: 200,nothing: true,json: {status: 200}
+    end
+    
     
     def login
         data = JSON.parse(params[:formdata])

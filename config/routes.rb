@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  mount ActionCable.server => '/cable'
+  
 
 
 
@@ -172,6 +172,7 @@ end
     get 'tickets/:token',action: :tickets
     get 'conversation/:token',action: :conversation
     
+    get 'build_conversation/:token',action: :build_conversation
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
     get 'product/:id',action: :product
