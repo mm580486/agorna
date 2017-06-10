@@ -12,3 +12,5 @@ WebsocketRails::EventMap.describe do
   #   end
   # The above will handle an event triggered on the client like `product.new`.
 end
+
+  Rails.application.config.action_cable.disable_request_forgery_protection = true

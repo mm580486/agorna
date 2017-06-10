@@ -36,6 +36,7 @@ gem 'google-api-client', '~> 0.7.1'
 gem 'pg'
 
 gem 'websocket-rails'
+gem 'rack-cors'
 
 gem 'active_link_to'
 

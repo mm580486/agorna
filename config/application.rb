@@ -25,3 +25,20 @@ config.web_console.whiny_requests = false
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+
+
+    module Ng2CableExample
+      class Application < Rails::Application
+        config.api_only = true
+
+
+        # Enable CORS
+        config.middleware.use Rack::Cors do
+          allow do
+            origins '*'
+            resource '*', headers: :any, methods: [:get, :post, :options, :put, :patch, :delete]
+          end
+        end
+      end
+    end
