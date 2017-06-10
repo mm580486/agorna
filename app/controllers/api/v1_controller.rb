@@ -80,7 +80,7 @@ class Api::V1Controller < ApplicationController
     
     def conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessages=Ticket.find(params[:id]).ticketmessages.order('id DESC')
+        @ticketmessages=Ticket.find(params[:id]).ticketmessages.order('id ASC')
     end
     
     def build_conversation
