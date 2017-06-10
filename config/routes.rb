@@ -110,6 +110,8 @@ post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
   get 'dashboard/transaction'
   get 'dashboard/profile'
   post 'dashboard/update_profile'
+   get 'dashboard/ads'
+    post 'dashboard/send_ads'
   end
 
   namespace :admin do
