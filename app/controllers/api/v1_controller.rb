@@ -87,7 +87,7 @@ class Api::V1Controller < ApplicationController
         @user=User.find_by_authentication_token(params[:token])
         @ticketmessage=Ticket.find(params[:id]).ticketmessages.build(user_id: @user.id,message: params[:message])
         @ticketmessage.save
-        render @ticketmessage.select
+        
     end
     def checkNewMessage
         @user=User.find_by_authentication_token(params[:token])
