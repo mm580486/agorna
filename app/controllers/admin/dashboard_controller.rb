@@ -48,6 +48,23 @@ class Admin::DashboardController < ApplicationController
     
     
   end
+  
+  
+  def ads
+    
+    
+  end
+  
+  def send_ads
+    current_user.followers.each do |user|
+    @ticket=Ticket.new(title: params[:title])
+    @ticket.user_id=current_user.id
+    @ticket.user_two=user.id
+    @ticket.save
+    @ticket.ticketmessages.new(message: params[:message],user_id: current_user.id).save
+    end
+    redirect_to :back
+  end
   private
   
   def user_white_list

@@ -56,6 +56,12 @@
 
         </li>
         
+           <li class="bold">
+            <%= link_to 'ارسال گروهی',send_ads_admin_dashboard_path,class: 'waves-effect waves-teal' %>
+             
+
+        </li>
+        
         <li class="bold">
             <span class="new badge green left"><%= Comment.where(accept: false).where(product_id: current_user.products.ids).length %></span>
             <%= link_to 'نظرات',admin_comments_path,class: 'waves-effect waves-teal' %>
