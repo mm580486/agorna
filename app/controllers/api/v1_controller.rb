@@ -85,7 +85,7 @@ class Api::V1Controller < ApplicationController
     
     def build_conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessage=Ticket.find(params[:id]).ticketmessages.build(message: params[:message])
+        @ticketmessage=Ticket.find(params[:id]).ticketmessages.build(user_id: @user.id,message: params[:message])
         @ticketmessage.save
         render status: 200,nothing: true,json: @ticketmessage
     end
