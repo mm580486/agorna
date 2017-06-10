@@ -14,7 +14,14 @@
  <div class="row">
     <%= form_tag url: admin_dashboard_send_ads_path,html: {class: 'col s12'},method: :POST do %>
 
-
+      <div class="row">
+        <div class="input-field col s12">
+          
+          <%= text_field_tag :title ,'',class: "materialize-textarea" %>
+          <%= label_tag :title, 'عنوان' %>
+        </div>
+        
+      </div>
         
          <div class="row">
         <div class="input-field col s12">
@@ -26,14 +33,7 @@
       </div>
      
       
-      <div class="row">
-        <div class="input-field col s12">
-          
-          <%= text_field_tag :title ,'',class: "materialize-textarea" %>
-          <%= label_tag :title, 'محتوا' %>
-        </div>
-        
-      </div>
+
       
     
       
