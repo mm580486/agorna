@@ -173,6 +173,8 @@ end
     get 'conversation/:token',action: :conversation
     
     get 'build_conversation/:token',action: :build_conversation
+    get 'checkNewMessage/:token',action: :checkNewMessage
+    
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
     get 'product/:id',action: :product

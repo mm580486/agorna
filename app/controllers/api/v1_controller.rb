@@ -89,6 +89,11 @@ class Api::V1Controller < ApplicationController
         @ticketmessage.save
         render status: 200,nothing: true,json: @ticketmessage
     end
+    def checkNewMessage
+        @user=User.find_by_authentication_token(params[:token])
+        @ticketmessages=Ticket.find(params[:id]).ticketmessages.where('id > ?',params[:last_message_id]).order('id ASC')
+        render 'conversation'
+    end
     
     
     def login
