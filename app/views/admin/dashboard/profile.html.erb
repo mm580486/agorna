@@ -21,7 +21,7 @@
 
     <%= form_for @user ,url: '/admin/dashboard/update_profile',html: {class: 'col s12'},method: :POST do |f| %>
        
-       <%= render partial: 'public/register_form',f: f %>
+       <%= render 'partials/public/register_form',f: f %>
 
                                 <div class="row">
                                 
