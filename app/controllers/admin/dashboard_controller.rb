@@ -27,6 +27,12 @@ class Admin::DashboardController < ApplicationController
   
   def update_password
     if current_user.valid_password?(params[:old_password])
+      
+      unless params[:password]==params[:password_confirmation]
+      flash[:notice]=[5000,'رمزعبور با هم هماهنگ نیست']
+      redirect_to :back
+    end
+      
       current_user.update_attributes(password: params[:password],password_confirmation: params[:password_confirmation])
       flash[:notice]=[5000,t("admin.toast.password_updated")]
       redirect_to :back
