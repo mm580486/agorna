@@ -9,6 +9,14 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+  get 'seller_chains/index'
+  end
+
+  namespace :admin do
+  get 'seller_chains/new'
+  end
+
+  namespace :admin do
     resources :pages,controller: 'pages' do
        member do
         get 'delete'
