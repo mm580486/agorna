@@ -1,7 +1,7 @@
 class Admin::SellerChainsController < ApplicationController
   layout 'admin'
   def index
-    @chains=Chain.where(user_two: current_user.id)
+    @chains=Chain.where('user_two = ? OR user_id = ?',current_user.id,current_user.id).where(accept: true)
   end
 
   def requests
