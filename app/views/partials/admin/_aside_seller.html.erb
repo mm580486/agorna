@@ -7,15 +7,12 @@
                   <li>
                       <a class="page-title" id='help'>راهنما</a>
                   </li>
+                        <li>
+                  <%= link_to 'خروج' ,destroy_user_session_path,class: "page-title", :method => :delete %>
+                  </li>
               </ul>
               
-               <div class="switch align left white-text">
-    <label class='white-text'>
-      
-      <input type="checkbox" id='development'>
-      <span class="lever"></span>
-      توسعه
-    </label>
+ 
   </div>
 
               
@@ -111,9 +108,7 @@
         </li>
         
            
-               <li class="bold">
-            <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
-            </li>
+             
         
            
       </ul>
