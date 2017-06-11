@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529124832) do
+ActiveRecord::Schema.define(version: 20170611075651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170529124832) do
   end
 
   add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
+
+  create_table "chains", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "user_two"
+    t.boolean  "accept"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -171,12 +179,11 @@ ActiveRecord::Schema.define(version: 20170529124832) do
   create_table "settings", force: :cascade do |t|
     t.string   "site_name",                default: "Agorna", null: false
     t.string   "seo_description",                             null: false
-    t.string   "seo_keywords",                                null: false
     t.string   "site_logo"
     t.string   "default_image_product"
     t.string   "default_image_exposition"
-    t.text     "style"
-    t.text     "javascript"
+    t.string   "mobile_slider"
+    t.string   "site_slider"
     t.boolean  "site_down",                default: false
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
