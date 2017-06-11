@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, if: 'email.present?'
     validates :identify, uniqueness: true, if: 'identify.present?'
     validates :phone, uniqueness: true
-
+validates_presence_of :phone
 #  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
  #   :message => "Subdomain is reserved." },if: 'level==1'
 
