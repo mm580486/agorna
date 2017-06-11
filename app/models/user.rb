@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessible :phone
+  attr_accessor :login
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
@@ -63,6 +65,13 @@ class User < ActiveRecord::Base
 
   scope :marketers, lambda { where(:level => 2) }
   scope :sellers, lambda { where(:level => 1) }
+
+
+def self.find_for_database_authentication warden_conditions
+  conditions = warden_conditions.dup
+  login = conditions.delete(:login)
+  where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
+end
 
   def twitter
     identities.where( :provider => "twitter" ).first
