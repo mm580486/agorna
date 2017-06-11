@@ -65,7 +65,7 @@
         </nav>
 
 
-        <nav>
+        <nav class='hide-on-med-and-up'>
             <div class="nav-wrapper">
 
                 <ul id="nav-mobile" class="right">
@@ -86,14 +86,44 @@
                         <% end %>
                     </li>
                 <% end %>
-             
-    
-
-
-
+            
                 </ul>
             </div>
         </nav>
+        
+        
+        
+        
+        <nav>
+            <div class="nav-wrapper">
+                
+                
+                
+
+            
+                 <% @categories.each do |category| %>
+           <div class=" horizontal">
+    <a class="btn-floating btn-large red">
+         <%= category.name %>
+    </a>
+    <ul>
+      <!--<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>-->
+        <% category.subcategories.each do |subcategory| %>
+                            <li>
+                                <%= link_to subcategory.name,public_home_category_path(permalink: subcategory.permalink) %>
+                            </li>
+                            <% end %>
+  
+    </ul>
+    
+    
+  </div>
+      <% end %>
+  
+    </div>   
+        </nav>
+
+        
 
 
         
