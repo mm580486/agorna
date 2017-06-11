@@ -16,7 +16,9 @@
                       <%# link_to 'تایم لاین',public_home_following_post_path %>
                   </li>
   <% unless current_user.nil? %>
-
+ <li>
+                     <%= link_to 'خروج' ,destroy_user_session_path, :method => :delete %>
+                     </li>
                   
    <li>
                       <%= link_to 'علاقه مندی ها',public_home_favorites_path %>
@@ -29,9 +31,7 @@
                    <li>
                       <%= link_to 'تیکت ها',public_tickets_path %>
                   </li>
-                  <li>
-                     <%= link_to 'خروج' ,destroy_user_session_path, :method => :delete %>
-                     </li>
+                 
                   <% end %>
                   
                         <li><a href="/pages/demo">
