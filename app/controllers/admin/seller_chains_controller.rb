@@ -20,7 +20,7 @@ class Admin::SellerChainsController < ApplicationController
   
   def toggle_lock
     @chain=Chain.find(params[:id])
-    @chain.update_attribute(:accept,!@chain.lock)
+    @chain.update_attribute(:accept,!@chain.accept)
     flash[:notice]=[5000,t("admin.toast.chain_#{@chain.accept}")]
     redirect_to admin_seller_chains_path
   end
