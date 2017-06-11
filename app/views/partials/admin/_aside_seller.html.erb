@@ -62,6 +62,15 @@
 
         </li>
         
+               </li>
+        
+           <li class="bold">
+            <%= link_to 'رمزعبور',admin_dashboard_password_path,class: 'waves-effect waves-teal' %>
+             
+
+        </li>
+        
+        
         <li class="bold">
             <span class="new badge green left"><%= Comment.where(accept: false).where(product_id: current_user.products.ids).length %></span>
             <%= link_to 'نظرات',admin_comments_path,class: 'waves-effect waves-teal' %>

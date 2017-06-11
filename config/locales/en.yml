@@ -78,6 +78,8 @@ en:
             comment_deleted: نظر حذف شد
             profile_updated: پروفایل با موفقیت بروز شد
             product_updated: محصول با موفقیت افزوده شد
+            password_inccorect: رمز عبور اشتباه است
+            password_updated: رمزعبور با موفقیت بروز شد
             
   public:
         toast:

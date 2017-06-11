@@ -48,7 +48,11 @@
          <%= link_to 'فروشگاه ها',admin_sellers_path,class: 'waves-effect waves-teal' %>
         </li>
             
-     
+           <li class="bold">
+            <%= link_to 'رمزعبور',admin_dashboard_password_path,class: 'waves-effect waves-teal' %>
+             
+
+        </li>
 
           <%= link_to 'خروج' ,destroy_user_session_path,class: "waves-effect waves-teal", :method => :delete %>
           </li>

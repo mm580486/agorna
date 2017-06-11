@@ -1,0 +1,149 @@
+ <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :name,id: 'LFNAME',required: 'required' %>
+                                        <label for="LFNAME">نام و نام خانوادگی</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_name,id: 'ExpositionName',required: 'required' %>
+                                        <label for="ExpositionName">نام فروشگاه</label>
+                                    </div>
+                                </div>
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_detail,id: 'ExpositionDetail',required: 'required' %>
+                                        <label for="ExpositionDetail">بیوگرافی فروشگاه</label>
+                                    </div>
+                                </div>
+                                  <div class="row">
+                                
+                                 <%= f.select(:category_id, Category.where(parent_id: nil).collect {|cat|  [cat.name,cat.id]  },{},{class: 'browser-default'}) %>
+                                    
+                                  
+                                     </div>                           
+                            
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :exposition_address,id: 'ExpositionAdd',required: 'required' %>
+                                        <label for="ExpositionAdd">آدرس فروشگاه</label>
+                                    </div>
+                                </div>
+<!-- $('.chips-placeholder').material_chip('data'); -->
+
+
+                  
+
+
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                        <%= f.text_field :static_phone,id: 'ExpositionStaticStaticPhone' %>
+                                        <label for="ExpositionStaticStaticPhone">تلفن ثابت</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <%= f.text_field :phone,id: 'ExpositionPhone',required: 'required' %>
+                                        <label for="ExpositionPhone">شماره همراه</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.email_field :email,id: 'ExpositionEmail' %>
+                                        <label for="ExpositionEmail">ایمیل</label>
+                                    </div>
+                                </div>
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :password,required: '', pattern: '^\S{8,}$',id: 'password' %>
+                                        <label for="password">رمزعبور</label>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :password_confirmation, pattern: '^\S{8,}$',required: '',id: 'password_confirmation' %>
+                                        <label for="password_confirmation">تکرار رمزعبور</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                <div class="file-field input-field col s12">
+                                    <div class="btn">
+                                        <span>افزودن آواتار</span>
+                                        
+					<%= f.file_field :avatar %>
+                                        
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="آپلود آواتار">
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn">
+                                            <span>افزودن بکگراند</span>
+                                            
+					     <%= f.file_field :background_image %>                                        
+</div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="آپلود بکگراند برای فروشگاه">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                          <%= f.text_field :instagram_id,id: 'ExpositionInstagramId' %>
+                                        <label for="ExpositionInstagramId">اکانت اینستاگرام (به طور مثال @example)</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                       <%= f.text_field :telegram,id: 'ExpositionTelegramId' %>
+                                        <label for="ExpositionTelegramId"> اکانت تلگرام (به طور مثال @example)</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                    
+                                    
+                                       <%= f.check_box :post_service,id: 'filled-in-box1',checked: 'checked',class: 'filled-in' %>
+                                    <label for="filled-in-box1">فروشگاه شما قابلیت ارسال محصول دارد ؟</label>
+
+                                    </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class=" input-field col s12">
+
+                                        
+                                        <%= f.check_box :terms,class: "filled-in", id: "filled-in-box2", onchange: "document.getElementById('submit_tag').disabled = !this.checked;"  %>
+                                        <label for="filled-in-box2">صفحه قوانین و مقررات را خوانده ام و شرایط را میپذیرم</label>
+
+                                    </div>
+                                </div>

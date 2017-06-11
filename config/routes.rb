@@ -111,6 +111,8 @@ post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
   get 'dashboard/profile'
   post 'dashboard/update_profile'
    get 'dashboard/ads'
+   get 'dashboard/password'
+   post 'dashboard/update_password'
     post 'dashboard/send_ads'
   end
 
