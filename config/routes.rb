@@ -52,6 +52,13 @@ Rails.application.routes.draw do
        end
     end
     
+         resources :seller_chains,controller: 'seller_chains' do
+       member do
+        get 'delete'
+        get 'toggle_lock'
+       end
+    end
+    
     
      resources :forms,controller: 'forms' do
        member do

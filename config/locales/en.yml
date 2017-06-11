@@ -80,6 +80,9 @@ en:
             product_updated: محصول با موفقیت افزوده شد
             password_inccorect: رمز عبور اشتباه است
             password_updated: رمزعبور با موفقیت بروز شد
+            chain_true: درخواست قبول شد
+            chain_false: درخواست رد شد
+            chain_request: درخواست ارسال شد
             
   public:
         toast:
