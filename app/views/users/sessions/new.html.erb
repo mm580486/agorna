@@ -13,6 +13,11 @@
                 <ul class="bt hide-on-med-and-down">
          <%= render partial: 'public/home/menu_links' %>
                 </ul>
+                
+                
+                
+                
+
 
              <div class="nav-header de researcher ">
 
@@ -51,25 +56,33 @@
 
 
 
-<%= form_tag(login_path) do %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 
-
-
+<%- flash.each do |name, msg| -%>
+  <% content_for :head do %>
+  <%= toast(msg,5000,['red']) %>
+  <% end %>
+<%- end -%>
   <div class="field">
-    <%= label_tag :email,value: 'ایمیل' %><br />
-    <%= text_field_tag :email,'', autofocus: true %>
+    <%= f.label :email,value: 'ایمیل' %><br />
+    <%= f.text_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= label_tag :password,value: 'رمز عبور' %><br />
-    <%= password_field_tag :password,'', autocomplete: "off" %>
+    <%= f.label :password,value: 'رمز عبور' %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-
+  <% if devise_mapping.rememberable? -%>
+    <div class="row">
+         <%= f.label :remember_me,value: 'من را بخاطر بسپار' %>
+        <%= f.check_box :remember_me %>
+    </div>
+  <% end -%>
 
   <div class="actions">
-    <%= submit_tag "ورود",class: 'waves-effect waves-light btn' %>
+    <%= f.submit "ورود",class: 'waves-effect waves-light btn' %>
   </div>
 <% end %>
 
