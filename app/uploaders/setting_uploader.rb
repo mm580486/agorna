@@ -28,6 +28,13 @@ class SettingUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  
+
+
+ def extension_whitelist
+    %w(jpg jpeg png)
+ end
+ 
 
   # Create different versions of your uploaded files:
   # version :thumb do

@@ -40,7 +40,7 @@
              <div class="file-field input-field ">
       <div class="btn">
         <span>اسلایدر</span>
-        <input type="file">
+        <%= f.file_field :mobile_slider, multiple: true %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -56,7 +56,7 @@
                        <div class="file-field input-field">
       <div class="btn">
         <span>لوگو</span>
-        <input type="file">
+        <%= f.file_field :site_logo, multiple: false %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -90,7 +90,8 @@
                      <div class="file-field input-field">
       <div class="btn">
         <span>اسلایدر</span>
-        <input type="file">
+        
+        <%= f.file_field :site_slider, multiple: true %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -105,7 +106,7 @@
       </div>
   </div>
             
-          
+          <%= f.submit 'ذخیره',class: 'waves-effect waves-light btn col s12'%>
               <% end %> 
         </div>
    

@@ -94,7 +94,7 @@ class Admin::DashboardController < ApplicationController
   end
   
   def setting_white_list
-    params.require(:setting).permit(:site_name,:seo_description,:site_logo,:default_image_product,:default_image_exposition,:mobile_slider,:site_slider)
+    params.require(:setting).permit(:site_name,:seo_description,:site_logo,:default_image_product,:default_image_exposition, {site_slider: []}, {mobile_slider: []})
   end
   
 end
