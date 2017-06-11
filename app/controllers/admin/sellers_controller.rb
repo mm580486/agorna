@@ -82,6 +82,7 @@ class Admin::SellersController < ApplicationController
     params.require(:user).permit(
       :name,
       :email,
+      :identify,
       :phone,
       :password,
       :password_confirmation,

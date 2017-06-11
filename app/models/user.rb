@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :telegram, uniqueness: true, if: 'telegram.present?'
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
+    validates :identify, uniqueness: true, if: 'identify.present?'
 
 #  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
  #   :message => "Subdomain is reserved." },if: 'level==1'
@@ -23,6 +24,8 @@ class User < ActiveRecord::Base
   validates_length_of :password, within: 7..100, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
   validates_format_of :instagram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
   validates_format_of :telegram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
+  
+  validates_format_of :identify, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
   
   has_many :comments, :dependent => :destroy
   has_many :identities,dependent:   :destroy
