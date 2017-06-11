@@ -36,12 +36,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", required: "required" %>
   </div>
 
   <div class="input-field col s12">
     <%= f.label :password_confirmation,value: 'تایید رمز عبور' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", required: "required" %>
   </div>
   
         <div class="input-field col s12">
