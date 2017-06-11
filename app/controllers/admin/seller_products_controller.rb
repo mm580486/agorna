@@ -20,7 +20,7 @@ class Admin::SellerProductsController < ApplicationController
   def delete
     if @product.destroy 
     flash[:notice]=[5000,t('admin.toast.product_deleted')]
-    redirect_to admin_seller_products_path
+    redirect_to :back
   end
   end
   
