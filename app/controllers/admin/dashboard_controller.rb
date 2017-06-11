@@ -28,8 +28,7 @@ class Admin::DashboardController < ApplicationController
   def update_password
  
    
-      
-      
+  
     
     
     if current_user.valid_password?(params[:old_password])
@@ -47,7 +46,7 @@ class Admin::DashboardController < ApplicationController
       
     end
     
-    redirect_to :back
+    render('password')
  
   end
   
