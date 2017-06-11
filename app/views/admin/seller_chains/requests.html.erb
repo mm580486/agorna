@@ -15,7 +15,7 @@
             <thead>
               <tr>
                   
-                 
+                 <th>وضعیت</th>
                   <th>لینک</th>
   <th>در خواست </th>
               </tr>
@@ -24,7 +24,9 @@
             <tbody>
             <% @chains.each do |chain| %>
               <tr>
-                
+                <td>
+                  <%= chain.accept? ? 'تایید شده':'تایید نشده' %>
+                </td>
                 <td><%= link_to User.find(chain.user_two).exposition_name,exposition_show_path(User.find(chain.user_two).identify),terget: '_blank' %></td>
                 <td><%= User.find(chain.user_two).name %></td>
               </tr>
