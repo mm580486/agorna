@@ -321,7 +321,7 @@ nav {
 <% if chain.user_id == @exposition.id %>
 <%= link_to exposition_show_path(User.find(chain.user_two).identify) do %>
     <div class="segment avatar">
-      <img class="circle" src='/images/' style='width: 72px;height: 72px;'>
+      <img class="circle right" src='<%= User.find(chain.user_two).avatar_url %>' style='width: 72px;height: 72px;'>
 
       <span class="title"><%= User.find(chain.user_two).exposition_name %></span>
       <p><%= User.find(chain.user_two).name %> <br>
@@ -335,7 +335,7 @@ nav {
 
 <%= link_to exposition_show_path(chain.user.identify) do %>
     <div class="segment avatar">
-      <img class="circle" src='/images/' style='width: 72px;height: 72px;'>
+      <img class="circle right" src='<%= chain.user.avatar_url %>' style='width: 72px;height: 72px;'>
 
       <span class="title"><%= chain.user.exposition_name %></span>
       <p><%= chain.user.name %> <br>
