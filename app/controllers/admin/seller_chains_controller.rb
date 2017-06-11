@@ -7,6 +7,7 @@ class Admin::SellerChainsController < ApplicationController
   def requests
     @chains=current_user.chains
   end
+  
   def new
     @chian=Chain.new
   end
