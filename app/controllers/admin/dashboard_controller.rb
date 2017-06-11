@@ -35,10 +35,12 @@ class Admin::DashboardController < ApplicationController
     if current_user.valid_password?(params[:old_password])
       current_user.update_attributes(password: params[:password],password_confirmation: params[:password_confirmation])
       flash[:notice]=[5000,t("admin.toast.password_updated")]
+               render('password')
     else
       flash[:notice]=[5000,t("admin.toast.password_inccorect")]
+              render('password')
     end
-          redirect_to :back
+ 
   end
   
   def update_profile
