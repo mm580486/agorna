@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   has_many :pages
   has_many :categories
   has_many :marketer_subscribers,foreign_key: "marketer_id",class_name: 'User'
+  has_many :chains
   
   belongs_to :marketer,foreign_key: "marketer_id",class_name: 'User'
   

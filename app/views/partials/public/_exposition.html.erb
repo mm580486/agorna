@@ -1,7 +1,7 @@
  <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
-                             <%= link_to exposition_show_path(user.id) do %>
+                             <%= link_to exposition_show_path(user.identify) do %>
                             <% unless user.avatar_url.nil? %>
                             <%= image_tag user.avatar_url, alt: user.exposition_name,style: 'height: 301px;width: 301px;' %>
                             <% else %>

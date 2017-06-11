@@ -49,7 +49,7 @@
     </div>
     <div class="detail">
         <h5>
-            <%= link_to(exposition_show_path(@product.user.id)) do %>
+            <%= link_to(exposition_show_path(@product.user.identify)) do %>
                 <%= @product.user.exposition_name %>
             <% end %>
             

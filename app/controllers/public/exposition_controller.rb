@@ -1,7 +1,7 @@
 class Public::ExpositionController < ApplicationController
   layout 'public'
   def show
-    @exposition=User.sellers.find(params[:id])
+    @exposition=User.sellers.find_by_identify(params[:id])
     @categories=Category.where(parent_id: @exposition.category_id)
     @products=@exposition.products
     @categories=@categories.where(id: @products.pluck(:category_id))
