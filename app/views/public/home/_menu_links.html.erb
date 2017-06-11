@@ -8,7 +8,7 @@
                 
                 <% else %>
                 
-                <%= link_to 'خروج' ,destroy_user_session_path, :method => :delete %>
+             
                 <% end %>
 <% end %>
 
@@ -29,6 +29,9 @@
                    <li>
                       <%= link_to 'تیکت ها',public_tickets_path %>
                   </li>
+                  <li>
+                     <%= link_to 'خروج' ,destroy_user_session_path, :method => :delete %>
+                     </li>
                   <% end %>
                   
                         <li><a href="/pages/demo">
