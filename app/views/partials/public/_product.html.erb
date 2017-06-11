@@ -7,10 +7,10 @@
                             <img src="/images/offer.png" style="width: 33%;position: absolute;z-index: 9999999;left: 67%;">
                             <% end %>
                      <% unless product.images[0].blank? %>
-                     <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;width: 301px;' %>
+                     <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;' %>
                      
                      <% else %>
-<img src="https://unsplash.it/200/300/?random" style='height: 301px;width: 301px;'>
+<img src="https://unsplash.it/200/300/?random" style='height: 301px;'>
                    
                       <% end %>
                               
