@@ -1,7 +1,7 @@
 class CreateSettings < ActiveRecord::Migration
   def up
     create_table :settings do |t|
-      t.string :site_name,null: false,default: 'Agorna'
+      t.string :site_name,null: false,default: 'PinSood'
       t.string :seo_description,null: false
       t.string :site_logo
       t.string :default_image_product
