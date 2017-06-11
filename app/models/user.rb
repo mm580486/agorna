@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 
 
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :trackable,:omniauthable
+        :recoverable, :rememberable, :trackable,:omniauthable,class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'users/registrations'}
          
   before_save :ensure_authentication_token    
 
