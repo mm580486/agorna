@@ -58,8 +58,9 @@ class User < ActiveRecord::Base
     has_many :followers, through: :passive_relationships, source: :follower
 
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,:omniauthable
+  # devise :database_authenticatable, :registerable,
+  #       :recoverable, :rememberable, :trackable,:omniauthable
+         
   before_save :ensure_authentication_token    
 
   scope :marketers, lambda { where(:level => 2) }
