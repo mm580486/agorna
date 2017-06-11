@@ -29,7 +29,7 @@ class Admin::DashboardController < ApplicationController
     flash[:notice]=[5000,'رمزعبور با هم هماهنگ نیست']
    
       
-      redirect_to :back  if params[:password]==params[:password_confirmation]
+      redirect_to :back  unless params[:password]==params[:password_confirmation]
     
     
     if current_user.valid_password?(params[:old_password])
