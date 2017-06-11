@@ -35,7 +35,7 @@
                                      <span style='float:left;'>
                                     تومان
                                 </span>
-                              <%= product.off_price.to_s %>  
+                              <%= product.off_price.to_s.scan(/.{3}/).join(',') %>  
                             </a>
                                 
                             <% end %>
@@ -47,7 +47,7 @@
                                     تومان
                                 </span>
                                 
-                                <%= product.price %>
+                                <%= product.price.scan(/.{3}/).join(',') %>
                             </a>
                              
                          
