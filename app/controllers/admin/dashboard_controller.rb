@@ -2,10 +2,15 @@ class Admin::DashboardController < ApplicationController
   before_action :dashboard_auth
   before_action :admin_auth ,only: [:change_development_mode,:sms_service]
   layout 'admin'
+  
   def index
   end
   
   def setting
+    @setting=Setting.first
+  end
+  
+  def update_setting
     
     
   end
