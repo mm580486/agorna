@@ -1,7 +1,11 @@
         <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
+                            
                             <%= link_to product_show_path(id: product.id) do %>
+                            <% unless product.off_price.blank? %>
+                            <img src="/images/offer.png" style="width: 33%;position: absolute;z-index: 9999999;left: 67%;">
+                            <% end %>
                      <% unless product.images[0].blank? %>
                      <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;width: 301px;' %>
                      
