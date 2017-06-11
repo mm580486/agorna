@@ -39,7 +39,7 @@ gem 'websocket-rails'
 gem 'rack-cors'
 
 
-
+gem 'pgreset'
 
 gem 'active_link_to'
 
