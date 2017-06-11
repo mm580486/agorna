@@ -104,7 +104,7 @@
       <div class="btn">
         <span>عکس دیفالت فروشگاه</span>
         
-        <%= f.file_field :default_image_exposition, multiple: true %>
+        <%= f.file_field :default_image_exposition, multiple: false %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -116,7 +116,7 @@
       <div class="btn">
         <span>عکسی دیفالت محصول</span>
         
-        <%= f.file_field :default_image_product, multiple: true %>
+        <%= f.file_field :default_image_product, multiple: false %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
