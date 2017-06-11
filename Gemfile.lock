@@ -216,6 +216,7 @@ GEM
       rack
     orm_adapter (0.5.0)
     pg (0.19.0)
+    pgreset (0.1.1)
     public_suffix (2.0.5)
     rack (1.6.5)
     rack-cors (0.4.1)
@@ -361,6 +362,7 @@ DEPENDENCIES
   omniauth-instagram
   omniauth-twitter
   pg
+  pgreset
   rack-cors
   rails (= 4.2.5)
   rmagick
