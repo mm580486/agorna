@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    attr_accessor :login
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
@@ -58,12 +59,21 @@ class User < ActiveRecord::Base
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,:omniauthable
+         :recoverable, :rememberable, :trackable,:omniauthable, :authentication_keys => [:login]
   before_save :ensure_authentication_token    
 
   scope :marketers, lambda { where(:level => 2) }
   scope :sellers, lambda { where(:level => 1) }
 
+
+ def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.phone || self.email
+  end
+  
   def twitter
     identities.where( :provider => "twitter" ).first
   end
@@ -109,6 +119,17 @@ class User < ActiveRecord::Base
       self.authentication_token = generate_authentication_token
     end
   end
+  
+  
+    def self.find_for_database_authentication(warden_conditions)
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login)
+        where(conditions.to_h).where(["lower(phone) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      elsif conditions.has_key?(:phone) || conditions.has_key?(:email)
+        where(conditions.to_h).first
+      end
+    end
+    
 
   private
   
