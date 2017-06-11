@@ -87,6 +87,21 @@ class Public::HomeController < ApplicationController
     end
     
     
+    def login
+        
+        @user=User.where('phone = ? OR email = ?',params[:email],params[:email]).first
+        if @user.valid_password?(params[:password])
+            flash[:notice]=[5000,'شما با موفقیت وارد شدید']
+           sign_in(@user, scope: :user) 
+           
+        else
+            flash[:notice]=[5000,'ایمیل یا رمز عبور نامعتبر است']
+            redirect_to :back
+        end
+        
+    end
+    
+    
     def save_exposition
         @user = User.new(exposition_white_list)
         @user.level = 1
