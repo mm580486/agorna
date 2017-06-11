@@ -17,6 +17,5 @@ class CreateSettings < ActiveRecord::Migration
   
   def down
     drop_table :settings
-    
   end
 end

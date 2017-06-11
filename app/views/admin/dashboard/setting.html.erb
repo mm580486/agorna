@@ -21,7 +21,7 @@
         <div class="card-panel white">
 
        
-            
+            <%= form_for @setting ,url: admin_dashboard_update_setting_path,html: {class: 'col s12'},method: :POST do |f| %>
             
   <div class="row">
     <div class="col s12 right">
@@ -101,6 +101,7 @@
           
           
         </div>
+        <% end %>
       </div>
  </div>
 

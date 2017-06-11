@@ -98,6 +98,7 @@ Rails.application.routes.draw do
     
     
     get 'dashboard/setting'
+    post 'dashboard/update_setting'
     
     
   end
