@@ -5,7 +5,8 @@
                             <% unless user.avatar_url.nil? %>
                             <%= image_tag user.avatar_url, alt: user.exposition_name,style: 'height: 301px;' %>
                             <% else %>
-                            <img class="" src="https://unsplash.it/200/300/?random" style='height: 301px;'>
+                            
+                            <%= image_tag @setting.default_image_exposition_url, alt: user.exposition_name,style: 'height: 301px;' %>
                             <% end %>
                             <%= link_to user.exposition_name,exposition_show_path(user.identify),class: 'card-title  gray-text' %>
 

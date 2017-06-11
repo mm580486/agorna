@@ -10,7 +10,9 @@
                      <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;' %>
                      
                      <% else %>
-<img src="https://unsplash.it/200/300/?random" style='height: 301px;'>
+<%= image_tag @setting.default_image_product_url, alt: product.name,style: 'height: 301px;' %>
+
+
                    
                       <% end %>
                               
