@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # Exposition detail
       t.boolean :exposition,default: false
       t.string :exposition_name
+      t.string :identify,default: nil
       t.string :exposition_address
       t.string :exposition_detail
       t.integer :category_id,default: nil
