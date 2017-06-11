@@ -27,7 +27,7 @@
                 <td>
                   <%= link_to(raw("<i class='material-icons'>#{chain.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_seller_chain_path(chain.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
                 </td>
-                <td><%= link_to chain.user.exposition_name,show_exposition_path(chain.user.identify),terget: '_blank' %></td>
+                <td><%= link_to chain.user.exposition_name,exposition_show_path(chain.user.identify),terget: '_blank' %></td>
                 <td><%= chain.user.name %></td>
               </tr>
             <% end %>

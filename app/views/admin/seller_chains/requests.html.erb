@@ -25,7 +25,7 @@
             <% @chains.each do |chain| %>
               <tr>
                 
-                <td><%= link_to User.find(chain.user_two).exposition_name,show_exposition_path(User.find(chain.user_two).identify),terget: '_blank' %></td>
+                <td><%= link_to User.find(chain.user_two).exposition_name,exposition_show_path(User.find(chain.user_two).identify),terget: '_blank' %></td>
                 <td><%= User.find(chain.user_two).name %></td>
               </tr>
             <% end %>
