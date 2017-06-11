@@ -107,7 +107,7 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'users/registrations'}
 
 post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
-get '/login' => 'public/home#login', as: :login
+post '/login' => 'public/home#login', as: :login
 
   devise_scope :user do
     get '/users/auth/:provider/upgrade' => 'omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
