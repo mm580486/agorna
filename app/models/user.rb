@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :phone
+  attr_accessor :phone
   attr_accessor :login
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
