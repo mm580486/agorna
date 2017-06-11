@@ -104,7 +104,7 @@ Rails.application.routes.draw do
 
 
   # devise_for :users
-  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'users/registrations'}
+  # devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'users/registrations'}
 
 post '/password/reset/sms' => 'public/home#reset_password', as: :reset_password
 post '/login' => 'public/home#login', as: :login
