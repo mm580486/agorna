@@ -94,7 +94,7 @@
         <li class="bold">
             <span class="new badge green left">
                 <%= Ticketmessage.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',current_user.id,current_user.id).ids).where(seen: false).length %></span>
-       <%= link_to 'تیکت ها',public_tickets_path,class: 'waves-effect waves-teal' %>
+       <%= link_to 'پیام ها',public_tickets_path,class: 'waves-effect waves-teal' %>
   </li>
   
   <% end %>

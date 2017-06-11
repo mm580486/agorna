@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :phone
+  attr_accessor :
   attr_accessor :login
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,13 +11,14 @@ class User < ActiveRecord::Base
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
     validates :identify, uniqueness: true, if: 'identify.present?'
+    validates :, uniqueness: true
 
 #  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
  #   :message => "Subdomain is reserved." },if: 'level==1'
 
   
-  validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
-                         message: 'should not be the same as your email or phone', allow_blank: true
+  validates_exclusion_of :password, in: ->(user) { [user.email, user.] },
+                         message: 'should not be the same as your email or ', allow_blank: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
   validates_confirmation_of :password,message: 'password not match'
   validates_length_of :email, within: 6..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
@@ -70,7 +71,7 @@ class User < ActiveRecord::Base
 def self.find_for_database_authentication warden_conditions
   conditions = warden_conditions.dup
   login = conditions.delete(:login)
-  where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
+  where(conditions).where(["lower() = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
 end
 
   def twitter
