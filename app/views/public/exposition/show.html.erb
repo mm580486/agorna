@@ -307,7 +307,7 @@ nav {
 
 
                         <img id="map" class="col s12 responsive-img" src="https://maps.googleapis.com/maps/api/staticmap?center=35.7041383898022,51.4394956827164&amp;zoom=16&amp;size=640x320&amp;maptype=roadmap&amp;&amp;key=AIzaSyARzj5KiclSxAqZSqrGGz00HmhF3XkuvGI&#10;&#9;&#9;&amp;markers=icon:https://www.reyhoon.com/assets/img/map-marker.png?v=2|35.7041383898022,51.4394956827164&amp;&#10;&#9;&#9;language=fa&amp;region=IR">
-
+<br>
 
 <h6>
     فهرست شعبات
@@ -319,31 +319,51 @@ nav {
 
     <% Chain.where('user_id = ? OR user_two = ?',@exposition.id,@exposition.id).where(accept: true).each do |chain| %>
 <% if chain.user_id == @exposition.id %>
-<%= link_to exposition_show_path(User.find(chain.user_two).identify) do %>
-    <div class="segment avatar">
-      <img class="circle right" src='<%= User.find(chain.user_two).avatar_url %>' style='width: 72px;height: 72px;'>
 
-      <span class="title"><%= User.find(chain.user_two).exposition_name %></span>
-      <p><%= User.find(chain.user_two).name %> <br>
+
+    <div class="segment avatar">
+      <img class="circle right" src='<%= User.find(chain.user_two).avatar_url %>' style='margin: 13px;
+width: 72px;height: 72px;'>
+
+      <span class="title">
+          نام فروشگاه:
+          <%= link_to exposition_show_path(User.find(chain.user_two).identify) do %>
+          <%= User.find(chain.user_two).exposition_name %>
+        <% end %>
+      </span>
+      <p>
+          نام مدیر:
+          <%= User.find(chain.user_two).name %> <br>
+          آدرس:
          <%= User.find(chain.user_two).exposition_address %>
       </p>
       
     </div>
-    <% end %>
+  
 <% else %>
 
 
-<%= link_to exposition_show_path(chain.user.identify) do %>
-    <div class="segment avatar">
-      <img class="circle right" src='<%= chain.user.avatar_url %>' style='width: 72px;height: 72px;'>
 
-      <span class="title"><%= chain.user.exposition_name %></span>
-      <p><%= chain.user.name %> <br>
+    <div class="segment avatar">
+      <img class="circle right" src='<%= chain.user.avatar_url %>' style='margin: 13px;width: 72px;height: 72px;'>
+
+      <span class="title">
+          نام فروشگاه:
+          <%= link_to exposition_show_path(chain.user.identify) do %>
+          <%= chain.user.exposition_name %>
+          <% end %>
+      </span>
+      <p>
+          نام مدیر:
+          <%= chain.user.name %>
+      
+      <br>
+      آدرس:
          <%= chain.user.exposition_address %>
       </p>
       
     </div>
-    <% end %>
+
     
 <% end %>
 
