@@ -317,7 +317,7 @@ nav {
 
     
 
-    <% Chain.where('user_id = ? OR user_two = ?',current_user.id,current_user.id).where(accept: true).each do |chain| %>
+    <% Chain.where('user_id = ? OR user_two = ?',@exposition.id,@exposition.id).where(accept: true).each do |chain| %>
 <% if chain.user_id == @exposition.id %>
 <%= link_to exposition_show_path(User.find(chain.user_two).identify) do %>
     <div class="segment avatar">
