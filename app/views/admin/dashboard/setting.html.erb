@@ -31,7 +31,7 @@
        
       </ul>
     </div>
- <%= form_for @setting ,url: admin_dashboard_update_setting_path,html: {class: 'col s12'},method: :POST do |f| %>
+ <%= form_for @setting ,url: admin_dashboard_update_setting_path,html: {class: 'col s12',multipart: true},method: :POST do |f| %>
     <div id="test3" class="col s12 text-right right align text right-text">
       
        
