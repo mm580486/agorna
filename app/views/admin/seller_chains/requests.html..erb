@@ -14,21 +14,19 @@
         <table class='striped highlight bordered'>
             <thead>
               <tr>
-                  <th>ویرایش</th>
+                  
                  
                   <th>لینک</th>
-  <th>نام درخواست کننده</th>
+  <th>در خواست </th>
               </tr>
             </thead>
     
             <tbody>
             <% @chains.each do |chain| %>
               <tr>
-                <td>
-                  <%= link_to(raw("<i class='material-icons'>#{chain.accept? ? 'lock_outline':'lock_open'}</i>"),toggle_lock_admin_seller_chain_path(chain.id),class: 'small btn-floating waves-effect btn-small waves-light green') %>
-                </td>
-                <td><%= link_to chain.user.exposition_name,show_exposition_path(chain.user.identify),terget: '_blank' %></td>
-                <td><%= chain.user.name %></td>
+                
+                <td><%= link_to User.find(chain.user_two).exposition_name,show_exposition_path(User.find(chain.user_two).identify),terget: '_blank' %></td>
+                <td><%= User.find(chain.user_two).name %></td>
               </tr>
             <% end %>
             </tbody>
@@ -36,5 +34,5 @@
         </div>
       </div>
  </div>
- 
+ <%= link_to(raw('<i class="material-icons">add</i>'),new_admin_seller_chain_path,class: 'btn-floating btn-large waves-effect waves-light red',style: 'position:fixed;bottom: 20px; left: 24px;') %>
 </main>
