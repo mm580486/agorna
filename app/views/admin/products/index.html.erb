@@ -14,6 +14,7 @@
         <table class='striped highlight bordered'>
             <thead>
               <tr>
+                <th>زمان</th>
                   <th>ویرایش</th>
                  
                   <th>شاخه</th>
@@ -24,6 +25,9 @@
             <tbody>
             <% @products.each do |product| %>
               <tr>
+                <td>  
+                <%= time_ago_in_words product.created_at %>
+                </td>
                 <td>
                   <%= link_to(raw('<i class="material-icons">delete_forever</i>'),delete_admin_product_path(product.id),class: 'small btn-floating waves-effect btn-small waves-light red', :data => {:confirm => t('alert.are_you_sure_delete')}) %>
                   
