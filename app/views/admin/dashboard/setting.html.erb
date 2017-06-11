@@ -67,15 +67,22 @@
       
         <div class="row">
           <div class="input-field col s6 right">
-            <input id="input_text" type="text" data-length="10">
-            <label for="input_text">نام سایت</label>
+            
+            <%= f.text_field :site_name ,'data-length'=>"10"%>
+            
+            <%= f.label :site_name ,value: 'نام سایت'%>
           </div>
         </div>
       
      <div class="row">
           <div class="input-field col s12 right text-right right text">
-            <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
-            <label for="textarea1">کلمات کلیدی</label>
+            
+             
+            <%= f.text_area :seo_description ,'class'=>"materialize-textarea", 'data-length'=>"120" %>
+            
+            <%= f.label :seo_description ,value: 'کلمات کلیدی'%>
+            
+            
           </div>
         </div>
         

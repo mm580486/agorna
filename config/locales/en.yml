@@ -83,6 +83,7 @@ en:
             chain_true: درخواست قبول شد
             chain_false: درخواست رد شد
             chain_request: درخواست ارسال شد
+            setting_updated: تنظیمات بروز شد
             
   public:
         toast:

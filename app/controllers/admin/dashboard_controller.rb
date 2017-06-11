@@ -11,8 +11,9 @@ class Admin::DashboardController < ApplicationController
   end
   
   def update_setting
-    
-    
+    Setting.first.update_attributes(setting_white_list)
+    flash[:notice]=[5000,t("admin.toast.setting_updated")]
+    redirect_to :back
   end
   
   def profile
@@ -90,6 +91,10 @@ class Admin::DashboardController < ApplicationController
   
   def user_white_list
     params.require(:form_user).permit(:name,:email,:phone,:password,:password_confirmation,:exposition_name,:exposition_address,:instagram,:telegram,:post_service)
+  end
+  
+  def setting_white_list
+    params.require(:setting).permit(:site_name,:seo_description,:site_logo,:default_image_product,:default_image_exposition,:mobile_slider,:site_slider)
   end
   
 end
