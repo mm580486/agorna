@@ -1,4 +1,4 @@
-document.addEventListener('load turbolinks:load', function() {
+document.addEventListener('turbolinks:load', function() {
     
 
 $( "#product_category_id" ).on( "change", function() {
