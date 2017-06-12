@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
  
- before_action :exec_setting
+ 
  
    def create
 super
