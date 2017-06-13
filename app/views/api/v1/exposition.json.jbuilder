@@ -6,7 +6,7 @@
   json.static_phone @user.static_phone
   json.instagram @user.instagram_id
   json.telegram @user.telegram
-  json.exposition_details @user.exposition_details
+  json.exposition_details @user.exposition_detail
   json.exposition_address @user.exposition_address
   json.post_service @user.post_service?
   
