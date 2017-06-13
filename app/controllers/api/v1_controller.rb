@@ -50,6 +50,9 @@ class Api::V1Controller < ApplicationController
       end
       
     end
+    def profile
+        @user=User.find_by_authentication_token(params[:token])
+    end
     
     def save_comment
         @user=User.find_by_authentication_token(params[:token])
