@@ -32,7 +32,7 @@ class Api::V1Controller < ApplicationController
     end
     
     def exposition
-        render json: User.find(params[:id])
+        @user=User.find(params[:id])
     end
     
     def show_exposition
@@ -82,6 +82,14 @@ class Api::V1Controller < ApplicationController
         @user=User.find_by_authentication_token(params[:token])
         @ticketmessages=Ticket.find(params[:id]).ticketmessages.order('id ASC')
     end
+    
+    def hasNewTickets
+        @user=User.find_by_authentication_token(params[:token])
+        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC')
+        
+    end
+    
+    
     
     def build_conversation
         @user=User.find_by_authentication_token(params[:token])
