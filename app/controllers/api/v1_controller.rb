@@ -36,7 +36,7 @@ class Api::V1Controller < ApplicationController
     end
     
     def product_categories
-       @user=User,find_by_authentication_token(params[:token]) 
+       @user=User.find_by_authentication_token(params[:token]) 
        render json: Category.where(parent_id: @user.category_id)
     end
     
