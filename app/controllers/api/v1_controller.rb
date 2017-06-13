@@ -56,7 +56,7 @@ class Api::V1Controller < ApplicationController
     
     def update_profile
         @user=User.find_by_authentication_token(params[:token])
-        @user.update_attributes(JSON.parse(params[:form_user]))
+        @user.update_attributes(profile_white_list)
     end
     
     def save_comment
@@ -146,6 +146,13 @@ class Api::V1Controller < ApplicationController
         else
             render status: :ok
         end
+    end
+    
+    private 
+    
+    def profile_white_list
+        
+        params.require(:form_user).permit(:name,exposition_name,:exposition_address,:exposition_detail,:email,:phone)
     end
     
 end
