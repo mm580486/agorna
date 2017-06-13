@@ -61,7 +61,7 @@ class Api::V1Controller < ApplicationController
        if @user.update_attributes(name: @form_user['name'],exposition_name: @form_user['exposition_name'],email: @form_user['email'],phone: @form_user['phone'],static_phone: @form_user['static_phone'],exposition_detail: @form_user['exposition_details'],exposition_address: @form_user['exposition_address'],instagram_id: @form_user['instagram_id'],telegram: @form_user['telegram']  )
           render status: 200 ,json: @user
       else
-          render status: 204 ,json: @user.errors
+          render status: 200 ,json: @user.errors
        end
     end
     
