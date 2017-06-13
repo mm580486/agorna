@@ -1,7 +1,7 @@
   json.id @user.id
   json.name @user.name
   json.exposition_name @user.exposition_name
-  json.background @user.background_image_url
+  json.background @user.background_image_url.nil? ? Setting.first.default_image_exposition_url : @user.background_image_url
   json.avatar @user.avatar_url
   json.static_phone @user.static_phone
   json.instagram @user.instagram_id
