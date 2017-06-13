@@ -57,7 +57,7 @@ class Api::V1Controller < ApplicationController
     def update_profile
         @form_user=JSON.parse(params[:form_user])
         @user=User.find_by_authentication_token(params[:token])
-        render @form_user
+        render json: @form_user
         # @user.update_attributes(name: @form_user.name,exposition_name: @form_user.exposition_name,email: @form_user.email,phone: @form_user.phone,static_phone: @form_user.static_phone,exposition_detail: @form_user.exposition_details,exposition_address: @form_user.exposition_address,instagram_id: @form_user.instagram_id,telegram: @form_user.telegram  )
     end
     
