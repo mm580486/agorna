@@ -58,7 +58,11 @@ class Api::V1Controller < ApplicationController
         @form_user=JSON.parse(params[:form_user])
         @user=User.find_by_authentication_token(params[:token])
         
-        @user.update_attributes(name: @form_user['name'],exposition_name: @form_user['exposition_name'],email: @form_user['email'],phone: @form_user['phone'],static_phone: @form_user['static_phone'],exposition_detail: @form_user['exposition_details'],exposition_address: @form_user['exposition_address'],instagram_id: @form_user['instagram_id'],telegram: @form_user['telegram']  )
+       if @user.update_attributes(name: @form_user['name'],exposition_name: @form_user['exposition_name'],email: @form_user['email'],phone: @form_user['phone'],static_phone: @form_user['static_phone'],exposition_detail: @form_user['exposition_details'],exposition_address: @form_user['exposition_address'],instagram_id: @form_user['instagram_id'],telegram: @form_user['telegram']  )
+          render nothing: true,status: 200 ,json: {} 
+      else
+          render nothing: true,status: 204 ,json: {}
+       end
     end
     
     def save_comment
