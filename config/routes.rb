@@ -195,6 +195,8 @@ end
     get 'conversation/:token',action: :conversation
     get 'profile/:token',action: :profile
     get 'update_profile/:token',action: :update_profile
+    get 'product_categories/:token',action: :product_categories
+    
     
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage

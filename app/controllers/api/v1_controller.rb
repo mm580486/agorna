@@ -35,6 +35,11 @@ class Api::V1Controller < ApplicationController
         @user=User.find(params[:id])
     end
     
+    def product_categories
+       @user=User,find_by_authentication_token(params[:token]) 
+       render json: Category.where(parent_id: @user.category_id)
+    end
+    
     def show_exposition
        render json: User.sellers.find(params[:id]) 
     end
