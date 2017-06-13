@@ -194,6 +194,7 @@ end
     get 'tickets/:token',action: :tickets
     get 'conversation/:token',action: :conversation
     get 'profile/:token',action: :profile
+    get 'update_profile/:token',action: :update_profile
     
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage

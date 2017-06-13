@@ -54,6 +54,11 @@ class Api::V1Controller < ApplicationController
         @user=User.find_by_authentication_token(params[:token])
     end
     
+    def update_profile
+        @user=User.find_by_authentication_token(params[:token])
+        @user.update_attributes(JSON.parse(params[:form_user]))
+    end
+    
     def save_comment
         @user=User.find_by_authentication_token(params[:token])
         @product=Product.find(params[:id])
