@@ -152,7 +152,7 @@ class Api::V1Controller < ApplicationController
     
     def profile_white_list
         
-        params.require(:form_user).permit(:name,:exposition_name,:exposition_address,:exposition_detail,:email,:phone)
+        JSON.parse(params.require(:form_user)).permit(:name,:exposition_name,:exposition_address,:exposition_detail,:email,:phone)
     end
     
 end
