@@ -12,7 +12,8 @@ Setting.create({
 })
 
 User.create(:name => 'محمد محمودی',
-            :email => 'mm580486@yahoo.com',
+            :email => 'mm580486@gmail.com',
+            :phone => '09127105568',
             :password => 'Microlab12546',
             :password_confirmation => 'Microlab12546',
             :level => 3
@@ -20,5 +21,24 @@ User.create(:name => 'محمد محمودی',
 
 User.create(:name => 'علی شهبازی',
             :email => 'alireza.shahbaziy@gmail.com',
+            :phone => '09382887628',
+            :password => 'ali5371370',:password_confirmation => 'ali5371370',
+            :level => 3)
+
+User.create(:name => 'مهدی',
+            :email => 'mehdi_rezzaei@gmail.com',
+            :phone => '09192190394',
+            :password => 'ali5371370',:password_confirmation => 'ali5371370',
+            :level => 3)
+
+User.create(:name => 'علی میانجی',
+            :email => 'ali_uls@gmail.com',
+            :phone => '09196225068',
+            :password => 'ali5371370',:password_confirmation => 'ali5371370',
+            :level => 3)
+            
+User.create(:name => 'جواد',
+            :email => 'jazz_blues@gmail.com',
+            :phone => '09192190394',
             :password => 'ali5371370',:password_confirmation => 'ali5371370',
             :level => 3)
