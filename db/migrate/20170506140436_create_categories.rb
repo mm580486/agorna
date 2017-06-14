@@ -4,6 +4,7 @@ class CreateCategories < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.string :name,null: false
       t.string :permalink,null: false
+      t.string :image
       t.integer :parent_id,default: nil
       t.integer :product_type_id
 
