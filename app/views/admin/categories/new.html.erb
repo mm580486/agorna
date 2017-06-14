@@ -35,6 +35,16 @@
         <%= f.select :product_type_id,ProductType.all.collect {|p| [p.name,p.id] }, {prompt: 'فرم را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default'}  %>
     
         </div>
+        
+                     <div class="file-field input-field ">
+      <div class="btn">
+        <span>عکس</span>
+        <%= f.file_field :image, multiple: false %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
        
     
     

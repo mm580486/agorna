@@ -57,7 +57,7 @@ class Admin::CategoriesController < ApplicationController
   end
   
   def category_white_list
-    params.require(:category).permit(:name,:permalink,:parent_id,:product_type_id)
+    params.require(:category).permit(:image,:name,:permalink,:parent_id,:product_type_id)
   end
   
 end
