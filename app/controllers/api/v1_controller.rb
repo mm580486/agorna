@@ -40,6 +40,11 @@ class Api::V1Controller < ApplicationController
        render json: Category.where(parent_id: @user.category_id)
     end
     
+    def slider
+        
+        render json: @setting.mobile_slider
+    end
+    
     def show_exposition
        render json: User.sellers.find(params[:id]) 
     end
