@@ -47,7 +47,7 @@ class Api::V1Controller < ApplicationController
     
     def category_fields
        @user=User.find_by_authentication_token(params[:token]) 
-       render json: Product.new(product_type_id: Category.find(@user.category_id).product_type_id).fields.where("'?' = ANY (categories)",params[:category_id])
+       render json: ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'?' = ANY (categories)",params[:category_id])
     end
     
     def show_exposition
