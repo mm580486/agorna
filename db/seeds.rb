@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Setting.create({
-    site_name: '',
-    seo_description: 'agorna site',
-    seo_keywords: 'site'
+    site_name: 'پین سود',
+    seo_description: 'pinsood',
+    
 })
 
 User.create(:name => 'محمد محمودی',
@@ -39,6 +39,6 @@ User.create(:name => 'علی میانجی',
             
 User.create(:name => 'جواد',
             :email => 'jazz_blues@gmail.com',
-            :phone => '09192190394',
+            :phone => '0919000000',
             :password => 'ali5371370',:password_confirmation => 'ali5371370',
             :level => 3)
