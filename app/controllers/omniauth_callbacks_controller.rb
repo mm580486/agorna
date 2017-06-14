@@ -20,7 +20,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = @identity.user || current_user
     
-    render text: @user
+    render text: env["omniauth.auth"]
     
     # if @user.nil?
     #   @user = User.create( email: @identity.email ,name: @identity.name,phone: rand(9999..9999999999))
