@@ -18,16 +18,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def generic_callback( provider )
     @identity = Identity.find_for_oauth env["omniauth.auth"]
 
-    @user = @identity.user || current_user
+    @user = @identity.user || current_user || User.find_by_email(@identity.email)
     
     if @user.nil?
-      @user = User.create( email: @identity.email ,name: @identity.name,phone: rand(9999..9999999999))
+      @user = User.create( email: @identity.email ,name: @identity.name,phone: rand(9999..9999999999),password: rand(36**18).to_s(36))
       @identity.update_attribute( :user_id, @user.id )
     end
 
     if @user.email.blank? && @identity.email
       @user.update_attribute( :email, @identity.email)
     end
+
 
     if @user.persisted?
       @identity.update_attribute( :user_id, @user.id )
@@ -40,6 +41,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.#{provider}_data"] = env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
+    
+    
   end
   
   
