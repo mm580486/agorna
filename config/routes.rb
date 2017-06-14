@@ -198,7 +198,8 @@ end
     get 'product_categories/:token',action: :product_categories
     get 'slider',action: :slider
     get 'category_fields/:token',action: :category_fields
-    
+    get 'save_product/:token',action: :save_product
+
     
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage

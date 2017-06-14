@@ -50,6 +50,22 @@ class Api::V1Controller < ApplicationController
        render json: ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{params[:category_id]}' = ANY (categories)")
     end
     
+    def save_product
+       @user=User.find_by_authentication_token(params[:token]) 
+       @form_user=JSON.parse(params[:form_product])
+       dynamic_field={}
+       ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
+          dynamic_field[field.name]= @form_product[field.permalink]
+       end
+       @product=@user.products.new(name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],category_id: @form_product['category_id'],properties: dynamic_field)
+       if @product.save
+           render :json => {status: 'ok'}, :status => :ok
+       else
+        render :json => @product.errors, :status => :bad_request     
+       end
+        
+    end
+    
     def show_exposition
        render json: User.sellers.find(params[:id]) 
     end
