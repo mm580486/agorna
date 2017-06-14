@@ -52,7 +52,7 @@ class Api::V1Controller < ApplicationController
     
     def save_product
        @user=User.find_by_authentication_token(params[:token]) 
-       @form_user=JSON.parse(params[:form_product])
+       @form_product=JSON.parse(params[:form_product])
        dynamic_field={}
        ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
           dynamic_field[field.name]= @form_product[field.permalink]
