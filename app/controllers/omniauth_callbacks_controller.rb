@@ -20,7 +20,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = @identity.user || current_user
     if @user.nil?
-      @user = User.create( email: @identity.email || "" ,name: @identity.name,phone: @identity.phone)
+      @user = User.create( email: @identity.email ,name: @identity.name,phone: rand(9999..9999999999))
       @identity.update_attribute( :user_id, @user.id )
     end
 
