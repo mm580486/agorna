@@ -26,7 +26,7 @@ User.create(:name => 'علی شهبازی',
             :level => 3)
 
 User.create(:name => 'مهدی',
-            :email => 'mehdi_rezzaei@gmail.com',
+            :email => 'mehdi.rezaei2002@gmail.com',
             :phone => '09192190394',
             :password => 'ali5371370',:password_confirmation => 'ali5371370',
             :level => 3)
