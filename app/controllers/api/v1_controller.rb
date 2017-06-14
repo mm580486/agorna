@@ -45,6 +45,11 @@ class Api::V1Controller < ApplicationController
         render json: @setting.mobile_slider
     end
     
+    def category_fields
+       @user=User.find_by_authentication_token(params[:token]) 
+       render json: Product.new(product_type_id: Category.find(@user.category_id).product_type_id).fields.where("'?' = ANY (categories)",params[:category_id])
+    end
+    
     def show_exposition
        render json: User.sellers.find(params[:id]) 
     end

@@ -197,6 +197,7 @@ end
     get 'update_profile/:token',action: :update_profile
     get 'product_categories/:token',action: :product_categories
     get 'slider',action: :slider
+    get 'category_fields/:token',action: :category_fields
     
     
     get 'build_conversation/:token',action: :build_conversation
