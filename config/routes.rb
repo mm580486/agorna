@@ -201,6 +201,7 @@ end
     get 'save_product/:token',action: :save_product
     get 'delete_product/:token',action: :delete_product
     get 'search/:type',action: :search
+    get 'exposition_comments/:id',action: :exposition_comments
 
     
     get 'build_conversation/:token',action: :build_conversation

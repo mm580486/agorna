@@ -91,6 +91,13 @@ class Api::V1Controller < ApplicationController
     end
     
     
+    def exposition_comments
+    @exposition=User.sellers.find(params[:id]).id
+    @comments=Comment.where(seller_id: @exposition.id)
+        render 'product_comments'
+    end
+    
+    
     def delete_product
        @user=User.find_by_authentication_token(params[:token]) 
        @product=@user.products.find(params[:product_id])
