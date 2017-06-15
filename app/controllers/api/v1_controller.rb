@@ -76,6 +76,9 @@ class Api::V1Controller < ApplicationController
         @products=Product.all
       when 'category'
         @products=Product.where(category_id: params[:category_id])
+      when 'self'
+          @user=User.find_by_authentication_token(params[:category_id])
+          @products=@user.products
       when 'favorites'
         @products=Product.all
       end
