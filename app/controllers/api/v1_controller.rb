@@ -92,7 +92,7 @@ class Api::V1Controller < ApplicationController
     
     
     def exposition_comments
-    @exposition=User.sellers.find(params[:id]).id
+    @exposition=User.sellers.find(params[:id])
     @comments=Comment.where(seller_id: @exposition.id)
         render 'product_comments'
     end
