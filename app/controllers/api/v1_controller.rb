@@ -84,6 +84,16 @@ class Api::V1Controller < ApplicationController
       end
       
     end
+    
+    
+    def delete_product
+       @user=User.find_by_authentication_token(params[:token]) 
+       @product=@user.products.find(params[:product_id])
+       @product.destroy
+       
+       render json: @user.products
+        
+    end
     def profile
         @user=User.find_by_authentication_token(params[:token])
     end

@@ -199,6 +199,7 @@ end
     get 'slider',action: :slider
     get 'category_fields/:token',action: :category_fields
     get 'save_product/:token',action: :save_product
+    get 'delete_product/:token',action: :delete_product
 
     
     get 'build_conversation/:token',action: :build_conversation
