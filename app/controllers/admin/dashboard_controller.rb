@@ -105,7 +105,7 @@ class Admin::DashboardController < ApplicationController
   private
   
   def user_white_list
-    params.require(:form_user).permit(:name,:email,:phone,:password,:password_confirmation,:exposition_name,:exposition_address,:instagram,:telegram,:post_service)
+    params.require(:form_user).permit(:background,:avatar,:name,:email,:phone,:password,:password_confirmation,:exposition_name,:exposition_address,:instagram,:telegram,:post_service)
   end
   
   def setting_white_list
