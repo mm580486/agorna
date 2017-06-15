@@ -99,9 +99,9 @@ class Api::V1Controller < ApplicationController
     def search
         if params[:type]=='product'
            
-           render json: Product.all.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
+         @products=Product.all.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
        else
-         render json: User.sellers.where("lower(exposition_name) LIKE ? OR lower(name) LIKE ?", "%#{params[:q].downcase}%","%#{params[:q].downcase}%") 
+         @expositions=User.sellers.where("lower(exposition_name) LIKE ? OR lower(name) LIKE ?", "%#{params[:q].downcase}%","%#{params[:q].downcase}%") 
          
        end
        
