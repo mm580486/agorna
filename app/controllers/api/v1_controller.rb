@@ -81,6 +81,11 @@ class Api::V1Controller < ApplicationController
           @products=@user.products
       when 'favorites'
         @products=Product.all
+        
+      when 'exposition_products'
+        @exposition=User.find(params[:exposition_id])
+        @products=@exposition.products
+          
       end
       
     end
