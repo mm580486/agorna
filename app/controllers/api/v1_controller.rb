@@ -94,6 +94,17 @@ class Api::V1Controller < ApplicationController
        render json: @user.products
         
     end
+    
+    
+    def search
+        if params[:type]=='product'
+          render json: Product.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
+       else
+         render json: User.sellers.where("lower(exposition_name) LIKE ? OR lower(name) LIKE ?", "%#{params[:q].downcase}%","%#{params[:q].downcase}%") 
+      
+       end
+       
+    end
     def profile
         @user=User.find_by_authentication_token(params[:token])
     end
