@@ -88,7 +88,7 @@ class Api::V1Controller < ApplicationController
       ids=[]
       dynamic_field={}
       ProductType.find(Category.find(@exposition.category_id).product_type_id).fields.each do |field|
-          dynamic_field[field.name]= @form_data[field.permalink] if @form_data[field.permalink].present?
+          dynamic_field[field.name]= Prop.find_by_permalink(@form_data[field.permalink]).name  if @form_data[field.permalink].present?
         #   
        end
        
