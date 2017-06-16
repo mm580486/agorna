@@ -205,6 +205,7 @@ end
     
     
     get 'favorite/:token',action: :favorite
+    get 'follow/:id',action: :follow
 
     
     get 'build_conversation/:token',action: :build_conversation
