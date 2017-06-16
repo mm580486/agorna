@@ -207,6 +207,7 @@ end
     get 'favorite/:token',action: :favorite
     get 'follow/:id',action: :follow
     get 'exposition_filters/:id',action: :exposition_filters
+    get 'filter/:id',action: :filter
 
     
     get 'build_conversation/:token',action: :build_conversation

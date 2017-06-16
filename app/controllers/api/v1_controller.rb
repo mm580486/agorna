@@ -76,6 +76,16 @@ class Api::V1Controller < ApplicationController
        
     end
     
+    
+    def filter
+       @exposition=User.find(params[:id])
+       @products=@exposition.products
+       @form_data=JSON.parse(params[:filter_form])
+       @products=@products.where(category_id: Category.find_by_permalink(@form_data['category']).id ) if @form_data['category'].present?
+       
+       render 'products'
+    end
+    
    def follow
        @user=User.find_by_authentication_token(params[:token])
     if params[:followed]=='false'
