@@ -7,6 +7,7 @@
   json.exposition_name @product.user.exposition_name
   json.exposition_id @product.user.id
   json.avatar "https://www.pinsood.com#{@product.user.avatar.url}"
+  json.detail @product.detail
   if @user
   json.favorited @user.favorites.exists?(product_id: @product.id)
   end
