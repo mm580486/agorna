@@ -68,7 +68,7 @@ class Api::V1Controller < ApplicationController
     end
     
     def exposition_filters
-       @exposition=User.find_by_authentication_token(params[:token])
+       @exposition=User.find(params[:id])
        @products=@exposition.products
        @categories=Category.where(parent_id: @exposition.category_id)
        @categories=@categories.where(id: @products.pluck(:category_id))
