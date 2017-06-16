@@ -83,6 +83,21 @@ class Api::V1Controller < ApplicationController
        @form_data=JSON.parse(params[:filter_form])
        @products=@products.where(category_id: Category.find_by_permalink(@form_data['category']).id ) if @form_data['category'].present?
        @products=@products.where.not(off_price: '' ) if @form_data['off_price'].present?
+    
+    
+      ids=[]
+      dynamic_field={}
+      ProductType.find(Category.find(@exposition.category_id).product_type_id).fields.each do |field|
+          dynamic_field[field.name]= @form_data[field.permalink] if @form_data[field.permalink].present?
+        #   
+       end
+       
+       dynamic_field.each do |k,v|
+           ids.append @products.where(Product.arel_table[:properties].matches("%#{k}: #{v}%")).ids 
+       end
+       
+       @products=@products.where(id: ids) unless ids.blank?
+       
        render 'products'
     end
     
