@@ -71,6 +71,8 @@ class Api::V1Controller < ApplicationController
     end
     
     def products
+        @user=User.find_by_authentication_token(params[:token]) rescue nil
+        
      case params[:type] 
       when 'last_products'
         @products=Product.all

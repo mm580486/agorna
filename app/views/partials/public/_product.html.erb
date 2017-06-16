@@ -20,7 +20,10 @@
                                <% end %> 
                                 
 <% unless current_user.nil? %>
+
                             <a data-id='<%= product.id %>'  liked='<%= current_user.favorites.exists?(product_id: product.id) %>' class="product-favorite btn-floating halfway-fab waves-effect waves-light  <%=  current_user.favorites.exists?(product_id: product)? 'blue':'red' %> left"><i class="material-icons">favorite</i></a>
+                            
+                            
                             
                             <%= link_to raw('<i class="material-icons">message</i>'),new_public_ticket_path(id: product.user.id),class: 'btn-floating halfway-fab waves-effect waves-light red right' %>
 <% end %>

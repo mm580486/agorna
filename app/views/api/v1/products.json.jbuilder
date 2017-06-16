@@ -8,4 +8,7 @@ json.products @products do |product|
   json.price product.price.scan(/.{3}/).join(',')
   json.off_price product.off_price.scan(/.{3}/).join(',')
   json.has_offer_price !product.off_price.blank?
+  if @user
+  json.favorited @user.favorites.exists?(product_id: product.id)
+  end
 end
