@@ -67,6 +67,18 @@ class Api::V1Controller < ApplicationController
         
     end
     
+   def follow
+       @user=User.find_by_authentication_token(params[:token])
+    if params[:followed]=='false'
+      User.find(params[:id]).followers << @user
+    else
+      User.find(params[:id]).followers.delete(@user)
+    end
+    
+    render text: User.find(params[:id]).followers.include?(@user)
+    
+  end
+  
     def show_exposition
        render json: User.sellers.find(params[:id]) 
     end
