@@ -222,7 +222,7 @@ def favorite
     end
     def product
         @product=Product.find(params[:id])
-        @user=User.find_by_authentication_token(params[:token])
+        @user=User.find_by_authentication_token(params[:token]) rescue nil
     end
     
     def product_comments

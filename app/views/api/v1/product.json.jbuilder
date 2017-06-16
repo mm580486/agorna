@@ -8,5 +8,5 @@
   json.exposition_id @product.user.id
   json.avatar "https://www.pinsood.com#{@product.user.avatar.url}"
   if @user
-  json.favorited @user.favorites.exists?(product_id: product.id)
+  json.favorited @user.favorites.exists?(product_id: @product.id)
   end
