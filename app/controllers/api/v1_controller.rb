@@ -92,6 +92,23 @@ class Api::V1Controller < ApplicationController
       
     end
     
+def favorite
+    @user=User.find_by_authentication_token(params[:token])
+        begin 
+    if params[:favorited]=='false'
+      @user.favorites.build(product_id: params[:product_id]).save
+    else
+      @user.favorites.find_by(product_id: params[:product_id]).delete
+    end
+    rescue 
+    
+    end
+    render text: @user.favorites.exists?(product_id: params[:id])
+    
+    
+    
+    end
+    
     
     def exposition_comments
     @exposition=User.sellers.find(params[:id])

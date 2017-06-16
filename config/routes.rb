@@ -202,6 +202,9 @@ end
     get 'delete_product/:token',action: :delete_product
     get 'search/:type',action: :search
     get 'exposition_comments/:id',action: :exposition_comments
+    
+    
+    get 'favorite/:token',action: :favorite
 
     
     get 'build_conversation/:token',action: :build_conversation
