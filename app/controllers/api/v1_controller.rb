@@ -67,6 +67,15 @@ class Api::V1Controller < ApplicationController
         
     end
     
+    def exposition_filters
+       @exposition=User.find_by_authentication_token(params[:token])
+       @products=@exposition.products
+       @categories=Category.where(parent_id: @exposition.category_id)
+       @categories=@categories.where(id: @products.pluck(:category_id))
+       @dynamic_filters=ProductType.find(Category.find(@exposition.category_id).product_type_id).fields.where(field_type: 'select_box') 
+       
+    end
+    
    def follow
        @user=User.find_by_authentication_token(params[:token])
     if params[:followed]=='false'
