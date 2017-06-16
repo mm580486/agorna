@@ -89,7 +89,7 @@ class Api::V1Controller < ApplicationController
       dynamic_field={}
       ProductType.find(Category.find(@exposition.category_id).product_type_id).fields.each do |field|
           dynamic_field[field.name]= Prop.find_by_permalink(@form_data[field.permalink]).name  if @form_data[field.permalink].present?
-        #   
+        
        end
        
        dynamic_field.each do |k,v|
@@ -222,6 +222,7 @@ def favorite
     end
     def product
         @product=Product.find(params[:id])
+        @user=User.find_by_authentication_token(params[:token])
     end
     
     def product_comments
