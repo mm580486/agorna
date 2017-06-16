@@ -9,4 +9,7 @@ json.dynamic_filters @dynamic_filters do |filter|
   json.name filter.name
   json.permalink filter.permalink
   json.id filter.id
+  json.props filter.props
+  
+  
 end
