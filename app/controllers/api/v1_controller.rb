@@ -82,7 +82,7 @@ class Api::V1Controller < ApplicationController
        @products=@exposition.products
        @form_data=JSON.parse(params[:filter_form])
        @products=@products.where(category_id: Category.find_by_permalink(@form_data['category']).id ) if @form_data['category'].present?
-       
+       @products=@products.where.not(off_price: '' ) if @form_data['off_price'].present?
        render 'products'
     end
     
