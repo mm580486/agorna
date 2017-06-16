@@ -157,7 +157,7 @@ def favorite
     
     def save_comment
         @user=User.find_by_authentication_token(params[:token])
-        @product=Product.find(params[:id])
+        @product=Product.find(params[:id]) if params[:exposition_id].blank?
        
        Comment.new(seller_id: params[:exposition_id],user_id: @user.id,body: params[:content]).save unless params[:exposition_id].blank?
        render json: {status: :ok} unless params[:exposition_id].blank?
