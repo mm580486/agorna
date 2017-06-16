@@ -33,6 +33,7 @@ class Api::V1Controller < ApplicationController
     
     def exposition
         @user=User.find(params[:id])
+        @seener=User.find_by_authentication_token(params[:token]) rescue nil
     end
     
     def product_categories

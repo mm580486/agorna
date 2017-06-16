@@ -8,4 +8,6 @@
   json.exposition_details @user.exposition_detail
   json.exposition_address @user.exposition_address
   json.post_service @user.post_service?
-  
+  if @seener
+  json.followed @user.followers.include? @seener 
+  end
