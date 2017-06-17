@@ -211,7 +211,7 @@ def favorite
        Comment.new(seller_id: params[:exposition_id],user_id: @user.id,body: params[:content]).save unless params[:exposition_id].blank?
       render json: {status: :ok,type: 'exposition'} unless params[:exposition_id].blank?
        return true unless params[:exposition_id].blank?
-        if @product.comments.build(body: params[:content],user_id: @user.id).save
+        if Comment.new(product_id: params[:exposition_id],user_id: @user.id,body: params[:content]).save
             render json: {status: :ok,type: 'product'}
         else
             render nothing: true,status: 204 ,json: {}
