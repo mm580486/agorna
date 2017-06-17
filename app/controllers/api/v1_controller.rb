@@ -225,6 +225,12 @@ def favorite
         @user=User.find_by_authentication_token(params[:token]) rescue nil
     end
     
+    def following
+        @user=User.find_by_authentication_token(params[:token])
+        @users=@user.following
+        render json: @users
+    end
+    
     def product_comments
         @comments=Product.find(params[:id]).comments
     end
