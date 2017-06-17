@@ -206,6 +206,7 @@ end
     
     get 'favorite/:token',action: :favorite
     get 'follow/:id',action: :follow
+    get 'following/:token',action: :following
     get 'exposition_filters/:id',action: :exposition_filters
     get 'filter/:id',action: :filter
 
