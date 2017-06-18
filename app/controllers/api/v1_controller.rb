@@ -59,30 +59,30 @@ class Api::V1Controller < ApplicationController
           dynamic_field[field.name]= @form_product[field.permalink]
        end
        
-       images=params[:images]#.split('@')
-       
-       
-       render json: images
-    #   @images=[]
-    #   images.each do |image|
-    #       @images.append parse_image_data(image)
-    #   end
+       images=params[:images].split('@')
        
        
        
-    #   @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: @form_product['images'])
+      @images=[]
+      images.each do |image|
+          @images.append parse_image_data('data:image/jpeg;base64,'+image)
+      end
+       
+       
+       
+      @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: @form_product['images'])
         
       
        
-    #   logger.debug "params image: #{params[:images]}"
+      logger.debug "params image: #{params[:images]}"
        
        
        
-    #   if @product.save
-    #       render :json => {status: 'ok',product: @product}, :status => :ok
-    #   else
-    #     render :json => @product.errors, :status => :bad_request     
-    #   end
+      if @product.save
+          render :json => {status: 'ok',product: @product}, :status => :ok
+      else
+        render :json => @product.errors, :status => :bad_request     
+      end
       
     
         
