@@ -61,7 +61,7 @@ class Api::V1Controller < ApplicationController
        @product=@user.products.new(name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
        
        if @product.save
-           render :json => {status: 'ok'}, :status => :ok
+           render :json => {status: 'ok',product: @product}, :status => :ok
        else
         render :json => @product.errors, :status => :bad_request     
        end
