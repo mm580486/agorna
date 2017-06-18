@@ -169,8 +169,8 @@ def favorite
        @product=@user.products.find(params[:product_id])
        @product.destroy
        
-       render json: @user.products
-        
+      @products=@user.products
+        render 'products'
     end
     
     
