@@ -79,6 +79,8 @@ class Api::V1Controller < ApplicationController
        else
         render :json => @product.errors, :status => :bad_request     
        end
+      
+    
         
     end
     
