@@ -59,7 +59,7 @@ class Api::V1Controller < ApplicationController
           dynamic_field[field.name]= @form_product[field.permalink]
        end
        
-       images=params[:images].split('@')
+       images=params[:images]#.split('@')
        
        
        render json: images
