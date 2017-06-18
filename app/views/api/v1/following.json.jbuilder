@@ -9,8 +9,7 @@ json.expositions @users do |user|
   json.exposition_details user.exposition_detail
   json.exposition_address user.exposition_address
   json.post_service user.post_service?
-  if @u
-  json.followed user.followers.include? @seener 
-  end
+  json.followed user.followers.include? @user 
+  
   
 end
