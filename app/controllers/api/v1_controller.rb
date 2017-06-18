@@ -48,7 +48,7 @@ class Api::V1Controller < ApplicationController
     
     def category_fields
        @user=User.find_by_authentication_token(params[:token]) 
-       render json: ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{params[:category_id]}' = ANY (categories)")
+       @fields=ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{params[:category_id]}' = ANY (categories)")
     end
     
     def save_product
