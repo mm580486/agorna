@@ -220,7 +220,7 @@ def favorite
     end
     def favorites
         @user=User.find_by_authentication_token(params[:token]) rescue nil
-        @products=@user.favorites
+        @products=@user.favorite_produts
         render 'products'
     end
     def product
