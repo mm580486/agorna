@@ -81,7 +81,7 @@ class Api::V1Controller < ApplicationController
       if @product.save
           render :json => {status: 'ok',product: @product}, :status => :ok
       else
-        render :json => @product.errors, :status => :bad_request     
+        render :json => @product.errors#, :status => :bad_request     
       end
       
     
