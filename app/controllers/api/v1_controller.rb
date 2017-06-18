@@ -58,7 +58,21 @@ class Api::V1Controller < ApplicationController
        ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
           dynamic_field[field.name]= @form_product[field.permalink]
        end
-       @product=@user.products.new(name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: @form_product['images'])
+       
+       images=params[:images].split('@')
+       
+       @images=[]
+       images.each do |image|
+           @images.append parse_image_data(image)
+       end
+       
+      @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: @form_product['images'])
+        
+      
+       
+       logger.debug "params image: #{params[:images]}"
+       
+       
        
        if @product.save
            render :json => {status: 'ok',product: @product}, :status => :ok
@@ -67,6 +81,41 @@ class Api::V1Controller < ApplicationController
        end
         
     end
+    
+    
+    
+     def parse_image_data(base64_image)
+    filename = "upload-image"
+    in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
+
+    @tempfile = Tempfile.new(filename)
+    @tempfile.binmode
+    @tempfile.write Base64.decode64(string)
+    @tempfile.rewind
+
+    # for security we want the actual content type, not just what was passed in
+    content_type = `file --mime -b #{@tempfile.path}`.split(";")[0]
+
+    # we will also add the extension ourselves based on the above
+    # if it's not gif/jpeg/png, it will fail the validation in the upload model
+    extension = content_type.match(/gif|jpeg|png/).to_s
+    filename += ".#{extension}" if extension
+
+    ActionDispatch::Http::UploadedFile.new({
+      tempfile: @tempfile,
+      content_type: content_type,
+      filename: filename
+    })
+  end
+
+  def clean_tempfile
+    if @tempfile
+      @tempfile.close
+      @tempfile.unlink
+    end
+  end
+  
+  
     
     def save_product_image
         @product=Product.find(params[:id])
