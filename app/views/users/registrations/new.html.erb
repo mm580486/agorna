@@ -78,19 +78,23 @@
     <%= f.label :name,value: 'نام و نام خانوادگی' %><br />
     <%= f.text_field :name, autofocus: true,required: 'required' %>
   </div>
-  <div class="field">
-    <%= f.label :password,value: 'رمز عبور' %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off",required: 'required' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation,value: 'تایید رمز عبور' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off",required: 'required' %>
-  </div>
-  
+  <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :password,required: '', pattern: '^\S{8,}$',id: 'password' %>
+                                        <label for="password">رمزعبور</label>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                      <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <%= f.text_field :password_confirmation, pattern: '^\S{8,}$',required: '',id: 'password_confirmation' %>
+                                        <label for="password_confirmation">تکرار رمزعبور</label>
+                                    </div>
+                                </div>
   <div class="field">
     <%= f.label :phone,value: 'شماره موبایل' %><br />
     <%= f.text_field :phone, autocomplete: "on",required: 'required' %>
