@@ -219,6 +219,7 @@ def favorite
         
     end
     def favorites
+        @user=User.find_by_authentication_token(params[:token]) rescue nil
         @products=Product.all
         render 'products'
     end
