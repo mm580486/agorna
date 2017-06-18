@@ -227,6 +227,21 @@ def favorite
         @user=User.find_by_authentication_token(params[:token]) rescue nil
     end
     
+    def startmessage
+        @user=User.find_by_authentication_token(params[:token])
+        @exposition=User.find(params[:id])
+        
+        @ticket=Ticket.new(title: params[:title])
+        @ticket.user_id=@user.id
+        @ticket.user_two=@exposition.id
+        
+        @ticket.ticketmessages.build(user_id: @user.id,message: params[:body])
+        
+        @ticket.save
+        
+        render json: @ticket
+    end
+    
     def following
         @user=User.find_by_authentication_token(params[:token])
         @users=@user.following
