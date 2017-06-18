@@ -1,3 +1,4 @@
+  json.id @user.id
   json.name @user.name
   json.exposition_name @user.exposition_name
   json.background @user.background_image_url.nil? ? "undefined" : "http://pinsood.com#{@user.background_image_url}"
