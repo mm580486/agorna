@@ -215,7 +215,7 @@ end
     get 'checkNewMessage/:token',action: :checkNewMessage
     get 'startmessage/:token',action: :startmessage
     
-    get 'save_product_image/:id',action: :save_product_image
+    post 'save_product_image/:id',action: :save_product_image
     
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
