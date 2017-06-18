@@ -71,6 +71,8 @@ class Api::V1Controller < ApplicationController
     def save_product_image
         @product=Product.find(params[:id])
         @product.update_attribute(:images,params[:file])
+        logger.debug "params image: #{params[:file]}"
+
     end
     
     def exposition_filters
