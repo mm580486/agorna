@@ -31,11 +31,13 @@
           <%= f.text_field :permalink,class: 'validate', required: "required" %>
           <%= f.label :permalink, 'پرمالینک' ,:'data-error' => "wrong", 'data-success'=> "" %>
         </div>
+        
+        <% if params[:parent_id].nil? %>
              <div class="input-field col s12">
         <%= f.select :product_type_id,ProductType.all.collect {|p| [p.name,p.id] }, {prompt: 'فرم را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default'}  %>
     
         </div>
-        
+        <% end %>
 
        
     
