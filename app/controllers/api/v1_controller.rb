@@ -61,12 +61,14 @@ class Api::V1Controller < ApplicationController
        
        images=params[:images].split('@')
        
-       @images=[]
-       images.each do |image|
-           @images.append parse_image_data(image)
-       end
        
-       render json: @images
+       render json: images
+    #   @images=[]
+    #   images.each do |image|
+    #       @images.append parse_image_data(image)
+    #   end
+       
+       
        
     #   @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: @form_product['images'])
         
