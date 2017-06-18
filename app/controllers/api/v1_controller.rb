@@ -70,7 +70,7 @@ class Api::V1Controller < ApplicationController
     
     def save_product_image
         @product=Product.find(params[:id])
-        @product.update_atrribute(:images,params[:images])
+        @product.update_atrribute(:images,params[:file])
     end
     
     def exposition_filters
