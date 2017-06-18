@@ -209,10 +209,11 @@ end
     get 'following/:token',action: :following
     get 'exposition_filters/:id',action: :exposition_filters
     get 'filter/:id',action: :filter
-
+   
     
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage
+    get 'startmessage/:token',action: :startmessage
     
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
