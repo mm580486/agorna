@@ -58,7 +58,8 @@ class Api::V1Controller < ApplicationController
        ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
           dynamic_field[field.name]= @form_product[field.permalink]
        end
-       @product=@user.products.new(name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
+       @product=@user.products.new(name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field,images: params[:images])
+       
        if @product.save
            render :json => {status: 'ok'}, :status => :ok
        else
