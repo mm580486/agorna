@@ -90,7 +90,7 @@ class Api::V1Controller < ApplicationController
 
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    @tempfile.write Base64.decode64(string)
+    @tempfile.write File.open(Base64.decode64(string)).read
     @tempfile.rewind
 
     # for security we want the actual content type, not just what was passed in
@@ -103,7 +103,7 @@ class Api::V1Controller < ApplicationController
 
     ActionDispatch::Http::UploadedFile.new({
       tempfile: @tempfile,
-      content_type: content_type,
+      type: content_type,
       filename: filename
     })
   end
