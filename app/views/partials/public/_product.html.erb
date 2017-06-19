@@ -4,7 +4,10 @@
                             
                             <%= link_to product_show_path(id: product.id) do %>
                             <% unless product.off_price.blank? %>
-                            <img src="/images/offer.png" style="width: 33%;position: absolute;z-index: 1;left: 67%;">
+                            
+                            <spna style='width: 33%;position: absolute;z-index: 1;left: 67%;'>
+                                تخفیف دار
+                            </spna>
                             <% end %>
                      <% unless product.images[0].blank? %>
                      <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;' %>
