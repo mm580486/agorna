@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   
   attr_accessor :login
-  after_validation :geocode
+  reverse_geocoded_by :latitude, :longitude
+after_validation :reverse_geocode 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
