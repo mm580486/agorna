@@ -145,6 +145,7 @@
           zoom: 4,
           center: uluru
         });
+        
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
@@ -175,6 +176,9 @@
         }
       }
 
+
+
+
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -184,7 +188,7 @@
       }
       
       
-      }
+      
     </script>
                                                <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSn--jTCMyOzCWXwzca5G-0wz7tzo5Qp8&callback=initMap">
