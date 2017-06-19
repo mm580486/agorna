@@ -43,8 +43,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :telegram
       t.boolean :post_service , default: false
       t.boolean :exposition_accept,default: false
-      t.string :longitude,default: nil
-      t.string :latitude,default: nil
+      t.float :longitude,default: nil
+      t.float :latitude,default: nil
       
       # marketers
       

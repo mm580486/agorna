@@ -144,6 +144,11 @@ def parse_image_data(base64_image)
        
     end
     
+    def nearby
+        
+        
+    end
+    
     
     def filter
        @exposition=User.find(params[:id])
