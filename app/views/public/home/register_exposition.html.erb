@@ -100,6 +100,9 @@
     
    <%= render 'partials/public/register_form',f: f %>
 
+
+
+<div id="map"></div>
                                
 
                                 <div class="row">
@@ -127,3 +130,27 @@
         </div>
         
          <%= render partial: 'partials/public/footer' %>
+         
+         
+         
+         
+          <% content_for :head do %>
+                                               <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOpAoOoVUKcnX0yHkR2H8Al7tr3soW4sc&callback=initMap">
+    </script>
+     <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+                                <% end %>
+                                
+
