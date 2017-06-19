@@ -216,7 +216,7 @@ end
     get 'startmessage/:token',action: :startmessage
     
     post 'save_product_image/:id',action: :save_product_image
-    
+    get 'nearby',action: :nearby
     get 'show_exposition/:id',action: :show_exposition
     get 'products/:type',action: :products
     get 'product/:id',action: :product
