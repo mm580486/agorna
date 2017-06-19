@@ -341,7 +341,9 @@ def favorite
     
     def hasNewTickets
         @user=User.find_by_authentication_token(params[:token])
-        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC')
+        @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC').tikcetmessages
+        @tickets.update_all(seen: true)
+        render json: @tickets
         
     end
     
