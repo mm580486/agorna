@@ -5,9 +5,25 @@
                             <%= link_to product_show_path(id: product.id) do %>
                             <% unless product.off_price.blank? %>
                             
-                            <spna style='width: 33%;position: absolute;z-index: 1;left: 67%;'>
+                            <div style='width: 22%;
+    position: absolute;
+    z-index: 1;
+    left: 78%;
+    
+    background-color: red;
+    color: white;
+    text-align: center;'>
+                                
+                                
+                                     <spna style='-ms-transform: rotate(44deg);
+    -webkit-transform: rotate(44deg);
+    transform: rotate(44deg);'>
                                 تخفیف دار
                             </spna>
+                            
+                                
+                            </div>
+                       
                             <% end %>
                      <% unless product.images[0].blank? %>
                      <%= image_tag product.images.first.url, alt: product.name,style: 'height: 301px;' %>
