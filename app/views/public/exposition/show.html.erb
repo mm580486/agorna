@@ -306,7 +306,7 @@ nav {
                         </h6>
 
 <% if @exposition.latitude.present? && @exposition.longitude.present? %>
-<a href="https://www.google.com/maps/place/<%= @exposition.latitude %>,<%= @exposition.longitude %>/">
+<a target='_blank' href="https://www.google.com/maps/place/<%= @exposition.latitude %>,<%= @exposition.longitude %>/">
                         <img id="map" class="col s12 responsive-img" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @exposition.latitude %>,<%= @exposition.longitude %>&zoom=15&scale=false&size=640x320&maptype=roadmap&key=AIzaSyCSn--jTCMyOzCWXwzca5G-0wz7tzo5Qp8&format=png&visual_refresh=true&markers=icon:https://www.reyhoon.com/assets/img/map-marker.png%7Cshadow:true%7C<%= @exposition.latitude %>,<%= @exposition.longitude %>&language=fa&region=IR">
 </a>
 <% end %>
