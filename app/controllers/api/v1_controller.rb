@@ -98,9 +98,9 @@ def parse_image_data(base64_image)
 
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    @tempfile.write File.open(Base64.decode64(string)).read
+    @tempfile.write 'salam'
     @tempfile.rewind
-
+# File.open(Base64.decode64(string)).read
     # for security we want the actual content type, not just what was passed in
     content_type = `file --mime -b #{@tempfile.path}`.split(";")[0]
 
