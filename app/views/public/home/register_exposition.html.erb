@@ -156,7 +156,7 @@
         //Get the location that the user clicked.
         var clickedLocation = event.latLng;
         
-        markerLocation();
+      
         
         //If the marker hasn't been added.
         if(marker === false){
@@ -166,10 +166,13 @@
                 map: map,
                 draggable: true //make it draggable
             });
+            
             //Listen for drag events!
             google.maps.event.addListener(marker, 'dragend', function(event){
                 markerLocation();
             });
+            
+            
         } else{
             //Marker has already been added, so just change its location.
             marker.setPosition(clickedLocation);
@@ -212,6 +215,9 @@ function markerLocation(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('lat').value = currentLocation.lat(); //latitude
     document.getElementById('lng').value = currentLocation.lng(); //longitude
+    alert('changed');
+    alert(currentLocation.lng())
+    alert(currentLocation.lat())
 }
   
 
