@@ -237,6 +237,8 @@ ActiveRecord::Schema.define(version: 20170611075651) do
     t.string   "telegram"
     t.boolean  "post_service",           default: false
     t.boolean  "exposition_accept",      default: false
+    t.float    "longitude"
+    t.float    "latitude"
     t.string   "national_code",          default: ""
     t.string   "authentication_token",                   null: false
     t.datetime "created_at",                             null: false

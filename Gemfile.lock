@@ -111,6 +111,7 @@ GEM
       faraday_middleware (>= 0.9)
       loofah (>= 2.0)
       sax-machine (>= 1.0)
+    geocoder (1.4.4)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     google-api-client (0.7.1)
@@ -346,6 +347,7 @@ DEPENDENCIES
   carrierwave!
   coffee-rails (~> 4.1.0)
   devise
+  geocoder
   google-api-client (~> 0.7.1)
   htmlcompressor
   instagram
