@@ -149,7 +149,7 @@ def parse_image_data(base64_image)
         coords.push params[:latitude]
         coords.push params[:longitude]
         @expositions=User.sellers.near(coords, 1, :order => '')
-        render json: @expositions
+        
     end
     
     
