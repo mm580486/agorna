@@ -155,6 +155,9 @@
           google.maps.event.addListener(map, 'click', function(event) {                
         //Get the location that the user clicked.
         var clickedLocation = event.latLng;
+        
+        markerLocation();
+        
         //If the marker hasn't been added.
         if(marker === false){
             //Create the marker.
