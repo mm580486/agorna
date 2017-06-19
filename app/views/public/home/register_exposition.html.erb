@@ -206,7 +206,8 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      }
+      
+
 
 
 function markerLocation(){
@@ -216,8 +217,8 @@ function markerLocation(){
     document.getElementById('lat').value = currentLocation.lat(); //latitude
     document.getElementById('lng').value = currentLocation.lng(); //longitude
     alert('changed');
-    alert(currentLocation.lng())
-    alert(currentLocation.lat())
+    alert(currentLocation.lng());
+    alert(currentLocation.lat());
 }
   
 
@@ -231,7 +232,7 @@ function markerLocation(){
       }
       
       
-      
+      }
     </script>
                                                <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSn--jTCMyOzCWXwzca5G-0wz7tzo5Qp8&callback=initMap&language=fa&region=IR">
