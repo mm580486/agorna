@@ -214,7 +214,7 @@ end
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage
     get 'startmessage/:token',action: :startmessage
-    
+    get 'hasNewTickets/:token',action: :hasNewTickets
     post 'save_product_image/:id',action: :save_product_image
     get 'nearby',action: :nearby
     get 'show_exposition/:id',action: :show_exposition
