@@ -1,33 +1,18 @@
-        <div class="col s12 m3">
+       <div class="col s12 m3">
                     <div class="card hoverable">
                         <div class="card-image">
                             
                             <%= link_to product_show_path(id: product.id) do %>
                             <% unless product.off_price.blank? %>
                             
-                            <div style='
-    position: absolute;
-    z-index: 1;
-    left: 78%;
-      width: 0; 
-  height: 0; 
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  
-  border-top: 20px solid #f00;
-    background-color: red;
-    color: white;
-    text-align: center;'>
+     
                                 
-                                
-                                     <spna style='-ms-transform: rotate(44deg);
-    -webkit-transform: rotate(44deg);
-    transform: rotate(44deg);'>
+                                     <spna class='label'>
                                 تخفیف دار
                             </spna>
                             
                                 
-                            </div>
+                            
                        
                             <% end %>
                      <% unless product.images[0].blank? %>
