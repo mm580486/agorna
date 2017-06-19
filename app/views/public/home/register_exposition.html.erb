@@ -137,11 +137,7 @@
          
          
           <% content_for :head do %>
-                                               <script async defer
-                                               
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSn--jTCMyOzCWXwzca5G-0wz7tzo5Qp8&callback=initMap">
-    </script>
-     <script>
+              <script>
       function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -154,6 +150,10 @@
         });
       }
     </script>
+                                               <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSn--jTCMyOzCWXwzca5G-0wz7tzo5Qp8&callback=initMap">
+    </script>
+ 
                                 <% end %>
                                 
 
