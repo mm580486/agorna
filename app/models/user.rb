@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   attr_accessor :login
+  after_validation :geocode
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
     validates :identify, uniqueness: true, if: 'identify.present?'
+    
     validates :phone, uniqueness: true
 validates_presence_of :phone
 #  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
