@@ -28,8 +28,9 @@ class Api::V1Controller < ApplicationController
         @expositions=User.sellers
       end
      
-      render json: @expositions
+      
     end
+    
     
     def exposition
         @user=User.find(params[:id])
