@@ -40,6 +40,8 @@ gem 'rack-cors'
 
 
 gem 'pgreset'
+gem 'geocoder'
+
 
 gem 'active_link_to'
 
