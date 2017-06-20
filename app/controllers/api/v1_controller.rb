@@ -345,9 +345,9 @@ def favorite
             @user=User.find_by_authentication_token(params[:token]) 
             @ticketmessages=Ticketmessage.all.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC').ids)
             # @ticketmessages.where.not(user_id: @user.id).update_all(seen: true)
-            render text: @ticketmessages.size
+            render json: {size: @ticketmessages.size,from: 3}
         rescue
-            render text: 0
+            render json: {size: 0}
         end
     end
     
