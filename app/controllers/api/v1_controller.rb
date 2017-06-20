@@ -343,7 +343,7 @@ def favorite
     def hasNewTickets
         begin
             @user=User.find_by_authentication_token(params[:token]) 
-            @ticketmessages=Ticketmessage.all.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC').ids).where.not(user_id: @user.id)
+            @ticketmessages=Ticketmessage.all.where(ticket_id: Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC').ids).where.not(user_id: @user.id).where(seen: false)
             from=@ticketmessages.pluck(:ticket_id).uniq
             @ticketmessages.update_all(seen: true)
             render json: {size: @ticketmessages.size,from: from.size}
