@@ -26,6 +26,9 @@ class Api::V1Controller < ApplicationController
       
       when 'top_rate'
         @expositions=User.sellers
+        
+        when 'random_expositions'
+            @expositions=User.sellers.order("RANDOM()")
       end
      
       
