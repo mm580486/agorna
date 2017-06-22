@@ -70,7 +70,7 @@ class Api::V1Controller < ApplicationController
     #   render json: params[:images]
       @images=[]
       images.each do |image|
-          
+          image.slice! "data:image/jpeg;base64,"
           @images.append(parse_image_data("data:image/jpeg;base64,#{image}"))
           
           
