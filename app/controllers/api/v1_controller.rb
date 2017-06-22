@@ -115,7 +115,7 @@ def parse_image_data(base64_image)
 
     ActionDispatch::Http::UploadedFile.new({
       tempfile: @tempfile,
-      content_type: content_type,
+      content_type: 'image/jpeg',
       filename: filename
     })
   end
