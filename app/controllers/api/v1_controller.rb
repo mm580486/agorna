@@ -73,7 +73,12 @@ class Api::V1Controller < ApplicationController
     #   render json: params[:images]
       @images=[]
       images.each do |image|
+          begin
           @images.append(parse_image_data(image))
+          rescue
+          
+      end
+          
       end
        
        
