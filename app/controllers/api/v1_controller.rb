@@ -68,34 +68,32 @@ class Api::V1Controller < ApplicationController
       images=images_params.split('@')
       
     #   render json: params[:images]
-      @images=[]
-      images.each do |image|
+    #   @images=[]
+    #   images.each do |image|
           
-          @images.append(parse_image_data(image))
-          
-          
+    #       @images.append(parse_image_data(image))
           
       
           
-      end
+    #   end
        
        
-    # #   render json: @images
+    # # #   render json: @images
        
        
-      @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
+    #   @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
         
       
        
-    # #   logger.debug "params image: #{params[:images]}"
+    # # #   logger.debug "params image: #{params[:images]}"
        
        
        
-      if @product.save
-          render :json => {status: 'ok',product: @product}, :status => :ok
-      else
-        render :json => @product.errors#, :status => :bad_request     
-      end
+    #   if @product.save
+    #       render :json => {status: 'ok',product: @product}, :status => :ok
+    #   else
+    #     render :json => @product.errors#, :status => :bad_request     
+    #   end
       
     
         
@@ -111,9 +109,7 @@ def parse_image_data(base64_image)
 
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    
     @tempfile.write Base64.decode64(string)
-    
     @tempfile.rewind
     
     
