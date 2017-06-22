@@ -76,7 +76,7 @@ class Api::V1Controller < ApplicationController
           begin
           @images.append(parse_image_data(image))
           rescue
-          render text: image
+          raise image
       end
           
       end
