@@ -110,7 +110,7 @@ def parse_image_data(base64_image)
 
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    raise string
+    raise string.inspect
     @tempfile.write Base64.decode64(string)
     
     @tempfile.rewind
