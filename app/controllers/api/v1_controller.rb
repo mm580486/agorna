@@ -106,7 +106,7 @@ def parse_image_data(base64_image)
      in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    @tempfile.write File.open(Base64.decode64(string)).read
+    @tempfile.write Base64.decode64(string)
     @tempfile.rewind
     
     

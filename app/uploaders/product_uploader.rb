@@ -14,12 +14,12 @@ class ProductUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
-   version :thumb do
-    process :resize_to_fit => [200, 200]
-end
+#   version :thumb do
+#     process :resize_to_fit => [200, 200]
+# end
 
  def extension_whitelist
-    %w(jpg jpeg png)
+    %w(jpg jpeg png gif)
  end
  
 
