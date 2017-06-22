@@ -199,6 +199,9 @@ end
     get 'slider',action: :slider
     get 'category_fields/:token',action: :category_fields
     get 'save_product/:token',action: :save_product
+    
+    post 'save_product/:token',action: :save_product
+    
     get 'delete_product/:token',action: :delete_product
     get 'search/:type',action: :search
     get 'exposition_comments/:id',action: :exposition_comments
@@ -215,6 +218,7 @@ end
     get 'checkNewMessage/:token',action: :checkNewMessage
     get 'startmessage/:token',action: :startmessage
     get 'hasNewTickets/:token',action: :hasNewTickets
+    
     
     post 'save_product_image/:id',action: :save_product_image
     get 'nearby',action: :nearby
