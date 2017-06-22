@@ -73,6 +73,7 @@ class Api::V1Controller < ApplicationController
       images.each do |image|
           UserMailer.user_errors('add product',"params: #{images_params} image: #{image}").deliver_now
           
+          image= "data:image/jpeg;base64,#{image}"
           @images.append(parse_image_data(image))
       end
        
