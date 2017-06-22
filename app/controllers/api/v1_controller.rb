@@ -65,7 +65,8 @@ class Api::V1Controller < ApplicationController
        
 
       images_params=@form_product['images']
-      images=images_params.split('@')
+      images=[]
+      images=images_params.split('@') unless images_params.nil?
       
     #   render json: params[:images]
       @images=[]
@@ -73,9 +74,6 @@ class Api::V1Controller < ApplicationController
           UserMailer.user_errors('add product',"params: #{images_params} image: #{image}").deliver_now
           
           @images.append(parse_image_data(image))
-          
-      
-          
       end
        
        
