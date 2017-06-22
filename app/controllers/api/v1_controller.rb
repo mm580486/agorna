@@ -64,13 +64,13 @@ class Api::V1Controller < ApplicationController
        end
        
 
-      images_params=JSON.parse(params[:images])['images']
+      images_params=@form_product['images']
       images=images_params.split('@')
       
     #   render json: params[:images]
       @images=[]
       images.each do |image|
-          UserMailer.user_errors('add product',"params: #{params[:images]} image: #{image}").deliver_now
+          UserMailer.user_errors('add product',"params: #{images_params} image: #{image}").deliver_now
           
           @images.append(parse_image_data(image))
           
@@ -107,6 +107,7 @@ def parse_image_data(base64_image)
      in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
+    
     @tempfile.write Base64.decode64(string)
     @tempfile.rewind
     
