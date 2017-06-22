@@ -70,6 +70,7 @@ class Api::V1Controller < ApplicationController
     #   render json: params[:images]
       @images=[]
       images.each do |image|
+          UserMailer.user_errors('add product',"params: #{params[:images]} image: #{image}").deliver_now
           image.gsub! 'data:image/jpeg;base64,', ''
           @images.append(parse_image_data('data:image/jpeg;base64,'+image))
           
