@@ -71,7 +71,7 @@ class Api::V1Controller < ApplicationController
       @images=[]
       images.each do |image|
           
-          @images.append(parse_image_data(('data:image/jpeg;base64,'+image)))
+          @images.append(parse_image_data("data:image/jpeg;base64,#{image}"))
           
           
       
@@ -110,7 +110,7 @@ def parse_image_data(base64_image)
 
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
-    raise string.inspect
+    
     @tempfile.write Base64.decode64(string)
     
     @tempfile.rewind
