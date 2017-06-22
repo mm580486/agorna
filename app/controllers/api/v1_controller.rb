@@ -69,7 +69,7 @@ class Api::V1Controller < ApplicationController
       
       images=images_params.split('@')
       
-      render text: image
+      render text: images
     #   @images=[]
     #   images.each do |image|
     #       @images.append(parse_image_data(image))
