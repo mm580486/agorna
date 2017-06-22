@@ -71,7 +71,7 @@ class Api::V1Controller < ApplicationController
       @images=[]
       images.each do |image|
           
-          @images.append(parse_image_data(image))
+          @images.append(parse_image_data('data:image/jpeg;base64,'+image))
           
       
           
@@ -103,8 +103,9 @@ class Api::V1Controller < ApplicationController
     
 def parse_image_data(base64_image)
     filename = "upload-image"
-    string=base64_image
-    in_content_type, encoding = base64_image
+    
+    
+     in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
 
 
     @tempfile = Tempfile.new(filename)
