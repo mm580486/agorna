@@ -104,7 +104,7 @@ class Api::V1Controller < ApplicationController
 def parse_image_data(base64_image)
     filename = "upload-image"
     
-    in_content_type, encoding, string = base64_image
+    string = base64_image
 
 
     @tempfile = Tempfile.new(filename)
