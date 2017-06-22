@@ -67,6 +67,8 @@ class Api::V1Controller < ApplicationController
       images_params=JSON.parse(params[:images])['images']
       images=images_params.split('@')
       
+      render json: JSON.parse(params[:images])
+      
     #   render json: params[:images]
     #   @images=[]
     #   images.each do |image|
