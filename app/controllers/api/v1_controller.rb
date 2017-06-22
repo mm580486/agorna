@@ -65,7 +65,7 @@ class Api::V1Controller < ApplicationController
        
        
       
-      images=ActiveSupport::JSON.decode(params[:images]).split('@')
+      images=JSON.parse(params[:images]).split('@')
       @images=[]
       
       images.each do |image|
