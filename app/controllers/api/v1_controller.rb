@@ -63,21 +63,18 @@ class Api::V1Controller < ApplicationController
           dynamic_field[field.name]= @form_product[field.permalink]
        end
        
-       
-      
+
       images_params=JSON.parse(params[:images])['images']
-       
-      
       images=images_params.split('@')
       
     #   render json: params[:images]
       @images=[]
       images.each do |image|
-          begin
-          @images.append(parse_image_data('data:image/jpeg;base64,'+image))
-          rescue
           
-      end
+          @images.append(parse_image_data(('data:image/jpeg;base64,'+image)))
+          
+          
+      
           
       end
        
