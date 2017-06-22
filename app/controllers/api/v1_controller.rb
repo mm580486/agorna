@@ -103,11 +103,7 @@ class Api::V1Controller < ApplicationController
     
 def parse_image_data(base64_image)
     filename = "upload-image"
-    
-    
      in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
-
-
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
     @tempfile.write Base64.decode64(string)
@@ -122,8 +118,9 @@ def parse_image_data(base64_image)
 
     # we will also add the extension ourselves based on the above
     # if it's not gif/jpeg/png, it will fail the validation in the upload model
-    extension = 'jpeg'
+     extension = content_type.match(/gif|jpeg|png/).to_s
     filename += ".#{extension}" if extension
+
 
     ActionDispatch::Http::UploadedFile.new({
       tempfile: @tempfile,
