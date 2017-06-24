@@ -208,12 +208,11 @@ end
     
     
     get 'favorite/:token',action: :favorite
+    get 'marketer_sellers/:token',action: :marketer_sellers
     get 'follow/:id',action: :follow
     get 'following/:token',action: :following
     get 'exposition_filters/:id',action: :exposition_filters
     get 'filter/:id',action: :filter
-   
-    
     get 'build_conversation/:token',action: :build_conversation
     get 'checkNewMessage/:token',action: :checkNewMessage
     get 'startmessage/:token',action: :startmessage

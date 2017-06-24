@@ -34,6 +34,12 @@ class Api::V1Controller < ApplicationController
       
     end
     
+    def marketer_sellers
+        @marketer=User.find_by_authentication_token(params[:token])
+        @expositions=User.where(marketer_id: @marketer.id)
+        render 'expositions'
+    end
+    
     
     def exposition
         @user=User.find(params[:id])
