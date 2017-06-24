@@ -40,6 +40,20 @@ class Api::V1Controller < ApplicationController
         render 'expositions'
     end
     
+    def add_seller
+        @marketer=User.find_by_authentication_token(params[:token])
+        @form_user=JSON.parse(params[:form_user])
+        @exposition=User.new(name: @form_user['name'],exposition_name: @form_user['exposition_name'],exposition_address: @form_user['exposition_address'],phone: @form_user['phone'],exposition_detail: @form_user['exposition_detail'],telegram: @form_user['telegram'],email: @form_user['email']).save
+        render json: @exposition
+        
+    end
+    
+    
+    def delete_seller
+        @marketer=User.find_by_authentication_token(params[:token])
+        @exposition=User.find(params[:id]).destroy
+        render json: {status: 'ok'}
+    end
     
     def exposition
         @user=User.find(params[:id])
