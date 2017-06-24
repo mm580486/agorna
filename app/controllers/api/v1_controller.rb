@@ -43,7 +43,7 @@ class Api::V1Controller < ApplicationController
     def add_seller
         @marketer=User.find_by_authentication_token(params[:token])
         @form_user=JSON.parse(params[:form_user])
-        @exposition=User.new(name: @form_user['name'],exposition_name: @form_user['exposition_name'],exposition_address: @form_user['exposition_address'],phone: @form_user['phone'],exposition_detail: @form_user['exposition_detail'],telegram: @form_user['telegram'],email: @form_user['email']).save
+        @exposition=User.new(marketer_id: @marketer.id,name: @form_user['name'],exposition_name: @form_user['exposition_name'],exposition_address: @form_user['exposition_address'],phone: @form_user['phone'],exposition_detail: @form_user['exposition_detail'],telegram: @form_user['telegram'],email: @form_user['email']).save
         render json: @exposition
         
     end
