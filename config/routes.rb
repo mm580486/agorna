@@ -209,6 +209,8 @@ end
     
     get 'favorite/:token',action: :favorite
     get 'marketer_sellers/:token',action: :marketer_sellers
+    get 'add_seller/:token',action: :add_seller
+    
     get 'follow/:id',action: :follow
     get 'following/:token',action: :following
     get 'exposition_filters/:id',action: :exposition_filters
