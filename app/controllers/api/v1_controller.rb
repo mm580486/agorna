@@ -58,42 +58,44 @@ class Api::V1Controller < ApplicationController
     def save_product
        @user=User.find_by_authentication_token(params[:token]) 
        @form_product=JSON.parse(params[:form_product])
-       dynamic_field={}
-       ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
-          dynamic_field[field.name]= @form_product[field.permalink]
-       end
+       
+       render json: @form_product
+    #   dynamic_field={}
+    #   ProductType.find(Category.find(@user.category_id).product_type_id).fields.where("'#{@form_product['category_id']}' = ANY (categories)").each do |field|
+    #       dynamic_field[field.name]= @form_product[field.permalink]
+    #   end
        
 
-      images_params=@form_product['images']
-      images=[]
-      images=images_params.split('@') unless images_params.nil?
+    #   images_params=@form_product['images']
+    #   images=[]
+    #   images=images_params.split('@') unless images_params.nil?
       
-    #   render json: params[:images]
-      @images=[]
-      images.each do |image|
-          UserMailer.user_errors('add product',"params: #{images_params} image: #{image}").deliver_now
+    # #   render json: params[:images]
+    #   @images=[]
+    #   images.each do |image|
+    #       UserMailer.user_errors('add product',"params: #{images_params} image: #{image}").deliver_now
           
-          image= "data:image/jpeg;base64,#{image}"
-          @images.append(parse_image_data(image))
-      end
+    #       image= "data:image/jpeg;base64,#{image}"
+    #       @images.append(parse_image_data(image))
+    #   end
        
        
-    # #   render json: @images
+    # # #   render json: @images
        
        
-      @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
+    #   @product=@user.products.new(images: @images,name: @form_product['name'],price: @form_product['price'],off_price: @form_product['off_price'],detail: @form_product['detail'],category_id: @form_product['category_id'],properties: dynamic_field)
         
       
        
-    # #   logger.debug "params image: #{params[:images]}"
+    # # #   logger.debug "params image: #{params[:images]}"
        
        
        
-      if @product.save
-          render :json => {status: 'ok',product: @product}, :status => :ok
-      else
-        render :json => @product.errors#, :status => :bad_request     
-      end
+    #   if @product.save
+    #       render :json => {status: 'ok',product: @product}, :status => :ok
+    #   else
+    #     render :json => @product.errors#, :status => :bad_request     
+    #   end
       
     
         
