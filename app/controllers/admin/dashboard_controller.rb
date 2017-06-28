@@ -102,6 +102,12 @@ class Admin::DashboardController < ApplicationController
     end
     redirect_to :back
   end
+  
+  
+  def plans
+    
+    
+  end
   private
   
   def user_white_list

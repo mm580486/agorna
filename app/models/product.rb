@@ -9,4 +9,3 @@ class Product < ActiveRecord::Base
   serialize :images, JSON
   serialize :properties, Hash
 end
-
