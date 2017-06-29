@@ -46,6 +46,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.float :longitude,default: nil
       t.float :latitude,default: nil
       
+      t.boolean :phone_verify,default: false
+      t.boolean :email_verify,default: false
+      
       # marketers
       
       t.string :national_code, default: ''
