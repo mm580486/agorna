@@ -48,6 +48,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       t.boolean :phone_verify,default: false
       t.boolean :email_verify,default: false
+      t.integer :verify_code,default: 0
       
       # marketers
       

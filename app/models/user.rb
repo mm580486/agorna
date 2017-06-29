@@ -67,7 +67,8 @@ validates_presence_of :phone
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,:omniauthable
-  before_save :ensure_authentication_token    
+  before_save :ensure_authentication_token 
+  before_save :generate_verify_code 
 
   scope :marketers, lambda { where(:level => 2) }
   scope :sellers, lambda { where(:level => 1) }
@@ -123,6 +124,12 @@ end
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
     end
+  end
+  
+  
+  def generate_verify_code
+    
+    self.verify_code=rand(11111...99999)
   end
 
   private
