@@ -404,7 +404,12 @@ def favorite
     
     def login
         data = JSON.parse(params[:formdata])
-        @user=User.find_for_authentication(email: data['email'])
+        
+        begin
+            @user=User.find_for_authentication(email: data['email'])
+        rescue
+            @user=User.find_for_authentication(email: data['phone'])
+        end 
         @user.valid_password?(data['password'])
         render status: :ok,json: @user
     end
