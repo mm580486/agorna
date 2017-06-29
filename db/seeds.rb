@@ -51,8 +51,8 @@ poshak_form=ProductType.create(
     
 poshak=Category.new(
     :name      => 'پوشاک',
-    :permalink => 'poshak',
-    :product_type_id => 1,
+    :permalink => 'poshak-cat',
+    :product_type_id => poshak_form.id,
     :remote_image_url => 'http://loremflickr.com/320/240/t-shirt',
     :user_id => 1
     )
