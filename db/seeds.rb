@@ -49,11 +49,12 @@ poshak_form=ProductType.create(
     :permalink => 'poshak'
     )     
     
-poshak=Category.create(
+poshak=Category.new(
     :name      => 'پوشاک',
     :permalink => 'poshak',
-    :product_type_id => poshak_form.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt'
+    :product_type_id => 1,
+    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt',
+    :user_id => 1
     )
     
     
@@ -61,27 +62,31 @@ Category.create(
     :name      => 'تی شرت',
     :permalink => 't-shirt',
     :parent_id => poshak.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt'
+    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt',
+    :user_id => 1
     )
     
 Category.create(
     :name      => 'کفش',
     :permalink => 'shoes',
     :parent_id => poshak.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/shoes'
+    :remote_image_url => 'http://loremflickr.com/320/240/shoes',
+    :user_id => 1
     )
 Category.create(
     :name      => 'سوتین',
     :permalink => 'sotiyan',
     :parent_id => poshak.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/boobs'
+    :remote_image_url => 'http://loremflickr.com/320/240/boobs',
+    :user_id => 1
     )   
     
 Category.create(
     :name      => 'شلوار',
     :permalink => 'shalvar',
     :parent_id => poshak.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/pants'
+    :remote_image_url => 'http://loremflickr.com/320/240/pants',
+    :user_id => 1
     )
     
     
@@ -94,23 +99,27 @@ electronic=Category.create(
     :name      => 'الکترونیک',
     :permalink => 'electronic',
     :remote_image_url => 'http://loremflickr.com/320/240/electronic',
-    :product_type_id => electronic_form.id
+    :product_type_id => electronic_form.id,
+    :user_id => 1
     )
 Category.create(
     :name      => 'موبایل',
     :permalink => 'mobile',
     :parent_id => electronic.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/mobile'
+    :remote_image_url => 'http://loremflickr.com/320/240/mobile',
+    :user_id => 1
     )
 Category.create(
     :name      => 'تبلت',
     :permalink => 'tablet',
     :parent_id => electronic.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/tablet'
+    :remote_image_url => 'http://loremflickr.com/320/240/tablet',
+    :user_id => 1
     )
 Category.create(
     :name      => 'مک بوک',
     :permalink => 'macbook',
     :parent_id => electronic.id,
-    :remote_image_url => 'http://loremflickr.com/320/240/macbook'
+    :remote_image_url => 'http://loremflickr.com/320/240/macbook',
+    :user_id => 1
     )
