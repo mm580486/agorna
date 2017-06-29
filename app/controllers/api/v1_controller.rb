@@ -445,7 +445,7 @@ def favorite
         code=params[:code]
         res={}
         
-        if user.verify_code==code.to_i
+        if user.verify_code == code.to_i
             res={status: 200,message: 'ok'}
             user.update_attribute(:phone_verify,true)
         else
@@ -454,6 +454,11 @@ def favorite
         render json: res
     end
     
+    
+    def check_username
+       identity=params[:identity] 
+        render json: {status: 200,has: User.exists?(identify: identity)}
+    end
     
     
     def checkAuthentication
