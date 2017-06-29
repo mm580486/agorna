@@ -441,8 +441,7 @@ def favorite
             میباشد
             "
             }).call
-            
-        
+        render json: {status: 200}
     end
     
     
