@@ -431,7 +431,17 @@ def favorite
     def register_exposition
         user=User.create_with(name: params[:name]).find_or_create_by(phone: params[:phone])
         
-        
+             verifyCode=rand(11111...99999)
+             
+           
+           client=KaveRestApi::SendSimple.new({
+            receptor: user.phone, # can be array ['09127105568','09123456789'] < = 3000 
+            message: "کد وریفای شما در پین سود
+            #{verifyCode}
+            میباشد
+            "
+            }).call
+            
         
     end
     
