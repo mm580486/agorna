@@ -429,6 +429,7 @@ def favorite
     
     
     def register_exposition
+        
         user=User.create_with(name: params[:name]).find_or_create_by(phone: params[:phone])
            client=KaveRestApi::SendSimple.new({
             receptor: user.phone, # can be array ['09127105568','09123456789'] < = 3000 
@@ -436,7 +437,21 @@ def favorite
             #{user.verify_code} میباشد
             "
             }).call
+            
+            
         render json: {status: 200,ex: user}
+    end
+    
+    def register_exposition_c
+        @form_user=JSON.parse(params[:form_user])
+        user=User.find(@form_user['id'])
+        if user.update_attributes(exposition_detail: @form_user['detail'],exposition_address: @form_user['address'],category_id: @form_user['category_id'],identify: @form_user['identity'],exposition_name: @form_user['exposition_name'])
+            res={status: 200,ex: user}
+        else
+            res={status: 400,message: user.errors}
+        end
+        
+        render json: res  
     end
     
     

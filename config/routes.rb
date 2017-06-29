@@ -206,6 +206,8 @@ end
     get 'register_exposition',action: :register_exposition
     
     post 'save_product/:token',action: :save_product
+    post 'register_exposition_c',action: :register_exposition_c
+    
     
     get 'delete_product/:token',action: :delete_product
     get 'search/:type',action: :search
