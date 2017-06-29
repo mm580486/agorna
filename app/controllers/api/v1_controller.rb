@@ -436,7 +436,22 @@ def favorite
             #{user.verify_code} میباشد
             "
             }).call
-        render json: {status: 200}
+        render json: {status: 200,ex: user}
+    end
+    
+    
+    def verify
+        user=User.find_by_authentication_token(params[:token])
+        code=params[:code]
+        res={}
+        
+        if user.verify_code==code.to_i
+            res={status: 200,message: 'ok'}
+            user.update_attribute(:phone_verify,true)
+        else
+            res={status: 400,message: 'verify code is invalid'}
+        end
+        render json: res
     end
     
     
