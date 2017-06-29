@@ -24,7 +24,7 @@ validates_presence_of :phone
   
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
                          message: 'should not be the same as your email or phone', allow_blank: true
-  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create, allow_blank: true
   validates_confirmation_of :password,message: 'password not match'
   validates_length_of :email, within: 6..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
   validates_length_of :instagram_id, within: 3..50, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
