@@ -93,7 +93,7 @@ Category.create(
 electronic=Category.create(
     :name      => 'الکترونیک',
     :permalink => 'electronic',
-    :remote_image_url => 'http://loremflickr.com/320/240/electronic'،
+    :remote_image_url => 'http://loremflickr.com/320/240/electronic',
     :product_type_id => electronic_form.id
     )
 Category.create(
