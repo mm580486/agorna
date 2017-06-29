@@ -431,6 +431,8 @@ def favorite
     def register_exposition
         user=User.create_with(name: params[:name]).find_or_create_by(phone: params[:phone])
         
+        
+        
     end
     
     

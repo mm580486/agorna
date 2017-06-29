@@ -42,3 +42,75 @@ User.create(:name => 'جواد',
             :phone => '0919000000',
             :password => 'ali5371370',:password_confirmation => 'ali5371370',
             :level => 3)
+            
+            
+poshak_form=ProductType.create(
+    :name => 'پوشاک',
+    :permalink => 'poshak'
+    )     
+    
+poshak=Category.create(
+    :name      => 'پوشاک',
+    :permalink => 'poshak',
+    :product_type_id => poshak_form.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt'
+    )
+    
+    
+Category.create(
+    :name      => 'تی شرت',
+    :permalink => 't-shirt',
+    :parent_id => poshak.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/t-shirt'
+    )
+    
+Category.create(
+    :name      => 'کفش',
+    :permalink => 'shoes',
+    :parent_id => poshak.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/shoes'
+    )
+Category.create(
+    :name      => 'سوتین',
+    :permalink => 'sotiyan',
+    :parent_id => poshak.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/boobs'
+    )   
+    
+Category.create(
+    :name      => 'شلوار',
+    :permalink => 'shalvar',
+    :parent_id => poshak.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/pants'
+    )
+    
+    
+    electronic_form=ProductType.create(
+    :name => 'الکترونیک',
+    :permalink => 'electronic_form'
+    )     
+    
+electronic=Category.create(
+    :name      => 'الکترونیک',
+    :permalink => 'electronic',
+    :remote_image_url => 'http://loremflickr.com/320/240/electronic'،
+    :product_type_id => electronic_form.id
+    )
+Category.create(
+    :name      => 'موبایل',
+    :permalink => 'mobile',
+    :parent_id => electronic.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/mobile'
+    )
+Category.create(
+    :name      => 'تبلت',
+    :permalink => 'tablet',
+    :parent_id => electronic.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/tablet'
+    )
+Category.create(
+    :name      => 'مک بوک',
+    :permalink => 'macbook',
+    :parent_id => electronic.id,
+    :remote_image_url => 'http://loremflickr.com/320/240/macbook'
+    )
