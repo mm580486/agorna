@@ -12,7 +12,7 @@
         <%= select_tag "marketer_id", options_from_collection_for_select(User.marketers, "id", "name"), prompt: "لطفا بازاریاب را انتخاب کنید",required: 'required',class: 'browser-default' %>
       </p>
       
-      <%= hidden_tag :seller_id %>
+      <%= hidden_field_tag :seller_id %>
       
       <p>
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " id='sendToMarketer'>ارسال</a>
