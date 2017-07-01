@@ -2,14 +2,12 @@ document.addEventListener('turbolinks:load', function() {
     
     $('#sendToMarketer').click(function(){
         var marketer_id=$('#marketer_id').val();
-        alert(marketer_id);
+        var seller_id=$('#seller_id').val();
+        
     });
     
     $('.b-modal').click(function(e) {
-        
         $('#seller_id').val($(this).attr('sellerId'));
-        
-        
     });
 
 $( "#product_category_id" ).on( "change", function() {
