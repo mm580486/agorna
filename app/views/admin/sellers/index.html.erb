@@ -19,7 +19,7 @@
       <p>
         
         
-        <%= select_tag(:marketer_id, User.marketers.collect {|marketer|  [marketer.name,marketer.id]  },{prompt: 'لطفا بازاریاب را انتخاب کنید'},{required: 'required',class: 'browser-default'}) %>
+        <%= select_tag(:marketer_id, User.marketers.collect {|marketer|  [marketer.name,marketer.id]  },'',{prompt: 'لطفا بازاریاب را انتخاب کنید'},{required: 'required',class: 'browser-default'}) %>
         
         
       </p>
