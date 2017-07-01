@@ -19,8 +19,8 @@
       <p>
         
         
-        <%= select_tag(:marketer_id, options_for_select(User.marketers.collect {|marketer|  [marketer.name,marketer.id]  }),{prompt: 'لطفا بازاریاب را انتخاب کنید'},{required: 'required',class: 'browser-default'}) %>
         
+        <%= select_tag "marketer_id", options_from_collection_for_select(User.marketers, "id", "name"), prompt: "لطفا بازاریاب را انتخاب کنید",required: 'required',class: 'browser-default' %>
         
       </p>
     </div>
