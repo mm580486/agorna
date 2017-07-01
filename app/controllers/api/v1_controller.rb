@@ -408,7 +408,7 @@ def favorite
         begin
             @user=User.find_for_authentication(email: data['email'])
         rescue
-            @user=User.find_for_authentication(email: data['phone'])
+            @user=User.find_for_authentication(phone: data['phone'])
         end 
         @user.valid_password?(data['password'])
         render status: :ok,json: @user
