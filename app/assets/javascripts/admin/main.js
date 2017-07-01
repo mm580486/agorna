@@ -1,5 +1,9 @@
 document.addEventListener('turbolinks:load', function() {
     
+    $('#sendToMarketer').click(function(){
+        var marketer_id=$('#marketer_id').val();
+        alert(marketer_id);
+    });
 
 $( "#product_category_id" ).on( "change", function() {
   
