@@ -3,7 +3,8 @@ document.addEventListener('turbolinks:load', function() {
     $('#sendToMarketer').click(function(){
         var marketer_id=$('#marketer_id').val();
         var seller_id=$('#seller_id').val();
-        
+        alert(seller_id);
+        alert(marketer_id);
     });
     
     $('.b-modal').click(function(e) {
