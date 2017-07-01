@@ -4,6 +4,13 @@ document.addEventListener('turbolinks:load', function() {
         var marketer_id=$('#marketer_id').val();
         alert(marketer_id);
     });
+    
+    $('.b-modal').click(function(e) {
+        
+        $('#seller_id').val($(this).attr('sellerId'));
+        
+        
+    });
 
 $( "#product_category_id" ).on( "change", function() {
   
