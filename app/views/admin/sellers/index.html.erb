@@ -32,6 +32,8 @@
                   <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_seller_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
                   <%= link_to(raw("<i class='material-icons'>#{user.exposition_accept? ? 'lock_open':'lock_outline'}</i>"),toggle_lock_admin_seller_path(user.id),class: "small btn-floating waves-effect btn-small waves-light  #{user.exposition_accept? ? 'green':'yellow' }") %>
                   <%= link_to(raw("<i class='material-icons'>cast</i>"),exposition_show_path(user.identify),target: '_blank',class: 'small btn-floating waves-effect btn-small waves-light purple') %>
+                  <%= link_to(raw("<i class='material-icons'>person</i>"),exposition_show_path(user.identify),target: '_blank',class: 'small btn-floating waves-effect btn-small waves-dark green') %>
+                
                 </td>
                         <% if current_user.level==3 %>
                 <td><%= user.marketer.nil? ? 'ندارد':user.marketer.name %></td>
