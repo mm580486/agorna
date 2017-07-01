@@ -12,6 +12,21 @@
           
         <div class="card-panel white">
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ارسال به بازاریاب</h4>
+      <p>
+        
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">ارسال</a>
+    </div>
+  </div>
+  
+
+
         <table class='striped highlight bordered'>
             <thead>
               <tr>
@@ -32,8 +47,8 @@
                   <%= link_to(raw('<i class="material-icons">mode_edit</i>'),edit_admin_seller_path(user.id),class: 'small btn-floating waves-effect btn-small waves-light blue') %>
                   <%= link_to(raw("<i class='material-icons'>#{user.exposition_accept? ? 'lock_open':'lock_outline'}</i>"),toggle_lock_admin_seller_path(user.id),class: "small btn-floating waves-effect btn-small waves-light  #{user.exposition_accept? ? 'green':'yellow' }") %>
                   <%= link_to(raw("<i class='material-icons'>cast</i>"),exposition_show_path(user.identify),target: '_blank',class: 'small btn-floating waves-effect btn-small waves-light purple') %>
-                  <%= link_to(raw("<i class='material-icons'>person</i>"),exposition_show_path(user.identify),target: '_blank',class: 'small btn-floating waves-effect btn-small waves-dark green') %>
-                
+                  <%= link_to(raw("<i class='material-icons'>person</i>"),'#modal1',target: '_blank',class: 'small btn-floating waves-effect btn-small waves-dark green') %>
+                  
                 </td>
                         <% if current_user.level==3 %>
                 <td><%= user.marketer.nil? ? 'ندارد':user.marketer.name %></td>
