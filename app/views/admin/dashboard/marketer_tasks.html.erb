@@ -24,10 +24,10 @@
               <tbody>
                 <% @tasks.each do |task| %>
                 <tr>
-                  <td><%= task.seller.name %></td>
-                  <td><%= task.seller.exposition_name %></td>
-                  <td><%= task.seller.exposition_address %></td>
                   <td>$0.87</td>
+                  <td><%= task.seller.exposition_address %></td>
+                  <td><%= task.seller.exposition_name %></td>
+                  <td><%= task.seller.name %></td>
                 </tr>
                 <% end %>
                 
