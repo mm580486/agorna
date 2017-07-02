@@ -1,7 +1,7 @@
 class Admin::SellersController < ApplicationController
   layout 'admin'
   before_action :admin_and_mekter_auth
-  before_action :find_seller, :only => [:edit, :delete, :show,:toggle_lock,:update]
+  skip_before_action :find_seller, :only => [:edit, :delete, :show,:toggle_lock,:update]
   
   def index
     if current_user.level == 2
@@ -20,7 +20,7 @@ class Admin::SellersController < ApplicationController
   
   
   def deliver_to_marketer
-    seller_id=@user
+    seller_id=params[:seller_id]
     marketer_id=params[:marketer_id]
     message=params[:message]
     task=User.find(marketer_id).marketer_tasks.new(user_two: seller_id,message: message)
@@ -29,7 +29,7 @@ class Admin::SellersController < ApplicationController
     else
       res={status: 400,messages: task.errors.full_messages}
     end
-    render json: {status: 200}
+    render json: res
   end
   
   

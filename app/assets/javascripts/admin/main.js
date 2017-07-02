@@ -8,7 +8,7 @@ document.addEventListener('turbolinks:load', function() {
         $.ajax({
             url: "/admin/sellers/deliver_to_marketer",
             method: "GET",
-            data:   'marketer_id='+marketer_id+'&id='+seller_id,
+            data:   'marketer_id='+marketer_id+'&seller_id='+seller_id,
             dataType: "html"
         }).success(function( msg ) {
             if(msg['status']==200){
