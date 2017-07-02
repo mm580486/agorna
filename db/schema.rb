@@ -239,6 +239,9 @@ ActiveRecord::Schema.define(version: 20170611075651) do
     t.boolean  "exposition_accept",      default: false
     t.float    "longitude"
     t.float    "latitude"
+    t.boolean  "phone_verify",           default: false
+    t.boolean  "email_verify",           default: false
+    t.integer  "verify_code",            default: 0
     t.string   "national_code",          default: ""
     t.string   "authentication_token",                   null: false
     t.datetime "created_at",                             null: false
@@ -246,7 +249,7 @@ ActiveRecord::Schema.define(version: 20170611075651) do
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "categories", "users"
