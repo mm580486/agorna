@@ -1,7 +1,7 @@
 class Admin::SellersController < ApplicationController
   layout 'admin'
   before_action :admin_and_mekter_auth
-  skip_before_action :find_seller, :only => [:deliver_to_marketer,:index,:new]
+  before_action :find_seller, :except => [:deliver_to_marketer,:index,:new]
   
   def index
     if current_user.level == 2
