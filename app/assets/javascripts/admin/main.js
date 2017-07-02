@@ -11,14 +11,16 @@ document.addEventListener('turbolinks:load', function() {
             data:   'marketer_id='+marketer_id,
             dataType: "html"
         }).success(function( msg ) {
-            if(msg['status']==200){
+            
+            if(msg.status==200){
                 Materialize.toast('کار جدید برای بازاریاب ثبت شد',5000,'green');
             }else{
-                msg['messages'].forEach(function(entry) {
+                msg['messages']
+                // .forEach(function(entry) {
                     
-                        Materialize.toast(entry,5000,'red');
+                //         Materialize.toast(entry,5000,'red');
                         
-                    });
+                //     });
                 
             }
             
