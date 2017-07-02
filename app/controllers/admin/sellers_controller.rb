@@ -20,7 +20,7 @@ class Admin::SellersController < ApplicationController
   
   
   def deliver_to_marketer
-    seller_id=params[:seller_id]
+    seller_id=@user
     marketer_id=params[:marketer_id]
     message=params[:message]
     task=User.find(marketer_id).marketer_tasks.new(user_two: seller_id,message: message)
