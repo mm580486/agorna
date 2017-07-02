@@ -6,6 +6,8 @@ document.addEventListener('turbolinks:load', function() {
 
     });
     
+    
+    
     $('.b-modal').click(function(e) {
         $('#seller_id').val($(this).attr('sellerId'));
     });
