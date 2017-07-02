@@ -42,6 +42,7 @@ Rails.application.routes.draw do
        member do
         get 'delete'
         get 'toggle_lock'
+        get 'deliver_to_marketer'
        end
     end
     
