@@ -4,6 +4,33 @@ document.addEventListener('turbolinks:load', function() {
         var marketer_id=$('#marketer_id').val();
         var seller_id=$('#seller_id').val();
 
+
+        $.ajax({
+            url: "/admin/sellers/deliver_to_marketer",
+            method: "GET",
+            data:   'marketer_id='+marketer_id+'&seller_id='+seller_id,
+            dataType: "html"
+        }).success(function( msg ) {
+            if(msg['status']==200){
+                Materialize.toast('کار جدید برای بازاریاب ثبت شد',5000,'green');
+            }else{
+                msg['messages'].forEach(function(entry) {
+                    
+                        Materialize.toast(entry,5000,'red');
+                        
+                    });
+                
+            }
+            
+            
+            
+        }).fail(function(){
+             
+             Materialize.toast('اشکال در ارسال به بازاریاب',5000,'red');
+        })
+        
+
+
     });
     
     
