@@ -99,6 +99,7 @@ Rails.application.routes.draw do
     
     
     get 'dashboard/setting'
+    get 'dashboard/marketer_tasks'
         get 'dashboard/plans'
     post 'dashboard/update_setting'
     

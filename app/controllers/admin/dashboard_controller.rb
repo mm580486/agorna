@@ -25,6 +25,11 @@ class Admin::DashboardController < ApplicationController
     
   end
   
+  
+  def marketer_tasks
+    @tasks=current_user.marketer_tasks
+  end
+  
   def update_password
  
    
