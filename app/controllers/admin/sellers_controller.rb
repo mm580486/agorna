@@ -19,6 +19,7 @@ class Admin::SellersController < ApplicationController
     seller_id=params[:id]
     marketer_id=params[:marketer_id]
     message=params[:message]
+    User.find(seller_id).update_attribute(:marketer_id,marketer_id)
     task=User.find(marketer_id).marketer_tasks.new(user_two: seller_id,message: message)
     if task.save
       res={status: 200}
