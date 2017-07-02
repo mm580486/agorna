@@ -27,7 +27,9 @@
               <tbody>
                 <% @tasks.each do |task| %>
                 <tr>
-                  <td>$0.87</td>
+                  <td>
+                                      <%= link_to(raw("<i class='material-icons'>#{task.seller.exposition_accept? ? 'lock_open':'lock_outline'}</i>"),toggle_lock_admin_seller_path(task.seller.id),class: "small btn-floating waves-effect btn-small waves-light  #{task.seller.exposition_accept? ? 'green':'yellow' }") %>
+                  </td>
                   <td><%= task.seller.exposition_address %></td>
                   <td><%= task.seller.phone %></td>
                   <td><%= task.seller.exposition_name %></td>
