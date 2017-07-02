@@ -7,20 +7,16 @@ class Admin::SellersController < ApplicationController
     if current_user.level == 2
       return @users=current_user.marketer_subscribers
     end
-    
     if params[:unaccept]=='true'
       @users=User.sellers.where(:exposition_accept => false)
     else
       @users=User.sellers
     end
-    
-    
-    
   end
   
   
   def deliver_to_marketer
-    seller_id=params[:seller_id]
+    seller_id=params[:id]
     marketer_id=params[:marketer_id]
     message=params[:message]
     task=User.find(marketer_id).marketer_tasks.new(user_two: seller_id,message: message)
