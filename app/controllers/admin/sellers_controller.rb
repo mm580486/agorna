@@ -19,6 +19,20 @@ class Admin::SellersController < ApplicationController
   end
   
   
+  def deliver_to_marketer
+    seller_id=params[:seller_id]
+    marketer_id=params[:marketer_id]
+    message=params[:message]
+    task=User.find(marketer_id).marketer_tasks.new(user_two: seller_id,message: message)
+    if task.save
+      res={status: 200}
+    else
+      res={status: 400,messages: task.errors.full_messages}
+    end
+    render json: {status: 200}
+  end
+  
+  
   def toggle_lock
    if @user.update_attribute(:exposition_accept,!@user.exposition_accept)
     flash[:notice]=[5000,t("admin.toast.seller_accepted_#{@user.exposition_accept}")]

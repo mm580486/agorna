@@ -113,7 +113,6 @@ class User < ActiveRecord::Base
   
   
   def generate_verify_code
-    
     self.verify_code=rand(11111...99999)
   end
 
