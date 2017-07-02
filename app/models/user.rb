@@ -1,27 +1,20 @@
 class User < ActiveRecord::Base
-  
   attr_accessor :login,:address
   reverse_geocoded_by :latitude, :longitude
-after_validation :reverse_geocode 
-
-
+  after_validation :reverse_geocode 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
   mount_uploader :background_image, BackgroundUploader
   validates_acceptance_of :terms
-  
   validates :telegram, uniqueness: true, if: 'telegram.present?'
   validates :instagram, uniqueness: true, if: 'instagram.present?'
   validates :email, uniqueness: true, if: 'email.present?'
-    validates :identify, uniqueness: true, if: 'identify.present?'
-    
-    validates :phone, uniqueness: true
-validates_presence_of :phone
-#  validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
- #   :message => "Subdomain is reserved." },if: 'level==1'
-
-  
+  validates :identify, uniqueness: true, if: 'identify.present?'
+  validates :phone, uniqueness: true
+  validates_presence_of :phone
+  #validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
+  #:message => "Subdomain is reserved." },if: 'level==1'
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
                          message: 'should not be the same as your email or phone', allow_blank: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create, allow_blank: true
@@ -32,39 +25,31 @@ validates_presence_of :phone
   validates_length_of :password, within: 7..100, too_long: 'pick a shorter name', too_short: 'pick a longer name', allow_blank: true
   validates_format_of :instagram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
   validates_format_of :telegram, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
-  
   validates_format_of :identify, with: /\A[a-z0-9\-_]+\z/i, allow_blank: true
-  
   has_many :comments, :dependent => :destroy
   has_many :identities,dependent:   :destroy
   has_many :pages
   has_many :categories
   has_many :marketer_subscribers,foreign_key: "marketer_id",class_name: 'User'
   has_many :chains
-  
+  has_many :marketer_tasks
   belongs_to :marketer,foreign_key: "marketer_id",class_name: 'User'
-  
   has_many :voteing,foreign_key: "user_id",class_name: 'Rate',dependent:   :destroy
   has_many :votes,foreign_key: "exposition_id",class_name: 'Rate',dependent:   :destroy
-  
   has_many :products, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
   has_many :passive_favorites, class_name:  "Favorite",
              foreign_key: "user_id",
              dependent:   :destroy
   has_many :favorite_produts, through: :passive_favorites,  source: :product
-  
   has_many :active_relationships,  class_name:  "Relationship",
              foreign_key: "follower_id",
              dependent:   :destroy
     has_many :passive_relationships, class_name:  "Relationship",
              foreign_key: "followed_id",
              dependent:   :destroy
-  
-    has_many :following, through: :active_relationships,  source: :followed
-    has_many :followers, through: :passive_relationships, source: :follower
-
-
+  has_many :following, through: :active_relationships,  source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,:omniauthable
   before_save :ensure_authentication_token 
@@ -73,12 +58,12 @@ validates_presence_of :phone
   scope :marketers, lambda { where(:level => 2) }
   scope :sellers, lambda { where(:level => 1) }
 
-
-def self.find_for_database_authentication warden_conditions
-  conditions = warden_conditions.dup
-  login = conditions.delete(:login)
-  where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
-end
+  
+  def self.find_for_database_authentication warden_conditions
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
+  end
 
   def twitter
     identities.where( :provider => "twitter" ).first
@@ -140,7 +125,5 @@ end
       break token unless User.where(authentication_token: token).first
     end
   end
-  
-  
   
 end
