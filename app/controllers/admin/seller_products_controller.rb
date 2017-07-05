@@ -6,17 +6,17 @@ class Admin::SellerProductsController < ApplicationController
   end
   
   def create
-    render json: params[:product][:images]
     
-    # @product=current_user.products.new(product_white_list)
-    # @product.product_type_id=Category.find(current_user.category_id).product_type_id
-    # @product.accept=false
-    # if @product.save
-    #   flash[:notice]=[5000,t('admin.toast.product_create')]
-    #   redirect_to admin_seller_products_path
-    # else
-    #   render('new') 
-    # end
+    
+    @product=current_user.products.new(product_white_list)
+    @product.product_type_id=Category.find(current_user.category_id).product_type_id
+    @product.accept=false
+    if @product.save
+      flash[:notice]=[5000,t('admin.toast.product_create')]
+      redirect_to admin_seller_products_path
+    else
+      render('new') 
+    end
   end
   
   def delete
