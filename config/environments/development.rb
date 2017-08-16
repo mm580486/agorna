@@ -37,7 +37,7 @@ config.active_record.maintain_test_schema = false
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-  config.force_ssl = true
+  config.force_ssl = false
 
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
