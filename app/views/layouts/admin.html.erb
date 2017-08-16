@@ -31,5 +31,16 @@
 
 
 <%= toast(flash[:notice][1],flash[:notice][0]) unless flash[:notice].nil? %>
+
+<script>
+setInterval(function(){
+
+
+
+$('.with-gap').click(function(){
+$('#xx').show();
+});
+},1000)
+</script>
 </body>
 </html>
