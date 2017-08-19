@@ -16,7 +16,6 @@ class Api::V1Controller < ApplicationController
 
     def categories
        @categories=Category.where(parent_id: nil) 
-    render json: @categories.as_json.merge(:message => 'it works')
     @c=[]
 
     @categories.each do |category|
