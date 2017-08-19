@@ -16,6 +16,17 @@ class Api::V1Controller < ApplicationController
 
     def categories
        @categories=Category.where(parent_id: nil) 
+    render json: @categories.as_json.merge(:message => 'it works')
+    @c=[]
+
+    @categories.each do |category|
+        new_field = {"subcategories" => category.subcategories}
+        demo = JSON::parse(category.to_json).merge(new_field)
+        @c << demo
+      end
+    render json: @c
+
+
     end
     def subcategories
        render json: Category.where(parent_id: params[:id]) 
