@@ -21,7 +21,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   
 version :thumb do
     process :resize_to_fit => [50, 50]
-    process :quality => 50 
+    # process :quality => 50 
 end
 
 
