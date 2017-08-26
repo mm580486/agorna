@@ -417,7 +417,7 @@ def favorite
     end
     def checkNewMessage
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessages=Ticket.find(params[:id]).ticketmessages.where('id > ?',params[:last_message_id]).order('id ASC')
+        @ticketmessages=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first.ticketmessages.where('id > ?',params[:last_message_id]).order('id ASC')
         render 'conversation'
     end
     
