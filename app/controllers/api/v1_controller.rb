@@ -385,7 +385,7 @@ def favorite
 
         if @find_tickets.size == 0
             t=Ticket.create(user_id: @user.id,user_two: @exposition_id,title: ' ')
-            t.ticketmessages.new(user_id: @user.id,message: params[:message]).save
+            Ticketmessages.new(ticket_id: t.id,user_id: @user.id,message: params[:message]).save
             @ticketmessages = t.ticketmessages.order('id ASC')
         else
             @ticketmessages=@find_tickets.first.ticketmessages.order('id ASC')
