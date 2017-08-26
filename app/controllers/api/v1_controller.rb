@@ -429,12 +429,11 @@ def favorite
     def register
 
         data = JSON.parse(params[:formdata])
-        
-        
       @user = User.new(:name => data['name'],
                  :email => data['email'],
                  :date => data['date'],
                  :gender => data['gender'],
+                 :family => data['family'],
                  :phone => data['phone'],
                  :password => data['password'],
                  :password_confirmation => data['password'])
