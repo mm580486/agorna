@@ -380,7 +380,17 @@ def favorite
     
     def conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessages=Ticket.find(params[:id]).ticketmessages.order('id ASC')
+        @find_tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id)
+        @exposition_id=params[:id]
+
+        if @find_ticket.size == 0
+            t=Ticket.create(user_id: @user.id,user_two: @exposition_id,title: ' ')
+            t.ticketmessages.new(user_id: @user.id,message: params[:message]).save
+            @ticketmessages = t.ticketmessages.order('id ASC')
+        else
+            @ticketmessages=@find_tickets.first.ticketmessages.order('id ASC')
+        end
+
     end
     
     def hasNewTickets
