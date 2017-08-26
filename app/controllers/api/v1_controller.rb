@@ -380,7 +380,7 @@ def favorite
     
     def conversation
         @user=User.find_by_authentication_token(params[:token])
-        @find_tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id)
+        @find_tickets=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first
         @exposition_id=params[:id]
 
         if @find_tickets.size == 0
