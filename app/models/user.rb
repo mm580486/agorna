@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :national_card_image, BackgroundUploader
+  mount_uploader :business_license_image, BackgroundUploader
   mount_uploader :background_image, BackgroundUploader
   validates_acceptance_of :terms
   validates :telegram, uniqueness: true, if: 'telegram.present?'
