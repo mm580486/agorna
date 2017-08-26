@@ -431,7 +431,11 @@ def favorite
         data = JSON.parse(params[:formdata])
         
         
-      @user = User.new(:name => data['name'],:email => data['email'],
+      @user = User.new(:name => data['name'],
+                 :email => data['email'],
+                 :date => data['date'],
+                 :gender => data['gender'],
+                 :phone => data['phone'],
                  :password => data['password'],
                  :password_confirmation => data['password'])
       if @user.save
