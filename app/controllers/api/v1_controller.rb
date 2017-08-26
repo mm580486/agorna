@@ -411,7 +411,7 @@ def favorite
     
     def build_conversation
         @user=User.find_by_authentication_token(params[:token])
-        @ticketmessage=Ticket.find(params[:id]).ticketmessages.build(user_id: @user.id,message: params[:message])
+        @ticketmessage=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first.ticketmessages.build(user_id: @user.id,message: params[:message])
         @ticketmessage.save
         
     end
