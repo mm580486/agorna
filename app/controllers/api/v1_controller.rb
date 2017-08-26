@@ -388,7 +388,7 @@ def favorite
             Ticketmessages.new(ticket_id: t.id,user_id: @user.id,message: params[:message]).save
             @ticketmessages = t.ticketmessages.order('id ASC')
         else
-            @ticketmessages=@find_tickets.first.ticketmessages.order('id ASC')
+            @ticketmessages=@find_tickets.last.ticketmessages.order('id ASC')
         end
 
     end
