@@ -37,11 +37,7 @@ User.create(:name => 'علی میانجی',
             :password => 'ali5371370',:password_confirmation => 'ali5371370',
             :level => 3)
             
-User.create(:name => 'جواد',
-            :email => 'jazz_blues@gmail.com',
-            :phone => '0919000000',
-            :password => 'ali5371370',:password_confirmation => 'ali5371370',
-            :level => 3)
+
             
             
 poshak_form=ProductType.create(
