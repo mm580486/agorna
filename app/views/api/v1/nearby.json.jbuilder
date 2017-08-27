@@ -12,5 +12,5 @@ json.expositions @expositions do |user|
   json.post_service user.post_service?
   json.followed user.followers.include? @user 
   json.products_size user.products.size
-  
+  json.followers_size user.followers.size
 end

@@ -30,6 +30,7 @@ json.expositions @expositions do |user|
   json.exposition_address user.exposition_address
   json.post_service user.post_service?
   json.products_size user.products.size
+  json.followers_size user.followers.size
 end
 
 end

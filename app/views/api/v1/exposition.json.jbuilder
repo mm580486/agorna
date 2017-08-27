@@ -12,3 +12,5 @@
   if @seener
   json.followed @user.followers.include? @seener 
   end
+  json.followers_size user.followers.size
+  json.products_size user.products.size
