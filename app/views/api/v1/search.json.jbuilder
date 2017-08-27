@@ -31,6 +31,9 @@ json.expositions @expositions do |user|
   json.post_service user.post_service?
   json.products_size user.products.size
   json.followers_size user.followers.size
+  json.rate (user.votes.sum(:vote).to_f / user.votes.size.to_f) 
+     
+
 end
 
 end
