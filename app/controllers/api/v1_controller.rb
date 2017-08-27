@@ -299,6 +299,7 @@ def favorite
            
          @products=Product.all.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
        else
+         @seener=User.find_by_authentication_token(params[:token]) rescue nil
          @expositions=User.sellers.where("lower(exposition_name) LIKE ? OR lower(name) LIKE ?", "%#{params[:q].downcase}%","%#{params[:q].downcase}%") 
          
        end
