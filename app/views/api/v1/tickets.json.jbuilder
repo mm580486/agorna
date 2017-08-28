@@ -4,4 +4,5 @@ json.tickets @tickets do |ticket|
   json.from (ticket.user_id == @user.id)? User.find(ticket.user_two).name : User.find(ticket.user_id).name
   json.avatar "https:pinsood.com#{(ticket.user_id == @user.id)? User.find(ticket.user_two).avatar_url : User.find(ticket.user_id).avatar_url}"
   json.last_message ticket.ticketmessages.last.message
+  json.new_messages_size ticket.ticketmessages.where(seen: false).size
 end
