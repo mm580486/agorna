@@ -395,10 +395,10 @@ def favorite
             @ticketmessages=@find_tickets.last.ticketmessages.order('id ASC')
         end
         @ticketmessages.update_all(:seen=> true)
-        if @user.id == t.user_id
-            @opponent = User.find(t.user_two)
+        if @user.id == @find_tickets.last.user_id
+            @opponent = User.find(@find_tickets.last.user_two)
         else
-            @opponent = User.fin(t.user_id)
+            @opponent = User.fin(@find_tickets.last.user_id)
         end
     end
     
