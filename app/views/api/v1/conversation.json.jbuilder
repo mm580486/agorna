@@ -4,5 +4,6 @@ json.conversations @ticketmessages do |message|
   json.user_id message.user_id
   json.time message.created_at
 end
-
-json.opponent_name @opponent.name
+if action_name == 'conversation'
+  json.opponent_name @opponent.name
+end
