@@ -377,6 +377,7 @@ def favorite
     def tickets
         @user=User.find_by_authentication_token(params[:token])
         @tickets=Ticket.where('user_id = ? OR user_two = ?',@user.id,@user.id).order('id DESC')
+   
     end
     
     def conversation
@@ -394,7 +395,11 @@ def favorite
             @ticketmessages=@find_tickets.last.ticketmessages.order('id ASC')
         end
         @ticketmessages.update_all(:seen=> true)
-
+        if @user.id == t.user_id
+            @opponent = User.find(t.user_two)
+        else
+            @opponent = User.fin(t.user_id)
+        end
     end
     
     def hasNewTickets
