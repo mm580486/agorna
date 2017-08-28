@@ -6,4 +6,5 @@ json.conversations @ticketmessages do |message|
 end
 if action_name == 'conversation'
   json.opponent_name @opponent.name
+  json.opponent_id @opponent.id
 end
