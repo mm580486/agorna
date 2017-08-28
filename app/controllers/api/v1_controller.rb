@@ -415,9 +415,10 @@ def favorite
     
     def build_conversation
         @user=User.find_by_authentication_token(params[:token])
+        if params[:message].to_s != "undefined"
         @ticketmessage=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first.ticketmessages.build(user_id: @user.id,message: params[:message])
         @ticketmessage.save
-        
+        end
     end
     def checkNewMessage
         @user=User.find_by_authentication_token(params[:token])
