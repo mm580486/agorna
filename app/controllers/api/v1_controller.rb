@@ -391,6 +391,7 @@ def favorite
         else
             @ticketmessages=@find_tickets.last.ticketmessages.order('id ASC')
         end
+        @ticketmessages.update_all(:seen=> true)
 
     end
     
