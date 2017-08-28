@@ -398,7 +398,7 @@ def favorite
         if @user.id == @find_tickets.last.user_id
             @opponent = User.find(@find_tickets.last.user_two)
         else
-            @opponent = User.fin(@find_tickets.last.user_id)
+            @opponent = User.find(@find_tickets.last.user_id)
         end
     end
     
