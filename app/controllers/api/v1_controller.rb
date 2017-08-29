@@ -134,7 +134,7 @@ class Api::V1Controller < ApplicationController
     
     
 def parse_image_data(base64_image)
-    filename = "upload-image"
+    filename = rand(1...502).to_s
      in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]
     @tempfile = Tempfile.new(filename)
     @tempfile.binmode
