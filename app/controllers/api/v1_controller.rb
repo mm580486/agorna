@@ -405,7 +405,7 @@ def favorite
         begin
         id=x.message.match(/\$+\d*/)[0]
         product=Product.find(id[1..id.size])
-        x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/, "<img (click)='goToProduct(#{product.id})' src='https://www.pinsood.com#{product.images[0].url}' />")
+        x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/, "<img id='#{product.id}' src='https://www.pinsood.com#{product.images[0].url}' />")
         rescue
         x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/,'محصول یافت نشد')
         end
