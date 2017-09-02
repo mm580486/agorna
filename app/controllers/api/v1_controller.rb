@@ -403,7 +403,7 @@ def favorite
 
         @ticketmessages.map {|x| 
         begin
-        id=x.match(/\$+\d*/)[0]
+        id=x.message.match(/\$+\d*/)[0]
         product=Product.find(id[1..id.size])
         x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/, "<img src='https://www.pinsood.com#{product.images[0].url}' />")
         rescue
