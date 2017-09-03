@@ -440,6 +440,15 @@ def favorite
     def checkNewMessage
         @user=User.find_by_authentication_token(params[:token])
         @ticketmessages=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first.ticketmessages.where('id > ?',params[:last_message_id]).order('id ASC')
+        @ticketmessages.map {|x| 
+        begin
+        id=x.message.match(/\$+\d*/)[0]
+        product=Product.find(id[1..id.size])
+        x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/, "<img src='https://www.pinsood.com#{product.images[0].url}' class='#{product.id} product-image' />")
+        rescue
+        x.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/,'محصول یافت نشد')
+        end
+    }
         render 'conversation'
     end
     
