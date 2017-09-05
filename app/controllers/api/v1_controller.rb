@@ -433,6 +433,18 @@ def favorite
         if params[:message].to_s != "undefined"
         @ticketmessage=Ticket.where('(user_id = ? OR user_two = ?) OR (user_id = ? OR user_two = ? )',@user.id,params[:id],params[:id],@user.id).first.ticketmessages.build(user_id: @user.id,message: params[:message])
         @ticketmessage.save
+
+        
+        begin
+        id=@ticketmessage.message.match(/\$+\d*/)[0]
+        product=Product.find(id[1..id.size])
+        @ticketmessage.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/, "<img src='https://www.pinsood.com#{product.images[0].url}' class='#{product.id} product-image' />")
+        rescue
+            @ticketmessage.message.gsub!(/\S*\$(\[[^\]]+\]|\S+)/,'محصول یافت نشد')
+        end
+
+
+
         else
             return false
         end
