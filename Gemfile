@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Materialize FK
 gem 'materialize-sass'
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 gem 'material_icons'
 gem 'mini_magick'
 gem "rmagick"

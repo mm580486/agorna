@@ -1,5 +1,5 @@
 
-$(document).on('turbolinks:load', function() {
+
 
 
 
@@ -217,4 +217,3 @@ $('.SendMessageForm').slideDown();
    
    
     
-});
