@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>پنل مدیریت</title>
-  <%= stylesheet_link_tag    'admin/home', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'admin/home', media: 'all' %>
   <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.5.0/introjs-rtl.min.css" integrity="sha256-Tt7sT1gkz/4yvyEWEXeWxHVCRSVPx01WRJkycid7wMU=" crossorigin="anonymous">
     <%= yield(:head) %>
     <script src="https://cdn.jsdelivr.net/intro.js/2.5.0/intro.min.js" integrity="sha256-FGXfn2ohE1fLIbGUUlx36Lp/BsmB2C7Z0R03Atw/x7Q=" crossorigin="anonymous"></script>
-    <%= javascript_include_tag 'admin/home', 'data-turbolinks-track' => true , async: true %>
+    <%= javascript_include_tag 'admin/home', async: true %>
 </head>
 <body>
  <!--[if lte IE 9]>
