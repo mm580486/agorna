@@ -1,4 +1,13 @@
-
+.input-field select {
+    display: block; 
+    position: relative !important;
+    width: 100%;
+    pointer-events: visible;
+    height: auto !important;
+    top: initial !important;
+    left: initial !important;
+    opacity: 1 !important;
+}
 
 html {
     color: #222;
