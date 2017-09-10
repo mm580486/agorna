@@ -14,7 +14,10 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
-
+.input-field label:not(.label-icon).active {
+    transform: translateY(-9px) scale(1) !important;
+    transform-origin: 0 0;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301

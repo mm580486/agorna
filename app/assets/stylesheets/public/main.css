@@ -23,6 +23,10 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
+.input-field label:not(.label-icon).active {
+    transform: translateY(-9px) scale(1) !important;
+    transform-origin: 0 0;
+}
 
 
 
