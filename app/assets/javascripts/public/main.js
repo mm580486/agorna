@@ -1,6 +1,8 @@
 
 
 
+$(document).ready(function(){
+
 
 
     function preloader(float,size,spinner,classes) {
@@ -217,3 +219,4 @@ $('.SendMessageForm').slideDown();
    
    
     
+});

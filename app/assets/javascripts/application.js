@@ -11,8 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-
-
+//= require materialize
 //= require_tree .
 
 

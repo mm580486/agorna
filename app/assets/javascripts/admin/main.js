@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 
     
     $('#sendToMarketer').click(function(){
@@ -210,4 +212,4 @@ $('.SendMessageForm').slideDown();
 
 
          
-    
+});
