@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function() {
+
     
     $('#sendToMarketer').click(function(){
         var marketer_id=$('#marketer_id').val();
@@ -208,7 +208,6 @@ $('.SendMessageForm').slideDown();
 
     
 
-});
-    
+
          
     

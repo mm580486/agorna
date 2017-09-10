@@ -2,7 +2,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require materialize
-//= require turbolinks
+
 //= require admin/main
 //= require_self
 
