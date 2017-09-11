@@ -8,8 +8,8 @@ namespace :db do
             backup_dir = backup_directory true
             cmd = nil
             with_config do |app, host, db, user|
-                file_name = Time.now.strftime("%Y%m%d%H%M%S") + "_" + db + '.' + dump_sfx
-                cmd = "pg_dump -F #{dump_fmt} -v -h #{host} -d #{db} -f #{backup_dir}/#{file_name}"
+                file_name = Time.now.strftime("%Y%m%d%H%M%S") + "_" + db + '.' + dump_sfx 
+                cmd = "pg_dump -h #{host} -U #{user} #{db} gzip -c >#{backup_dir}/#{file_name}"
             end
             puts cmd
             exec cmd
