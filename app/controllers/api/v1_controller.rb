@@ -245,6 +245,9 @@ def parse_image_data(base64_image)
         @products=Product.all
       when 'category'
         @products=Product.where(category_id: params[:category_id])
+    when 'parent_category'
+        ids=Category.find(params[:category_id]).subcategories.ids
+        @products=Product.where(category_id: ids)
       when 'self'
           @user=User.find_by_authentication_token(params[:category_id])
           @products=@user.products
