@@ -1,5 +1,6 @@
   json.id @user.id
   json.name @user.name
+  json.family @user.family
   json.email @user.email
   json.phone @user.phone
   json.exposition_name @user.exposition_name
