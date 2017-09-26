@@ -232,6 +232,21 @@ def parse_image_data(base64_image)
     render text: User.find(params[:id]).followers.include?(@user)
     
   end
+
+
+  def update_password
+   user=User.find_by_authentication_token(params[:token])
+   oldPassword=params[:oldPassword]
+   newPassword=params[:newPassword]
+   if user.valid_password?(oldPassword)
+      user.update_attribute(:password,newPassword)
+      ok=true
+   else
+      ok=false
+   end
+
+   render json: {ok: ok}
+  end
   
     def show_exposition
        render json: User.sellers.find(params[:id]) 

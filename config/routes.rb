@@ -197,6 +197,7 @@ end
     get 'tickets/:token',action: :tickets
     get 'conversation/:token',action: :conversation
     get 'profile/:token',action: :profile
+    get 'update_password/:token',action: :update_password
     get 'update_profile/:token',action: :update_profile
     get 'product_categories/:token',action: :product_categories
     get 'slider',action: :slider
