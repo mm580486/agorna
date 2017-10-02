@@ -120,7 +120,8 @@ class Admin::FormsController < ApplicationController
   
 
   def update_prop
-    @props=Prop.find(params[:id]).update_attributes(props_white_list)
+    @props=Prop.find(params[:id])
+    @props.update_attributes(props_white_list)
     flash[:notice]=[5000,t('admin.toast.prop_update')]
     redirect_to show_props_admin_form_path(@props.product_field_id)
  end
