@@ -85,12 +85,11 @@ class Admin::FormsController < ApplicationController
 
   def update_field
     @field=ProductField.find(params[:id])
+    @field.update_attributes(fields_white_list)
     @field.categories=[params[:product_field][:categories]]
-render json: @field
-    # @field.update_attributes(fields_white_list)
-    # @field.save
-    # flash[:notice]=[5000,t('admin.toast.field_update')]
-    # redirect_to :back
+    @field.save
+    flash[:notice]=[5000,t('admin.toast.field_update')]
+    redirect_to :back
   end
   
   def delete_field
