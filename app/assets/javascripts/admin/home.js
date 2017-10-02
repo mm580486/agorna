@@ -10,7 +10,26 @@ $(document).ready(function(){
     
     
         $('#categories').change(function(){
-alert($(this).val());
+            var id = $(this).val();
+
+            $.ajax({
+                url: "https://pinsood.com/api/v1/subcategories/"+id,
+                method: "GET",
+                data:   'id='+id,
+                dataType: "html"
+            }).success(function( msg ) {
+                $('#subcategories').html('');
+            $.each(JSON.parse(msg),function(i, v) 
+            {
+
+                $('<option>').val(v.id).text(v.name).appendTo($('#subcategories'));
+            });
+            
+            });
+
+
+
+
         });
         
         $('#sendToMarketer').click(function(){
