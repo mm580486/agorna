@@ -69,6 +69,7 @@ class Admin::FormsController < ApplicationController
   def save_fields
     @field=@form.fields.new(fields_white_list)
     @field.categories=params[:product_field][:categories]
+
     if @field.save
       
            flash[:notice]=[5000,t('admin.toast.field_create')]
@@ -145,7 +146,7 @@ class Admin::FormsController < ApplicationController
   end
   
   def fields_white_list
-    params.require(:product_field).permit(:name,:permalink,:field_type)
+    params.require(:product_field).permit(:name,:permalink,:field_type,:categories)
   end
   
   def props_white_list
