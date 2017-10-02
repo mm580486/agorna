@@ -73,6 +73,7 @@ en:
             form_destroy: فرم با موفقیت حذف شد
             field_create: فیلد با موفقیت ساخته شد
             field_delete: فیلد با موفقیت حذف شد
+            field_update: فیلد با موفقیت بروز شد
             product_create: محصول با موفقیت ساخته شد
             comment_lock_true: نظر تایید شد
             comment_lock_false: نظر با موفقیت از دسترس خارج شد

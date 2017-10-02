@@ -69,6 +69,7 @@ Rails.application.routes.draw do
         get 'show_fields'
         get 'new_field'
         post 'save_fields'
+        post 'update_field'
         get 'delete_field'
         get 'edit_field'
         
