@@ -68,7 +68,7 @@ class Admin::FormsController < ApplicationController
   
   def save_fields
     @field=@form.fields.new(fields_white_list)
-    @field.categories=params[:product_field][:categories]
+
 
     if @field.save
       
