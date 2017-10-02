@@ -28,7 +28,7 @@
         <br>
         <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {prompt: 'لطفا شاخه را انتخاب کنید'}, {:multiple => false,id: 'categories', autofocus: 'true', class: 'type_field browser-default',required: 'required'}  %>
         <br>
-        <%= f.select :categories,[], {prompt: 'لطفا زیر شاخه را انتخاب کنید'}, {:multiple => false,id: 'subcategories', autofocus: 'true', class: 'type_field browser-default',required: 'required'}  %>
+        <%= f.select :categories,Category.where(id: @field.categories).collect { |s| [s.name,s.id] }, {prompt: 'لطفا زیر شاخه را انتخاب کنید'}, {:multiple => false,id: 'subcategories', autofocus: 'true', class: 'type_field browser-default',required: 'required'}  %>
        </div>
        </div>
        
