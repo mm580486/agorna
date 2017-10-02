@@ -23,12 +23,12 @@
       <div class="row">
 
       <div class="input-field col s12">
-        <%= f.select :field_type,%w[text_field select_box text_area number_field check_box], {prompt: 'لطفا نوع فیلد را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default'}  %>
+        <%= f.select :field_type,%w[text_field select_box text_area number_field check_box], {prompt: 'لطفا نوع فیلد را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default',required: 'required'}  %>
         <br>
 
-        <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {prompt: 'لطفا شاخه را انتخاب کنید'}, {:multiple => false,id: 'categories', autofocus: 'true', class: 'type_field browser-default'}  %>
+        <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {prompt: 'لطفا شاخه را انتخاب کنید'}, {:multiple => false,id: 'categories', autofocus: 'true', class: 'type_field browser-default',required: 'required'}  %>
         <br>
-        <%= f.select :categories,[], {prompt: 'لطفا زیر شاخه را انتخاب کنید'}, {:multiple => false,id: 'subcategories', autofocus: 'true', class: 'type_field browser-default'}  %>
+        <%= f.select :categories,[], {prompt: 'لطفا زیر شاخه را انتخاب کنید'}, {:multiple => false,id: 'subcategories', autofocus: 'true', class: 'type_field browser-default',required: 'required'}  %>
        </div>
        </div>
        
