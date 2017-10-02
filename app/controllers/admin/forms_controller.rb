@@ -85,7 +85,7 @@ class Admin::FormsController < ApplicationController
 
   def update_field
     @field=ProductField.find(params[:id])
-    @field.categories=[params[:product_field][:categories]] if params[:product_field][:categories].nil? || params[:product_field][:categories].blank?
+    @field.categories=[params[:product_field][:categories]]
     @field.update_attributes(fields_white_list)
     flash[:notice]=[5000,t('admin.toast.field_update')]
     redirect_to :back
