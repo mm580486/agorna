@@ -9,6 +9,9 @@
 $(document).ready(function(){
     
     
+        $('#categories').change(function(){
+alert($(this).val());
+        });
         
         $('#sendToMarketer').click(function(){
             var marketer_id=$('#marketer_id').val();
