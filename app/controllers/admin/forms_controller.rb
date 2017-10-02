@@ -87,6 +87,7 @@ class Admin::FormsController < ApplicationController
     @field=ProductField.find(params[:id])
     @field.categories=[params[:product_field][:categories]]
     @field.update_attributes(fields_white_list)
+    @field.save
     flash[:notice]=[5000,t('admin.toast.field_update')]
     redirect_to :back
   end
