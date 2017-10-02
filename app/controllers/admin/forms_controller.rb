@@ -69,14 +69,14 @@ class Admin::FormsController < ApplicationController
   def save_fields
     @field=@form.fields.new(fields_white_list)
 
-
-    if @field.save
+    render json: fields_white_list
+    # if @field.save
       
-           flash[:notice]=[5000,t('admin.toast.field_create')]
-      redirect_to show_fields_admin_form_path(@field.product_type_id)
-    else
-          render 'new_field' 
-    end
+    #        flash[:notice]=[5000,t('admin.toast.field_create')]
+    #   redirect_to show_fields_admin_form_path(@field.product_type_id)
+    # else
+    #       render 'new_field' 
+    # end
   end
   
   def edit_field
