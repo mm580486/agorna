@@ -77,6 +77,7 @@ Rails.application.routes.draw do
         get 'delete_prop'
         get 'edit_prop'
         get 'show_props'
+        get 'update_prop'
         
        end
     end

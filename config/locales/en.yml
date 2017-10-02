@@ -43,6 +43,7 @@ en:
   
   admin:
        toast:
+            prop_update: پروپرتی با موفقیت بروز شد
             page_create: صفحه با موفقیت ساخته شد
             page_deleted: صفحه با موفقیت حذف شد
             page_updated: صفحه با موفقیت بروز شد
