@@ -24,7 +24,7 @@
 
       <div class="input-field col s12">
         <%= f.select :field_type,%w[text_field select_box text_area number_field check_box], {prompt: 'لطفا نوع فیلد را انتخاب کنید'}, {autofocus: 'true',class: 'browser-default'}  %>
-        <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {}, {:multiple => true, autofocus: 'true', class: 'type_field browser-default'}  %>
+        <%= f.select :categories,Category.where(parent_id: nil).where(product_type_id: @field.product_type_id).first.subcategories.collect { |s| [s.name,s.id] }, {}, {:multiple => false, autofocus: 'true', class: 'type_field browser-default'}  %>
         
        </div>
        </div>
