@@ -7,11 +7,11 @@ Mellat.configure do |config|
 	config.userPassword=''
 	# steam account
 	# you can use steam cloud for record any transaction
-	config.steam = true;
-	config.steam_username = ''
-	config.steam_password = ''
-	# log
-	config.log_path = '';
-	config.log_level = '';
-	config.log_type = '';
+	# config.steam = true;
+	# config.steam_username = ''
+	# config.steam_password = ''
+	# # log
+	# config.log_path = '';
+	# config.log_level = '';
+	# config.log_type = '';
 end
