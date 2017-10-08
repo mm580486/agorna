@@ -37,7 +37,8 @@ gem 'pg'
 gem 'websocket-rails'
 gem 'rack-cors'
 
-
+gem 'whenever', :require => false
+gem 'mellat'
 gem 'pgreset'
 gem 'geocoder'
 

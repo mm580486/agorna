@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates :identify, uniqueness: true, if: 'identify.present?'
   validates :phone, uniqueness: true
   validates_presence_of :phone
+  has_many :notifications, :dependent => :destroy
+
   #validates :category_id, :exclusion => { :in => Category.where(parent_id: nil).ids,
   #:message => "Subdomain is reserved." },if: 'level==1'
   validates_exclusion_of :password, in: ->(user) { [user.email, user.phone] },
